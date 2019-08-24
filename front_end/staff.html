@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Staff Register</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+
+</head>
+
+<body class="bg-gradient-success">
+
+<nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register.html">Register</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<main class="my-form">
+    <div class="cotainer">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Staff Registeration</div>
+                    <div class="card-body">
+                        <form name="my-form" onsubmit="return validform()" action="success.php" method="">
+                            <div class="form-group row">
+                                <label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="full_name" class="form-control" name="full-name">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="guardian_name" class="col-md-4 col-form-label text-md-right">Guardian Name</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="guardian_name" class="form-control" name="full-name">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="email_address" class="form-control" name="email-address">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="email_address" class="col-md-4 col-form-label text-md-right">Gender</label>
+                                <div class="col-md-6">
+                                <input type="checkbox" id="html">
+                                <label for="html">Female</label>
+                                </div>
+                            </div>
+                            <div class="form-group row ">
+                                <label for="email_address" class="col-md-4 col-form-label text-md-right"></label>
+                                <div class="col-md-6">
+                                <input type="checkbox" id="css">
+                                <label for="css">Male</label>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label for="religion" class="col-md-4 col-form-label text-md-right">Date of Birth</label>
+                                <div class="col-md-6">
+                                    <div class="input-append date">
+                                        <input type="date" id="joiningdate" class="form-control form-control-user">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="category" class="col-md-4 col-form-label text-md-right">Category</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="category" class="form-control" name="username">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="salary" class="col-md-4 col-form-label text-md-right">Salary</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="salary" class="form-control" name="permanent-address">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="joiningdate" class="col-md-4 col-form-label text-md-right">Joining Date</label>
+                                <div class="col-md-6">
+                                    <input type="date" id="joiningdate" class="form-control form-control-user">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="qualification" class="col-md-4 col-form-label text-md-right">Qualification</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="qualification" class="form-control" name="permanent-address">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="campus" class="col-md-4 col-form-label text-md-right">Campus</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="campus" class="form-control" name="permanent-address">
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group row">
+                                <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="phone_number" class="form-control">
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Register
+                                </button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</main>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
+<script>
+    $(function(){
+        window.prettyPrint && prettyPrint();
+        $('#dp1').datepicker({
+            format: 'mm-dd-yyyy'
+        });
+        var nowTemp = new Date();
+        var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+        var checkin = $('#dpd1').datepicker({
+            onRender: function(date) {
+                return date.valueOf() < now.valueOf() ? 'disabled' : '';
+            }
+        }).on('changeDate', function(ev) {
+            if (ev.date.valueOf() > checkout.date.valueOf()) {
+                var newDate = new Date(ev.date)
+                newDate.setDate(newDate.getDate() + 1);
+                checkout.setValue(newDate);
+            }
+        })
+    });
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://www.eyecon.ro/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+</body>
+
+</html>
+
