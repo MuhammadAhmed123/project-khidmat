@@ -6,6 +6,8 @@
 
           <!-- Page Heading -->
           <!-- <h1 class="h3 mb-4 text-gray-800">Blank Page</h1> -->
+          <!-- <form action="{{ url_for('registerStudent') }}" method="post"> -->
+
           <main class="my-form">
               <div class="cotainer">
                   <div class="">
@@ -13,27 +15,31 @@
                           <div class="card">
                               <div class="card-header">Student Registration</div>
                               <div class="card-body">
-                                  <form name="my-form" action="" method="">
+
+                                  <!-- <form name="my-form" action="" method=""> -->
+                                  <form action="{{ url_for('registerStudent') }}" method='post'>
+
                                       <div class="form-group row">
                                           <label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="full_name" class="form-control" name="full-name">
+                                              <input type="text" id="full_name" class="form-control" name="fullName">
                                           </div>
                                       </div>
                                       <div class="form-group row">
                                           <label for="guardian_name" class="col-md-4 col-form-label text-md-right">Guardian Name</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="guardian_name" class="form-control" name="full-name">
+                                              <input type="text" id="guardian_name" class="form-control" name="guardian">
                                           </div>
                                       </div>
                                       <div class="form-group row">
                                           <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="email_address" class="form-control" name="email-address">
+                                              <input type="text" id="email_address" class="form-control" name="email">
                                           </div>
                                       </div>
+
                                       <div class="form-group row">
-                                          <label for="email_address" class="col-md-4 col-form-label text-md-right">Gender</label>
+                                          <label for="gender" class="col-md-4 col-form-label text-md-right">Gender</label>
                                           <div class="col-md-6">
                                           <input type="checkbox" id="html">
                                           <label for="html">Female</label>
@@ -48,37 +54,37 @@
                                       </div>
 
                                       <div class="form-group row">
-                                          <label for="religion" class="col-md-4 col-form-label text-md-right">Religion</label>
+                                          <label for="religion" class="co0l-md-4 col-form-label text-md-right">Religion</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="religion" class="form-control" name="username">
+                                              <input type="text" id="religion" class="form-control" name="religion">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                           <label for="fatheroccupation" class="col-md-4 col-form-label text-md-right">Father Occupation</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="fatheroccupation" class="form-control" name="permanent-address">
+                                              <input type="text" id="fatheroccupation" class="form-control" name="fatheroccupation">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                           <label for="father_earning" class="col-md-4 col-form-label text-md-right">Father's Earning</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="father_earning" class="form-control" name="permanent-address">
+                                              <input type="text" id="father_earning" class="form-control" name="fatherearning">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                           <label for="motheroccupation" class="col-md-4 col-form-label text-md-right">Mother's Occupation</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="motheroccupation" class="form-control" name="permanent-address">
+                                              <input type="text" id="motheroccupation" class="form-control" name="motheroccupation">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                           <label for="mother_earning" class="col-md-4 col-form-label text-md-right">Mother's Earning</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="mother_earning" class="form-control" name="permanent-address">
+                                              <input type="text" id="mother_earning" class="form-control" name="motherearning">
                                           </div>
                                       </div>
 
@@ -86,50 +92,50 @@
                                           <label for="religion" class="col-md-4 col-form-label text-md-right">Date of Birth</label>
                                           <div class="col-md-6">
                                               <div class="input-append date">
-                                                  <input type="date" id="joiningdate" class="form-control form-control-user">
+                                                  <input type="date" id="joiningdate" class="form-control form-control-user" name="dob">
                                               </div>
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
-                                          <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
+                                          <label for="phone_number" class="col-md-4 col-form-label text-md-right">Contact</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="phone_number" class="form-control">
+                                              <input type="text" id="phone_number" class="form-control" required name="contact">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                           <label for="permanent_address" class="col-md-4 col-form-label text-md-right">Address</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="permanent_address" class="form-control" name="permanent-address">
+                                              <input type="text" id="permanent_address" class="form-control" name="address">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                           <label for="lastschool" class="col-md-4 col-form-label text-md-right">Last Attented School</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="lastschool" class="form-control">
+                                              <input type="text" id="lastschool" class="form-control" name="lastSchool">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
-                                          <label for="lastschoolfee" class="col-md-4 col-form-label text-md-right">Last Attented School Fees</label>
+                                          <label for="lastschoolfee" class="col-md-4 col-form-label text-md-right">Last Attended School Fees</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="lastschoolfee" class="form-control">
+                                              <input type="text" id="lastschoolfee" class="form-control" name="lastSchoolFee">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                           <label for="lastclass" class="col-md-4 col-form-label text-md-right">Class</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="lastclass" class="form-control">
+                                            <input type="text" id="lastclass" class="form-control" name="Class">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                           <label for="interview_date" class="col-md-4 col-form-label text-md-right">Interview Date</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="interview_date" class="form-control">
+                                              <input type="date" id="interview_date" class="form-control" name="interviewDate">
                                           </div>
                                       </div>
 
@@ -137,21 +143,21 @@
                                       <div class="form-group row">
                                           <label for="test_date" class="col-md-4 col-form-label text-md-right">Admission Test Date</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="test_date" class="form-control">
+                                              <input type="date" id="test_date" class="form-control" name="admissionTestDate">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                           <label for="uniform-measurement" class="col-md-4 col-form-label text-md-right">Uniform Measurements</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="uniform-measurement" class="form-control">
+                                              <input type="text" id="uniform-measurement" class="form-control" name="uniformMeasurement">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                           <label for="uniform-fee" class="col-md-4 col-form-label text-md-right">Uniform Fees</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="uniform-fee" class="form-control">
+                                              <input type="text" id="uniform-fee" class="form-control" name="uniformFees">
                                           </div>
                                       </div>
 
@@ -159,21 +165,20 @@
                                       <div class="form-group row">
                                           <label for="campus" class="col-md-4 col-form-label text-md-right">Campus</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="campus" class="form-control" name="permanent-address">
+                                              <input type="text" id="campus" class="form-control" name="campus">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                               <label for="siblings" class="col-md-4 col-form-label text-md-right">No. of Siblings</label>
                                               <div class="col-md-6">
-                                                  <input type="number" id="siblings" class="form-control form-control-user" placeholder=1>
+                                                  <input type="number" id="siblings" class="form-control form-control-user" placeholder=1 name="siblings">
                                               </div>
                                           </div>
 
                                       <div class="col-md-6 offset-md-4">
-                                          <button type="submit" class="btn btn-primary">
-                                              Register
-                                          </button>
+                                          <input type="submit" class="btn btn-primary" value="Register">
+
                                       </div>
                               </form>
                           </div>

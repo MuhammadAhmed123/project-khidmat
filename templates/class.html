@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block body %}
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="card">
+			<div class="card-header">Manage Classes</div>
+				<div class="card-body">
+
+				<!-- Add classes -->
+				<h1 class="header">
+          Add Classes
+        </h1>
+
+        <form action="{{ url_for('addClass') }}" method='post'>
+
+        <div class="form-group row">
+            <label for="classname" class="col-md-4 col-form-label text-md-right">Class Name</label>
+            <div class="col-md-6">
+                <input type="text" id="classname" class="form-control" name="className" required>
+            </div>
+        </div>
+
+        <div class="col-md-6 offset-md-4">
+            <input type="submit" class="btn btn-primary" value="Add">
+        </div>
+
+      </form>
+<br>
+
+      <!-- Edit Class -->
+      <h1 class="header">
+        Edit Classes
+      </h1>
+
+      <form action="{{ url_for('editClass') }}" method='post'>
+
+      <div class="form-group row">
+          <label for="oldClass" class="col-md-4 col-form-label text-md-right">Class to Edit</label>
+          <div class="col-md-6">
+              <select class="form-control" id="oldClass" name="existingClasses" required>
+                {% for class in classes %}
+                  <option class="">{{class.Name}}</option>
+                {% endfor %}
+              </select>
+          </div>
+      </div>
+
+      <div class="form-group row">
+          <label for="Changeto" class="col-md-4 col-form-label text-md-right">Change to</label>
+          <div class="col-md-6">
+              <input type="text" id="Changeto" class="form-control" name="classEdited" required>
+          </div>
+      </div>
+
+      <div class="col-md-6 offset-md-4">
+          <input type="submit" class="btn btn-primary" value="Edit">
+      </div>
+
+    </form>
+
+
+				</div>
+				</div>
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+{% endblock %}
