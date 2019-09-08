@@ -18,6 +18,34 @@ def registerStudentLink():
 
 @app.route("/registerStudent", methods=["POST"])
 def registerStudent():
+    fullName = request.form.get('studentFullName')
+    guardianName = request.form.get('studentGuardian')
+    emailAddress = request.form.get('studentEmail')
+    gender = request.form.get('studentGender')
+    religion = request.form.get('studentReligion')
+    fatherOccupation = request.form.get('studentFatherOccupation')
+    fatherEarning = request.form.get('studentFatherEarning')
+    motherOccupation = request.form.get('studentMotherOccupation')
+    motherEarning = request.form.get('studentMotherEarning')
+    dob = request.form.get('studentdob')
+    contact = request.form.get('studentContact')
+    address = request.form.get('studentAddress')
+    lastAttendedSchool = request.form.get('studentLastSchool')
+    lastAttendedSchoolFees = request.form.get('schoolLastSchoolFee')
+    studentClass = request.form.get('studentClass')
+    interviewDate = request.form.get('studentInterviewDate')
+    AdmissionTestDate = request.form.get('studentAdmissionTestDate')
+    uniformMeasurements = request.form.get('studentUniformMeasurement')
+    unifromFees = request.form.get('studentUniformFees')
+    campus = request.form.get('studentCampus')
+    siblings = request.form.get('studentSiblings')
+
+    personCount = (list(db.execute("SELECT count(*) FROM Person")))[0][0] + 1
+    ID = fullName[0].lower() + format(personCount, '05d')
+    db.execute("INSERT INTO Person(ID, Name, GuardianName, Gender, Contact, Address, DOB, Campus) VALUES (:ID, :Name, :GuardianName, :Gender, :Contact, :Address, :DOB, :Campus)",
+                {"ID":ID, "Name":fullName, 'GuardianName':guardianName, "Gender":gender, "Contact":contact, "Address":address, "DOB":dob, "Campus":campus})
+    db.commit()
+
 
     return redirect(url_for('registerStudentLink'))
 
