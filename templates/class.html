@@ -37,19 +37,21 @@
 
       <form action="{{ url_for('editClass') }}" method='post'>
 
+        <!-- dropdown -->
       <div class="form-group row">
           <label for="oldClass" class="col-md-4 col-form-label text-md-right">Class to Edit</label>
           <div class="col-md-6">
               <select class="form-control" id="oldClass" name="existingClasses" required>
                 {% for class in classes %}
-                  <option class="">{{class.Name}}</option>
+                  <option>{{class.Name}}</option>
                 {% endfor %}
               </select>
           </div>
       </div>
 
+      <!-- text bar -->
       <div class="form-group row">
-          <label for="Changeto" class="col-md-4 col-form-label text-md-right">Change to</label>
+          <label for="Changeto" class="col-md-4 col-form-label text-md-right">Change Name to</label>
           <div class="col-md-6">
               <input type="text" id="Changeto" class="form-control" name="classEdited" required>
           </div>

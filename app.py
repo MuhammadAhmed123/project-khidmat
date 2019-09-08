@@ -13,7 +13,8 @@ def index():
 
 @app.route("/registerStudentLink")
 def registerStudentLink():
-    return render_template("registerStudent.html")
+    classes = db.execute("SELECT class.Name FROM class")
+    return render_template("registerStudent.html", classes=classes)
 
 @app.route("/registerStudent", methods=["POST"])
 def registerStudent():
@@ -36,19 +37,21 @@ def classLink():
 @app.route("/editClass", methods=["POST"])
 def editClass():
     existingClass = request.form.get('existingClasses')
-    idExistingClass = list(db.execute("SELECT idClass FROM class WHERE class.Name = :className",{"className":existingClass}))
+    idExistingClass = (list(db.execute("SELECT idClass FROM class WHERE class.Name = :className",{"className":existingClass})))[0][0]
     newClass = request.form.get('classEdited')
-    db.execute("UPDATE class SET class.Name = :newclass WHERE class.idClass = :id", {"newclass":newClass, "id":int(idExistingClass[0][0])})
+    db.execute("UPDATE class SET class.Name = :newclass WHERE class.idClass = :id", {"newclass":newClass, "id":int(idExistingClass)})
     db.commit()
     return redirect(url_for('classLink'))
 
 @app.route("/addClass", methods=["POST"])
 def addClass():
     addClassName = request.form.get('className')
+
     classes = db.execute("SELECT class.Name FROM class")
     for i in classes:
         if i.Name==addClassName:
-            return redirect(url_for('classLink'))
+            return redirect(url_for('classLink'))   #make a separate page for displaying a warning
+
     db.execute("INSERT INTO class(Name) VALUES (:name)",{"name":addClassName})
     db.commit()
     return redirect(url_for('classLink'))

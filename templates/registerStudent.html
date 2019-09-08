@@ -22,120 +22,137 @@
                                       <div class="form-group row">
                                           <label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="full_name" class="form-control" name="fullName">
+                                              <input type="text" id="full_name" class="form-control" name="studentFullName">
                                           </div>
                                       </div>
+
                                       <div class="form-group row">
                                           <label for="guardian_name" class="col-md-4 col-form-label text-md-right">Guardian Name</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="guardian_name" class="form-control" name="guardian">
+                                              <input type="text" id="guardian_name" class="form-control" name="studentGuardian">
                                           </div>
                                       </div>
                                       <div class="form-group row">
                                           <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="email_address" class="form-control" name="email">
+                                              <input type="text" id="email_address" class="form-control" name="studentEmail">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                           <label for="gender" class="col-md-4 col-form-label text-md-right">Gender</label>
                                           <div class="col-md-6">
-                                          <input type="checkbox" id="html">
-                                          <label for="html">Female</label>
+                                            <div class="radio-inline">
+                                                <label><input type="radio" id="gender" name="studentGender" checked>Female</label>
+                                              </div>
+                                              <div class="radio-inline">
+                                                <label><input type="radio" id="gender" name="studentGender">Male</label>
+                                              </div>
                                           </div>
                                       </div>
-                                      <div class="form-group row ">
+
+                                      <!-- <div class="form-group row ">
                                           <label for="email_address" class="col-md-4 col-form-label text-md-right"></label>
                                           <div class="col-md-6">
                                           <input type="checkbox" id="css">
                                           <label for="css">Male</label>
                                           </div>
-                                      </div>
+                                      </div> -->
 
                                       <div class="form-group row">
-                                          <label for="religion" class="co0l-md-4 col-form-label text-md-right">Religion</label>
+                                          <label for="religion" class="col-md-4 col-form-label text-md-right">Religion</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="religion" class="form-control" name="religion">
+                                              <input type="text" id="religion" class="form-control" name="studentReligion">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                           <label for="fatheroccupation" class="col-md-4 col-form-label text-md-right">Father Occupation</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="fatheroccupation" class="form-control" name="fatheroccupation">
+                                              <input type="text" id="fatheroccupation" class="form-control" name="studentFatherOccupation">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                           <label for="father_earning" class="col-md-4 col-form-label text-md-right">Father's Earning</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="father_earning" class="form-control" name="fatherearning">
+                                              <input type="text" id="father_earning" class="form-control" name="studentFatherEarning">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                           <label for="motheroccupation" class="col-md-4 col-form-label text-md-right">Mother's Occupation</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="motheroccupation" class="form-control" name="motheroccupation">
+                                              <input type="text" id="motheroccupation" class="form-control" name="studentMotherOccupation">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                           <label for="mother_earning" class="col-md-4 col-form-label text-md-right">Mother's Earning</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="mother_earning" class="form-control" name="motherearning">
+                                              <input type="text" id="mother_earning" class="form-control" name="studentMotherEarning">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
-                                          <label for="religion" class="col-md-4 col-form-label text-md-right">Date of Birth</label>
+                                          <label for="dob" class="col-md-4 col-form-label text-md-right">Date of Birth</label>
                                           <div class="col-md-6">
-                                              <div class="input-append date">
-                                                  <input type="date" id="joiningdate" class="form-control form-control-user" name="dob">
-                                              </div>
+
+                                                  <input type="date" id="dob" class="form-control form-control-user" name="studentdob">
+
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                           <label for="phone_number" class="col-md-4 col-form-label text-md-right">Contact</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="phone_number" class="form-control" required name="contact">
+                                              <input type="text" id="phone_number" class="form-control" required name="studentContact">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                           <label for="permanent_address" class="col-md-4 col-form-label text-md-right">Address</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="permanent_address" class="form-control" name="address">
+                                              <input type="text" id="permanent_address" class="form-control" name="studentAddress">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                           <label for="lastschool" class="col-md-4 col-form-label text-md-right">Last Attented School</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="lastschool" class="form-control" name="lastSchool">
+                                              <input type="text" id="lastschool" class="form-control" name="studentLastSchool">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                           <label for="lastschoolfee" class="col-md-4 col-form-label text-md-right">Last Attended School Fees</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="lastschoolfee" class="form-control" name="lastSchoolFee">
+                                              <input type="text" id="lastschoolfee" class="form-control" name="schoolLastSchoolFee">
                                           </div>
                                       </div>
 
-                                      <div class="form-group row">
+                                      <!-- <div class="form-group row">
                                           <label for="lastclass" class="col-md-4 col-form-label text-md-right">Class</label>
                                           <div class="col-md-6">
                                             <input type="text" id="lastclass" class="form-control" name="Class">
+                                          </div>
+                                      </div> -->
+
+                                      <div class="form-group row">
+                                          <label for="class" class="col-md-4 col-form-label text-md-right">Class</label>
+                                          <div class="col-md-6">
+                                              <select class="form-control" id="class" name="studentClass" required>
+                                                {% for class in classes %}
+                                                  <option class="">{{class.Name}}</option>
+                                                {% endfor %}
+                                              </select>
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                           <label for="interview_date" class="col-md-4 col-form-label text-md-right">Interview Date</label>
                                           <div class="col-md-6">
-                                              <input type="date" id="interview_date" class="form-control" name="interviewDate">
+                                              <input type="date" id="interview_date" class="form-control" name="studentInterviewDate">
                                           </div>
                                       </div>
 
@@ -143,21 +160,21 @@
                                       <div class="form-group row">
                                           <label for="test_date" class="col-md-4 col-form-label text-md-right">Admission Test Date</label>
                                           <div class="col-md-6">
-                                              <input type="date" id="test_date" class="form-control" name="admissionTestDate">
+                                              <input type="date" id="test_date" class="form-control" name="studentAdmissionTestDate">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                           <label for="uniform-measurement" class="col-md-4 col-form-label text-md-right">Uniform Measurements</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="uniform-measurement" class="form-control" name="uniformMeasurement">
+                                              <input type="text" id="uniform-measurement" class="form-control" name="studentUniformMeasurement">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                           <label for="uniform-fee" class="col-md-4 col-form-label text-md-right">Uniform Fees</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="uniform-fee" class="form-control" name="uniformFees">
+                                              <input type="text" id="uniform-fee" class="form-control" name="studentUniformFees">
                                           </div>
                                       </div>
 
@@ -165,14 +182,14 @@
                                       <div class="form-group row">
                                           <label for="campus" class="col-md-4 col-form-label text-md-right">Campus</label>
                                           <div class="col-md-6">
-                                              <input type="text" id="campus" class="form-control" name="campus">
+                                              <input type="text" id="campus" class="form-control" name="studentCampus">
                                           </div>
                                       </div>
 
                                       <div class="form-group row">
                                               <label for="siblings" class="col-md-4 col-form-label text-md-right">No. of Siblings</label>
                                               <div class="col-md-6">
-                                                  <input type="number" id="siblings" class="form-control form-control-user" placeholder=1 name="siblings">
+                                                  <input type="number" id="siblings" class="form-control form-control-user" placeholder=1 name="studentSiblings">
                                               </div>
                                           </div>
 
