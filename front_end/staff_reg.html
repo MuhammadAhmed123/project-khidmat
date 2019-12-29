@@ -348,30 +348,35 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
-          <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Registration</h1>
+          
+            <!-- Page Heading -->
+            <h1 class="h3 mb-4 text-gray-800">Registration</h1>
 
           <main class="my-form">
             <div class="cotainer">
               <div class="card shadow mb-4">
-                <div class="card-header">
-                  <h6 class="m-0 font-weight-bold text-primary">
-                    <a class="btn btn-primary" href="student_reg.html">Student</a>
-                    <a class="btn btn-primary" href="staff_reg.html">Staff</a>
-                    <a class="btn btn-primary" href="sponsor_reg.html">Sponsor</a>
-                    <a class="btn btn-primary" href="donor_reg.html">Donor</a>
-                  </h6>
-                </div>
-                <!-- <div class="card-header">Sponsor Registeration</div> -->
+                <div class="card-header"><h6 class="m-0 font-weight-bold text-primary">
+                  <a class="btn btn-primary" href="student_reg.html">Student</a>
+                  <a class="btn btn-primary" href="staff_reg.html">Staff</a>
+                  <a class="btn btn-primary" href="sponsor_reg.html">Sponsor</a>
+                  <a class="btn btn-primary" href="donor_reg.html">Donor</a>
+                 </h6>
+    </div>
+                
                 <div class="card-body">
-                  <h6 class="m-0 font-weight-bold text-primary">Register a Sponsor</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Register a Staff Person</h6>
             <hr>
                   <form name="my-form" action="" method="">
                     <div class="form-group row">
                       <label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
                       <div class="col-md-6">
                         <input type="text" id="full_name" class="form-control" name="full-name">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="guardian_name" class="col-md-4 col-form-label text-md-right">Guardian Name</label>
+                      <div class="col-md-6">
+                        <input type="text" id="guardian_name" class="form-control" name="full-name">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -405,32 +410,31 @@
                       </div>
                     </div>
 
-
                     <div class="form-group row">
-                      <label for="CurrentState" class="col-md-4 col-form-label text-md-right">Current State</label>
+                      <label for="category" class="col-md-4 col-form-label text-md-right">Category</label>
                       <div class="col-md-6">
-                        <input type="text" id="CurrentState" class="form-control" name="permanent-address">
+                        <input type="text" id="category" class="form-control" name="username">
                       </div>
                     </div>
 
                     <div class="form-group row">
-                      <label for="SponsorshipDue" class="col-md-4 col-form-label text-md-right">Sponsorship Due</label>
+                      <label for="salary" class="col-md-4 col-form-label text-md-right">Salary</label>
+                      <div class="col-md-6">
+                        <input type="text" id="salary" class="form-control" name="permanent-address">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="joiningdate" class="col-md-4 col-form-label text-md-right">Joining Date</label>
                       <div class="col-md-6">
                         <input type="date" id="joiningdate" class="form-control form-control-user">
                       </div>
                     </div>
-                    <div class="form-group row">
-                      <label for="SponsorshipStartDate" class="col-md-4 col-form-label text-md-right">Date Sponsorship
-                        Started</label>
-                      <div class="col-md-6">
-                        <input type="date" id="sponsorshipstartdate" class="form-control form-control-user">
-                      </div>
-                    </div>
 
                     <div class="form-group row">
-                      <label for="remarks" class="col-md-4 col-form-label text-md-right">Remarks</label>
+                      <label for="qualification" class="col-md-4 col-form-label text-md-right">Qualification</label>
                       <div class="col-md-6">
-                        <input type="text" id="remarks" class="form-control" name="permanent-address">
+                        <input type="text" id="qualification" class="form-control" name="permanent-address">
                       </div>
                     </div>
 

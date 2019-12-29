@@ -7,7 +7,8 @@ CREATE TABLE Person (
   Contact VARCHAR(20)  NOT NULL  ,
   Address TEXT  NULL  ,
   DOB DATE  NULL  ,
-  Campus VARCHAR(255)  NULL    ,
+  Campus VARCHAR(255)  NULL  ,
+  Email VARCHAR(255)  NULL    ,
 PRIMARY KEY(idPerson));
 
 
@@ -39,7 +40,7 @@ PRIMARY KEY(idClass));
 CREATE TABLE Staff (
   Person_idPerson INTEGER UNSIGNED  NOT NULL  ,
   Salary INTEGER UNSIGNED  NOT NULL  ,
-  Catgory VARCHAR(255)  NULL  ,
+  Category VARCHAR(255)  NULL  ,
   JoiningDate DATE  NULL  ,
   Qualification TEXT  NULL    ,
 PRIMARY KEY(Person_idPerson)  ,
@@ -67,8 +68,8 @@ INDEX MaintenanceCategory_FKIndex1(Staff_Person_idPerson),
 
 CREATE TABLE Sponsor (
   Person_idPerson INTEGER UNSIGNED  NOT NULL  ,
-  CurrentState INTEGER UNSIGNED  NULL  ,
-  AttendanceSponsorshipDue DATE  NULL  ,
+  CurrentState VARCHAR(255)  NULL  ,
+  DateSponsorshipDue DATE  NULL  ,
   Remarks TEXT  NULL  ,
   DateSponsorshipStarted DATE  NULL    ,
 PRIMARY KEY(Person_idPerson)  ,
@@ -124,6 +125,21 @@ INDEX Attendance_FKIndex1(Person_idPerson),
 
 
 
+CREATE TABLE Donation (
+  idDonation INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
+  Person_idPerson INTEGER UNSIGNED  NOT NULL  ,
+  DateDonated DATE  NULL  ,
+  Amount INTEGER UNSIGNED  NULL  ,
+  Remarks TEXT  NULL    ,
+PRIMARY KEY(idDonation)  ,
+INDEX Donation_FKIndex1(Person_idPerson),
+  FOREIGN KEY(Person_idPerson)
+    REFERENCES Person(idPerson)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION);
+
+
+
 CREATE TABLE Image (
   idImage INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
   Person_idPerson INTEGER UNSIGNED  NOT NULL  ,
@@ -139,8 +155,8 @@ INDEX Image_FKIndex1(Person_idPerson),
 
 CREATE TABLE Donor (
   Person_idPerson INTEGER UNSIGNED  NOT NULL  ,
-  AttendanceDonoationStarted DATE  NULL  ,
-  CurrentState INTEGER UNSIGNED  NULL  ,
+  DateDonoationStarted DATE  NULL  ,
+  CurrentState VARCHAR(255)  NULL  ,
   Organization VARCHAR(255)  NULL    ,
 PRIMARY KEY(Person_idPerson)  ,
 INDEX Donor_FKIndex1(Person_idPerson),
@@ -181,7 +197,7 @@ CREATE TABLE Student (
   DOB DATE  NULL  ,
   LastAttendedSchool VARCHAR(255)  NULL  ,
   LastAttendedSchoolFee VARCHAR(255)  NULL  ,
-  Campus VARCHAR(255)  NULL  ,
+  Shift VARCHAR(255)  NULL  ,
   TestDate DATE  NULL  ,
   InterviewDate DATE  NULL  ,
   FathersOcuupation VARCHAR(255)  NULL  ,
@@ -205,21 +221,6 @@ INDEX Student_FKIndex3(Sponsor_Person_idPerson),
       ON UPDATE NO ACTION,
   FOREIGN KEY(Sponsor_Person_idPerson)
     REFERENCES Sponsor(Person_idPerson)
-      ON DELETE NO ACTION
-      ON UPDATE NO ACTION);
-
-
-
-CREATE TABLE Donation (
-  idDonation INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
-  Donor_Person_idPerson INTEGER UNSIGNED  NOT NULL  ,
-  Attendance DATE  NULL  ,
-  Amount INTEGER UNSIGNED  NULL  ,
-  Remarks TEXT  NULL    ,
-PRIMARY KEY(idDonation)  ,
-INDEX Donation_FKIndex1(Donor_Person_idPerson),
-  FOREIGN KEY(Donor_Person_idPerson)
-    REFERENCES Donor(Person_idPerson)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION);
 
