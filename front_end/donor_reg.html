@@ -380,18 +380,18 @@
                         <input type="text" id="email_address" class="form-control" name="email-address">
                       </div>
                     </div>
+                    
                     <div class="form-group row">
-                      <label for="email_address" class="col-md-4 col-form-label text-md-right">Gender</label>
+                      <label for="permanent_address" class="col-md-4 col-form-label text-md-right">Address</label>
                       <div class="col-md-6">
-                        <input type="checkbox" id="html">
-                        <label for="html">Female</label>
+                        <input type="text" id="permanent_address" class="form-control" name="permanent-address">
                       </div>
                     </div>
-                    <div class="form-group row ">
-                      <label for="email_address" class="col-md-4 col-form-label text-md-right"></label>
+
+                    <div class="form-group row">
+                      <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
                       <div class="col-md-6">
-                        <input type="checkbox" id="css">
-                        <label for="css">Male</label>
+                        <input type="text" id="phone_number" class="form-control">
                       </div>
                     </div>
 
@@ -406,16 +406,29 @@
                     </div>
 
                     <div class="form-group row">
-                      <label for="attendance" class="col-md-4 col-form-label text-md-right">Attendance</label>
+                      <label for="CurrentState" class="col-md-4 col-form-label text-md-right">Current State</label>
                       <div class="col-md-6">
-                        <input type="text" id="attendance" class="form-control" name="username">
+                        <!-- <input type="text" id="CurrentState" class="form-control" name="permanent-address"> -->
+                        <select id="CurrentState" class="form-control">
+                          <option class="select-option" value="2">Active</option>
+                          <option class="select-option" value="3">Inactive</option>
+                          <!-- <option class="select-option" value="4">III</option>
+                          <option class="select-option" value="5">X</option> -->
+                        </select>
                       </div>
                     </div>
 
                     <div class="form-group row">
-                      <label for="Amount" class="col-md-4 col-form-label text-md-right">Amount</label>
+                      <label for="joiningdate" class="col-md-4 col-form-label text-md-right">Date Donation Started</label>
                       <div class="col-md-6">
-                        <input type="text" id="amount" class="form-control" name="permanent-address">
+                        <input type="date" id="joiningdate" class="form-control form-control-user">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="organization" class="col-md-4 col-form-label text-md-right">Organization</label>
+                      <div class="col-md-6">
+                        <input type="text" id="organization" class="form-control" name="organization">
                       </div>
                     </div>
 
@@ -425,18 +438,6 @@
                         <input type="text" id="attendance" class="form-control form-control-user">
                       </div>
                     </div>
-
-
-
-
-                    <div class="form-group row">
-                      <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
-                      <div class="col-md-6">
-                        <input type="text" id="phone_number" class="form-control">
-                      </div>
-                    </div>
-
-
 
                     <div class="col-md-6 offset-md-4">
                       <button type="submit" class="btn btn-primary">

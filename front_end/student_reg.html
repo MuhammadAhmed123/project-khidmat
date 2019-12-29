@@ -385,20 +385,26 @@
                         <input type="text" id="email_address" class="form-control" name="email-address">
                       </div>
                     </div>
+                    
                     <div class="form-group row">
-                      <label for="email_address" class="col-md-4 col-form-label text-md-right">Gender</label>
+                      <label for="gender" class="col-md-4 col-form-label text-md-right">Gender</label>
                       <div class="col-md-6">
-                        <input type="checkbox" id="html">
+                        <input type="radio" id="html" name="gender">
                         <label for="html">Female</label>
+                      <!-- </div>
+                      <div class="col-md-6"> -->
+                        <input type="radio" id="css" name="gender">
+                        <label for="css">Male</label>
                       </div>
                     </div>
+<!--                     
                     <div class="form-group row ">
                       <label for="email_address" class="col-md-4 col-form-label text-md-right"></label>
                       <div class="col-md-6">
                         <input type="checkbox" id="css">
                         <label for="css">Male</label>
                       </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group row">
                       <label for="religion" class="col-md-4 col-form-label text-md-right">Religion</label>
@@ -408,8 +414,7 @@
                     </div>
 
                     <div class="form-group row">
-                      <label for="fatheroccupation" class="col-md-4 col-form-label text-md-right">Father
-                        Occupation</label>
+                      <label for="fatheroccupation" class="col-md-4 col-form-label text-md-right">Father's Occupation</label>
                       <div class="col-md-6">
                         <input type="text" id="fatheroccupation" class="form-control" name="permanent-address">
                       </div>
@@ -438,10 +443,10 @@
                     </div>
 
                     <div class="form-group row">
-                      <label for="religion" class="col-md-4 col-form-label text-md-right">Date of Birth</label>
+                      <label for="DOB" class="col-md-4 col-form-label text-md-right">Date of Birth</label>
                       <div class="col-md-6">
                         <div class="input-append date">
-                          <input type="date" id="joiningdate" class="form-control form-control-user">
+                          <input type="date" id="DOB" class="form-control form-control-user">
                         </div>
                       </div>
                     </div>
@@ -461,14 +466,14 @@
                     </div>
 
                     <div class="form-group row">
-                      <label for="lastschool" class="col-md-4 col-form-label text-md-right">Last Attented School</label>
+                      <label for="lastschool" class="col-md-4 col-form-label text-md-right">Last Attended School</label>
                       <div class="col-md-6">
                         <input type="text" id="lastschool" class="form-control">
                       </div>
                     </div>
 
                     <div class="form-group row">
-                      <label for="lastschoolfee" class="col-md-4 col-form-label text-md-right">Last Attented School
+                      <label for="lastschoolfee" class="col-md-4 col-form-label text-md-right">Last Attended School
                         Fees</label>
                       <div class="col-md-6">
                         <input type="text" id="lastschoolfee" class="form-control">
@@ -478,14 +483,20 @@
                     <div class="form-group row">
                       <label for="lastclass" class="col-md-4 col-form-label text-md-right">Class</label>
                       <div class="col-md-6">
-                        <input type="text" id="lastclass" class="form-control">
+                        <!-- <input type="text" id="lastclass" class="form-control"> -->
+                        <select id="lastclass" class="form-control">
+                          <option class="select-option" value="2">I</option>
+                          <option class="select-option" value="3">II</option>
+                          <option class="select-option" value="4">III</option>
+                          <option class="select-option" value="5">X</option>
+                        </select>
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label for="interview_date" class="col-md-4 col-form-label text-md-right">Interview Date</label>
                       <div class="col-md-6">
-                        <input type="text" id="interview_date" class="form-control">
+                        <input type="date" id="interview_date" class="form-control">
                       </div>
                     </div>
 
@@ -493,7 +504,7 @@
                     <div class="form-group row">
                       <label for="test_date" class="col-md-4 col-form-label text-md-right">Admission Test Date</label>
                       <div class="col-md-6">
-                        <input type="text" id="test_date" class="form-control">
+                        <input type="date" id="test_date" class="form-control">
                       </div>
                     </div>
 
@@ -516,7 +527,26 @@
                     <div class="form-group row">
                       <label for="campus" class="col-md-4 col-form-label text-md-right">Campus</label>
                       <div class="col-md-6">
-                        <input type="text" id="campus" class="form-control" name="permanent-address">
+                        <!-- <input type="text" id="campus" class="form-control" name="permanent-address"> -->
+                        <select id="campus" class="form-control">
+                          <option class="select-option" value="2">I</option>
+                          <option class="select-option" value="3">II</option>
+                          <option class="select-option" value="4">III</option>
+                          <option class="select-option" value="5">X</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="shift" class="col-md-4 col-form-label text-md-right">Shift</label>
+                      <div class="col-md-6">
+                        <select id="shift" class="form-control">
+                          <option class="select-option" value="2">I</option>
+                          <option class="select-option" value="3">II</option>
+                          <option class="select-option" value="4">III</option>
+                          <option class="select-option" value="5">X</option>
+                        </select>
+                        <!-- <input type="shift" id="campus" class="form-control" name="shift"> -->
                       </div>
                     </div>
 
