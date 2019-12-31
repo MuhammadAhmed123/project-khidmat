@@ -1,5 +1,5 @@
 CREATE TABLE Person (
-  idPerson INTEGER UNSIGNED  NOT NULL  ,
+  idPerson INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
   ID VARCHAR(255)  NULL  ,
   Name VARCHAR(255)  NOT NULL  ,
   GuardianName VARCHAR(255)  NULL  ,
@@ -194,7 +194,6 @@ CREATE TABLE Student (
   Sponsor_Person_idPerson INTEGER UNSIGNED  NULL  ,
   Class_idClass INTEGER UNSIGNED  NOT NULL  ,
   Religion VARCHAR(255)  NULL  ,
-  DOB DATE  NULL  ,
   LastAttendedSchool VARCHAR(255)  NULL  ,
   LastAttendedSchoolFee VARCHAR(255)  NULL  ,
   Shift VARCHAR(255)  NULL  ,
