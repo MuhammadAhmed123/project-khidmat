@@ -17,7 +17,7 @@ def index():
 @app.route("/registerStudentLink")
 def registerStudentLink():
     classes = db.execute("SELECT Class.Name FROM Class")
-    return render_template("registerStudent.html", classes=classes)
+    return render_template("student_reg.html", classes=classes)
 
 @app.route("/registerStudent", methods=["POST"])
 def registerStudent():
@@ -26,41 +26,77 @@ def registerStudent():
     emailAddress = request.form.get('studentEmail')
     gender = request.form.get('studentGender')
     religion = request.form.get('studentReligion')
-    fatherOccupation = request.form.get('studentFatherOccupation')
-    fatherEarning = request.form.get('studentFatherEarning')
-    motherOccupation = request.form.get('studentMotherOccupation')
-    motherEarning = request.form.get('studentMotherEarning')
+    fathersOccupation = request.form.get('studentFatherOccupation')
+    fathersEarning = (request.form.get('studentFatherEarning'))
+    mothersOccupation = request.form.get('studentMotherOccupation')
+    mothersEarning = (request.form.get('studentMotherEarning'))
     dob = request.form.get('studentdob')
-    contact = request.form.get('studentContact')
+    phoneNumber = request.form.get('studentContact')
     address = request.form.get('studentAddress')
     lastAttendedSchool = request.form.get('studentLastSchool')
     lastAttendedSchoolFees = request.form.get('schoolLastSchoolFee')
     studentClass = request.form.get('studentClass')
     interviewDate = request.form.get('studentInterviewDate')
-    AdmissionTestDate = request.form.get('studentAdmissionTestDate')
+    testDate = request.form.get('studentAdmissionTestDate')
     uniformMeasurements = request.form.get('studentUniformMeasurement')
-    unifromFees = request.form.get('studentUniformFees')
+    unifromFees = (request.form.get('studentUniformFees'))
     campus = request.form.get('studentCampus')
+    shift = request.form.get('shift')
     siblings = request.form.get('studentSiblings')
+    sponsorID = None
 
     personCount = (list(db.execute("SELECT count(*) FROM Person")))[0][0] + 1
-    ID = fullName[0].lower() + format(personCount, '05d')
-    db.execute("INSERT INTO Person(ID, Name, GuardianName, Gender, Contact, Address, DOB, Campus) VALUES (:ID, :Name, :GuardianName, :Gender, :Contact, :Address, :DOB, :Campus)",
-                {"ID":ID, "Name":fullName, 'GuardianName':guardianName, "Gender":gender, "Contact":contact, "Address":address, "DOB":dob, "Campus":campus})
-    db.commit()
+    ID = fullName[0] + ((5-len(str(personCount)))*"0") +str(personCount)
+    db.execute("INSERT INTO Person(ID, Name, GuardianName, Gender, Contact, Address, DOB, Campus, Email) VALUES (:ID, :Name, :GuardianName, :Gender, :Contact, :Address, :DOB, :Campus, :Email)",
+                {"ID":ID, "Name":fullName, 'GuardianName':guardianName, "Gender":gender, "Contact":phoneNumber, "Address":address, "DOB":dob, "Campus":campus, "Email":emailAddress})
 
+    personID = (list(db.execute("SELECT Person.idPerson FROM Person WHERE Person.ID=:ID", {"ID":ID})))[0][0]
+    classID = (list(db.execute("SELECT Class.idClass FROM Class WHERE Class.Name=:studentClass", {"studentClass":studentClass})))[0][0]
+    db.execute("INSERT INTO Student(Person_idPerson, Sponsor_Person_idPerson, Class_idClass, Religion, LastAttendedSchool, LastAttendedSchoolFee, Shift, TestDate, InterviewDate, FathersOcuupation, FathersEarning, MothersOccupation, MothersEarning, UniformMeasurement, UniformFees, NoOfSiblings) VALUES (:personID, :sponsorID, :class, :religion, :lastAttendedSchool, :lastAttendedSchoolFees, :shift, :testDate, :interviewDate, :fathersOccupation, :fathersEarning, :mothersOccupation, :mothersEarning, :uniformMeasurements, :unifromFees, :siblings)", {"personID":personID, "sponsorID":sponsorID, "class":classID, "religion":religion, "lastAttendedSchool":lastAttendedSchool, "lastAttendedSchoolFees":lastAttendedSchoolFees, "shift":shift, "testDate":testDate, "interviewDate":interviewDate, "fathersOccupation":fathersOccupation, "fathersEarning":fathersEarning, "mothersOccupation":mothersOccupation, "mothersEarning":mothersEarning, "uniformMeasurements":uniformMeasurements, "unifromFees":unifromFees, "siblings":siblings})
+    db.commit()
 
     return redirect(url_for('registerStudentLink'))
 
 @app.route("/registerStaffLink")
 def registerStaffLink():
-    return render_template("registerStaff.html")
+    return render_template("staff_reg.html")
 
 @app.route("/registerStaff", methods=["POST"])
 def registerStaff():
-    return redirect(url_for('registerStaffLink'))
+    fullName = request.form.get('staffFullName')
+    guardianName = request.form.get('staffGuardianName')
+    emailAddress = request.form.get('staffEmailAddress')
+    address = request.form.get('staffAddress')
+    gender = request.form.get('staffGender')
+    dob = request.form.get('staffDob')
+    religion = request.form.get('staffReligion')
+    staffCategory = request.form.get('staffCategory')
+    salary = request.form.get('staffSalary')
+    joiningDate = request.form.get('staffJoiningDate')
+    qualification = request.form.get('staffQualification')
+    campus = request.form.get('staffCampus')
+    phoneNumber = request.form.get('staffPhoneNumber')
 
-# below code is running
+    personCount = (list(db.execute("SELECT count(*) FROM Person")))[0][0] + 1
+    print(fullName, personCount)
+    ID = fullName[0] + ((5-len(str(personCount)))*"0") +str(personCount)
+
+    db.execute("INSERT INTO Person(ID, Name, GuardianName, Gender, Contact, Address, DOB, Campus, Email) VALUES (:ID, :Name, :GuardianName, :Gender, :Contact, :Address, :DOB, :Campus, :Email)",
+                {"ID":ID, "Name":fullName, 'GuardianName':guardianName, "Gender":gender, "Contact":phoneNumber, "Address":address, "DOB":dob, "Campus":campus, "Email":emailAddress})
+    personID = (list(db.execute("SELECT Person.idPerson FROM Person WHERE Person.ID=:ID", {"ID":ID})))[0][0]
+    db.execute("INSERT INTO Staff (Person_idPerson, Salary, Category, joiningDate, Qualification) VALUES (:ID, :Salary, :Category, :joiningDate, :Qualification)",{"ID":personID, "Salary":salary, "Category":staffCategory, "joiningDate":joiningDate, "Qualification":qualification})
+    db.commit()
+
+    return redirect(url_for("registerStaffLink"))
+
+@app.route("/registerDonor")
+def registerDonor():
+    return render_template("donor_reg.html")
+
+@app.route("/registerSponsor")
+def registerSponsor():
+    return render_template("sponsor_reg.html")
+
 
 @app.route("/classLink")
 def classLink():
