@@ -12,49 +12,62 @@
               <div class="card shadow mb-4">
                 <div class="card-header">
                   <h6 class="m-0 font-weight-bold text-primary">
-                    <a class="btn btn-primary" href="student_reg.html">Student</a>
-                    <a class="btn btn-primary" href="staff_reg.html">Staff</a>
-                    <a class="btn btn-primary" href="sponsor_reg.html">Sponsor</a>
-                    <a class="btn btn-primary" href="donor_reg.html">Donor</a>
+                    <a class="btn btn-primary" href="{{ url_for('registerStudentLink') }}">Student</a>
+                    <a class="btn btn-primary" href="{{ url_for('registerStaffLink') }}">Staff</a>
+                    <a class="btn btn-primary" href="{{ url_for('registerDonorLink') }}">Donor</a>
                   </h6>
                 </div>
                 <!-- <div class="card-header">Sponsor Registeration</div> -->
                 <div class="card-body">
                   <h6 class="m-0 font-weight-bold text-primary">Register a Sponsor</h6>
             <hr>
-                  <form name="my-form" action="" method="">
+                  <form name="my-form" action="{{ url_for('registerSponsor') }}" method="post">
                     <div class="form-group row">
                       <label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
                       <div class="col-md-6">
-                        <input type="text" id="full_name" class="form-control" name="full-name">
+                        <input type="text" id="full_name" class="form-control" name="sponsorFullName" required>
                       </div>
                     </div>
+
+                    <div class="form-group row">
+                      <label for="gender" class="col-md-4 col-form-label text-md-right">Gender</label>
+                      <div class="col-md-6">
+                        <input type="radio" id="html" name="sponsorGender" value="female">
+                        <label for="html">Female</label>
+                      <!-- </div>
+                      <div class="col-md-6"> -->
+                        <input type="radio" id="css" name="sponsorGender" value="male">
+                        <label for="css">Male</label>
+                      </div>
+                    </div>
+
+
                     <div class="form-group row">
                       <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
                       <div class="col-md-6">
-                        <input type="text" id="email_address" class="form-control" name="email-address">
+                        <input type="text" id="email_address" class="form-control" name="sponsorEmail">
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label for="permanent_address" class="col-md-4 col-form-label text-md-right">Address</label>
                       <div class="col-md-6">
-                        <input type="text" id="permanent_address" class="form-control" name="permanent-address">
+                        <input type="text" id="permanent_address" class="form-control" name="sponsorAddress">
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
                       <div class="col-md-6">
-                        <input type="text" id="phone_number" class="form-control">
+                        <input type="text" id="phone_number" class="form-control" name="sponsorPhoneNumber">
                       </div>
                     </div>
 
                     <div class="form-group row">
-                      <label for="religion" class="col-md-4 col-form-label text-md-right">Date of Birth</label>
+                      <label for="sponsorDOB" class="col-md-4 col-form-label text-md-right">Date of Birth</label>
                       <div class="col-md-6">
                         <div class="input-append date">
-                          <input type="date" id="joiningdate" class="form-control form-control-user">
+                          <input type="date" id="sponsorDOB" class="form-control form-control-user" name="sponsorDOB">
                         </div>
                       </div>
                     </div>
@@ -64,9 +77,9 @@
                       <label for="CurrentState" class="col-md-4 col-form-label text-md-right">Current State</label>
                       <div class="col-md-6">
                         <!-- <input type="text" id="CurrentState" class="form-control" name="permanent-address"> -->
-                        <select id="CurrentState" class="form-control">
-                          <option class="select-option" value="2">Active</option>
-                          <option class="select-option" value="3">Inactive</option>
+                        <select id="CurrentState" class="form-control" name="sponsorCurrentState">
+                          <option class="select-option" value="Active">Active</option>
+                          <option class="select-option" value="Inactive">Inactive</option>
                           <!-- <option class="select-option" value="4">III</option>
                           <option class="select-option" value="5">X</option> -->
                         </select>
@@ -76,21 +89,21 @@
                     <div class="form-group row">
                       <label for="SponsorshipDue" class="col-md-4 col-form-label text-md-right">Date Sponsorship Due</label>
                       <div class="col-md-6">
-                        <input type="date" id="joiningdate" class="form-control form-control-user">
+                        <input type="date" id="SponsorshipDue" class="form-control form-control-user" name="sponsorDateSponsorshipDue">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="SponsorshipStartDate" class="col-md-4 col-form-label text-md-right">Date Sponsorship
                         Started</label>
                       <div class="col-md-6">
-                        <input type="date" id="sponsorshipstartdate" class="form-control form-control-user">
+                        <input type="date" id="sponsorshipStartdate" class="form-control form-control-user" name="sponsorDateSponsorshipStart">
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label for="remarks" class="col-md-4 col-form-label text-md-right">Remarks</label>
                       <div class="col-md-6">
-                        <input type="text" id="remarks" class="form-control" name="permanent-address">
+                        <input type="text" id="remarks" class="form-control" name="sponsorRemarks">
                       </div>
                     </div>
 

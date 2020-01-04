@@ -78,7 +78,6 @@ def registerStaff():
     phoneNumber = request.form.get('staffPhoneNumber')
 
     personCount = (list(db.execute("SELECT count(*) FROM Person")))[0][0] + 1
-    print(fullName, personCount)
     ID = fullName[0] + ((5-len(str(personCount)))*"0") +str(personCount)
 
     db.execute("INSERT INTO Person(ID, Name, GuardianName, Gender, Contact, Address, DOB, Campus, Email) VALUES (:ID, :Name, :GuardianName, :Gender, :Contact, :Address, :DOB, :Campus, :Email)",
@@ -89,13 +88,72 @@ def registerStaff():
 
     return redirect(url_for("registerStaffLink"))
 
-@app.route("/registerDonor")
-def registerDonor():
+
+@app.route("/registerDonorLink")
+def registerDonorLink():
     return render_template("donor_reg.html")
 
-@app.route("/registerSponsor")
-def registerSponsor():
+@app.route("/registerDonor", methods=["POST"])
+def registerDonor():
+    donorFullName = request.form.get("donorFullName")
+    donorGender = request.form.get("donorGender")
+    donorEmail = request.form.get("donorEmail")
+    donorAddress = request.form.get("donorAddress")
+    donorPhoneNumber = request.form.get("donorPhoneNumber")
+    donorDOB = request.form.get("donorDOB")
+    donorCurrentState = request.form.get("donorCurrentState")
+    donorDateDonationStarted = request.form.get("donorDateDonationStarted")
+    donorOrganization = request.form.get("donorOrganization")
+    donorRemarks = request.form.get("donorRemarks")
+    donorGuardianName = "N/A"
+    donorCampus = "N/A"
+
+    personCount = (list(db.execute("SELECT count(*) FROM Person")))[0][0] + 1
+    print(donorFullName, personCount)
+    ID = donorFullName[0] + ((5-len(str(personCount)))*"0") +str(personCount)
+
+    db.execute("INSERT INTO Person(ID, Name, GuardianName, Gender, Contact, Address, DOB, Campus, Email) VALUES (:ID, :Name, :GuardianName, :Gender, :Contact, :Address, :DOB, :Campus, :Email)",
+                {"ID":ID, "Name":donorFullName, 'GuardianName':donorGuardianName, "Gender":donorGender, "Contact":donorPhoneNumber, "Address":donorAddress, "DOB":donorDOB, "Campus":donorCampus, "Email":donorEmail})
+    personID = (list(db.execute("SELECT Person.idPerson FROM Person WHERE Person.ID=:ID", {"ID":ID})))[0][0]
+    print("personID: ", personID)
+    db.execute("INSERT INTO Donor(Person_idPerson, DateDonoationStarted, CurrentState, Organization) VALUES (:ID, :donorDateDonationStarted, :donorCurrentState, :donorOrganization)", {"ID":personID, "donorCurrentState":donorCurrentState, "donorDateDonationStarted":donorDateDonationStarted, "donorOrganization":donorOrganization})
+    db.commit()
+
+
+    return redirect(url_for("registerDonorLink"))
+
+@app.route("/registerSponsorLink")
+def registerSponsorLink():
     return render_template("sponsor_reg.html")
+
+@app.route("/registerSponsor", methods=["POST"])
+def registerSponsor():
+    sponsorFullName = request.form.get("sponsorFullName")
+    sponsorGender = request.form.get("sponsorGender")
+    sponsorEmail = request.form.get("sponsorEmail")
+    sponsorAddress = request.form.get("sponsorAddress")
+    sponsorPhoneNumber = request.form.get("sponsorPhoneNumber")
+    sponsorDOB = request.form.get("sponsorDOB")
+    sponsorCurrentState = request.form.get("sponsorCurrentState")
+    sponsorDateSponsorshipDue = request.form.get("sponsorDateSponsorshipDue")
+    sponsorDateSponsorshipStart = request.form.get("sponsorDateSponsorshipStart")
+    sponsorRemarks = request.form.get("sponsorRemarks")
+    sponsorGuardianName = "N/A"
+    sponsorCampus = "N/A"
+
+    personCount = (list(db.execute("SELECT count(*) FROM Person")))[0][0] + 1
+    print(sponsorFullName, personCount)
+    ID = sponsorFullName[0] + ((5-len(str(personCount)))*"0") +str(personCount)
+
+    db.execute("INSERT INTO Person(ID, Name, GuardianName, Gender, Contact, Address, DOB, Campus, Email) VALUES (:ID, :Name, :GuardianName, :Gender, :Contact, :Address, :DOB, :Campus, :Email)",
+                {"ID":ID, "Name":sponsorFullName, 'GuardianName':sponsorGuardianName, "Gender":sponsorGender, "Contact":sponsorPhoneNumber, "Address":sponsorAddress, "DOB":sponsorDOB, "Campus":sponsorCampus, "Email":sponsorEmail})
+    personID = (list(db.execute("SELECT Person.idPerson FROM Person WHERE Person.ID=:ID", {"ID":ID})))[0][0]
+    print("personID: ", personID)
+    db.execute("INSERT INTO Sponsor(Person_idPerson, CurrentState, DateSponsorshipDue, Remarks, DateSponsorshipStarted) VALUES (:ID, :CurrentState, :sponsorDateSponsorshipDue, :sponsorRemarks, :sponsorDateSponsorshipStart)", {"ID":personID, "CurrentState":sponsorCurrentState, "sponsorDateSponsorshipDue":sponsorDateSponsorshipDue, "sponsorRemarks":sponsorRemarks, "sponsorDateSponsorshipStart":sponsorDateSponsorshipStart})
+    db.commit()
+
+
+    return redirect(url_for("registerSponsorLink"))
 
 
 @app.route("/classLink")

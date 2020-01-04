@@ -12,10 +12,9 @@
             <div class="cotainer">
               <div class="card shadow mb-4">
                 <div class="card-header"><h6 class="m-0 font-weight-bold text-primary">
-                  <a class="btn btn-primary" href="student_reg.html">Student</a>
-                  <a class="btn btn-primary" href="staff_reg.html">Staff</a>
-                  <a class="btn btn-primary" href="sponsor_reg.html">Sponsor</a>
-                  <a class="btn btn-primary" href="donor_reg.html">Donor</a>
+                  <a class="btn btn-primary" href="{{ url_for('registerStudentLink') }}">Student</a>
+                  <a class="btn btn-primary" href="{{ url_for('registerSponsorLink') }}">Sponsor</a>
+                  <a class="btn btn-primary" href="{{ url_for('registerDonorLink') }}">Donor</a>
                  </h6>
     </div>
 
