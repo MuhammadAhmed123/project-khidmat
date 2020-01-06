@@ -118,9 +118,15 @@ def registerDonor():
     print("personID: ", personID)
     db.execute("INSERT INTO Donor(Person_idPerson, DateDonoationStarted, CurrentState, Organization) VALUES (:ID, :donorDateDonationStarted, :donorCurrentState, :donorOrganization)", {"ID":personID, "donorCurrentState":donorCurrentState, "donorDateDonationStarted":donorDateDonationStarted, "donorOrganization":donorOrganization})
     db.commit()
-
-
     return redirect(url_for("registerDonorLink"))
+
+@app.route("/MaintenanceEntryLink")
+def MaintenanceEntryLink():
+    return render_template("MaintenanceEntry.html")
+
+@app.route("/MaintenanceCategoryLink")
+def MaintenanceCategoryLink():
+    return render_template("MaintenanceCategory.html")
 
 @app.route("/registerSponsorLink")
 def registerSponsorLink():

@@ -67,6 +67,20 @@
             <a class="collapse-item" href="{{ url_for('registerStaffLink') }}">Staff</a>
             <a class="collapse-item" href="{{ url_for('registerDonorLink') }}">Donor</a>
             <a class="collapse-item" href="{{ url_for('registerSponsorLink') }}">Sponsor</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMaintenance" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-user"></i>
+          <span>Maintenance</span>
+        </a>
+        <div id="collapseMaintenance" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Maintenance</h6>
+            <a class="collapse-item" href="{{ url_for('MaintenanceEntryLink') }}">Maintenance Entry</a>
+            <a class="collapse-item" href="{{ url_for('MaintenanceCategoryLink') }}">Maintenance Category</a>
 
 
           </div>
