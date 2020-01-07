@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block body %}
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-4 text-gray-800">Edit Registration</h1>
+
+                
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    
+                    <div class="card-body">
+                        <h6 class="m-0 font-weight-bold text-primary">Select profile to edit</h6>
+            <hr>
+
+
+                        <!-- <h6 class="m-0 font-weight-bold text-primary">Enter Personal Details</h6>
+                        <hr> -->
+                        <form action="", method="">
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <select id="selectCategory" class="form-control" name="editRegSelectCategory">
+                                    <option disabled selected value="1">Select Member Category</option>
+                                    <option class="select-option" value="2">Student</option>
+                                    <option class="select-option" value="3">Staff</option>
+                                    <option class="select-option" value="4">Sponsor</option>
+                                    <option class="select-option" value="5">Donor</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <script type="text/javascript">
+                            $('#selectCategory').change(function(){
+                                var select=$('#selectCategory').val();
+                                {% url_for('editRegSelectPopulate', selectValue=select) %};
+                            })
+                        </script>
+                        
+                        <!--populate this dropdown on the basis of selection of above dropdown-->
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <select id="" class="form-control" name="editRegName">
+                                    {% for name in names %}
+                                    <option>{{name.Name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <select id="" class="form-control" name="editRegID">
+                                    {% for id in ids %}
+                                    <option>{{id.ID}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <input type="submit" class="btn btn-primary" id="editNext" style="width: 10em" value="Edit" name="editRegEdit">
+
+                        <input type="submit" class="btn btn-danger" style="width: 10em" value="Remove" name="editRegRemove">
+
+                        <script>
+                            $('document').ready(function () {
+                                $('#editNext').click(function () {
+                                    nextButtonClick();
+                                });
+                            });
+
+                            function nextButtonClick() {
+                                if ($('#selectCategory').val() == '2') {
+                                    window.open("student_edit_reg.html", "_top");
+                                } else if ($('#selectCategory').val() == '3') {
+                                    window.open("staff_edit_reg.html", "_top");
+                                } else if ($('#selectCategory').val() == '4') {
+                                    window.open("sponsor_edit_reg.html", "_top");
+                                } else if ($('#selectCategory').val() == '5') {
+                                    window.open("donor_edit_reg.html", "_top");
+                                }
+                            }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+
+
+                        </script>
+                    </form> 
+                </div>
+
+            </div>
+            <!-- End of Main Content -->
+            {% endblock %}
