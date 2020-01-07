@@ -1,0 +1,237 @@
+
+{% extends "layout.html" %}
+
+{% block body %}
+<!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-4 text-gray-800">Mark Attendance</h1>
+
+        <!-- /.container-fluid -->
+
+        <!-- DataTales Example -->
+
+
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <!----<h6 class="m-0 font-weight-bold text-primary">Enter maintenance activity</h6>-->
+            <h6 class="m-0 font-weight-bold text-primary"> 
+              <a class="btn btn-primary" href="{{ url_for('viewAttendance') }}">View Attendance</a>
+              <a class="btn btn-primary" href="{{ url_for('viewMarkAttendance') }}">Mark Attendance</a> 
+            </h6>
+
+
+            
+          </div>
+          <div class="card-body">
+
+              <div class="form-group row">
+                  <div class="col-sm-3 mb-3 mb-sm-0">
+                    <select id="" class="form-control">
+                      <option disabled selected value="1">Select Attendees</option>
+                      <option class="select-option" value="2">Student XI</option>
+                      <option class="select-option" value="2">Student XII</option>
+                      <option class="select-option" value="3">Team Member</option>
+    
+                    </select>
+                  </div>
+                  
+                  <!-- This catagory is to be decided-->
+           <!-- Date and time picker with disbaled dates -->
+    
+           <div class="col-sm-3 mb-3 mb-sm-0">
+                  <input type="date" class="form-control">
+           
+            </div>
+    
+    
+                  <div class="col-sm-3 mb-3 mb-sm-0">
+                    <button class="btn btn-primary" style="width: 10em">Search</button>
+                  </div>
+                </div>
+
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+
+                    <th>Person_id</th>
+                    <th>Student Name </th>
+                    <th>Father Name</th>
+                    <th>Status</th>
+
+                    <div class="form-check">
+                      <label class="form-check-label">
+
+                      </label>
+                    </div>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>01</td>
+                    <td>Ahmed</td>
+                    <td>Daniyal</td>
+                    <td>
+                            <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="defaultExampleRadios">
+                                    <label class="custom-control-label" for="defaultUnchecked1">Present</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="defaultUnchecked2" name="defaultExampleRadios">
+                                    <label class="custom-control-label" for="defaultUnchecked2">Late</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="defaultUnchecked3" name="defaultExampleRadios">
+                                    <label class="custom-control-label" for="defaultUnchecked3">Leave</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="defaultUnchecked4" name="defaultExampleRadios">
+                                    <label class="custom-control-label" for="defaultUnchecked4">Absent</label>
+                                </div>
+                    </td>
+
+                  </tr>
+                  <tr>
+                    <td>Sara</td>
+                    <td>Khan</td>
+                    <td>Tokyo</td>
+                      <td>
+                          <div class="custom-control custom-radio">
+                              <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="defaultExampleRadios">
+                              <label class="custom-control-label" for="defaultUnchecked1">Present</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                              <input type="radio" class="custom-control-input" id="defaultUnchecked2" name="defaultExampleRadios">
+                              <label class="custom-control-label" for="defaultUnchecked2">Late</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                              <input type="radio" class="custom-control-input" id="defaultUnchecked3" name="defaultExampleRadios">
+                              <label class="custom-control-label" for="defaultUnchecked3">Leave</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                              <input type="radio" class="custom-control-input" id="defaultUnchecked4" name="defaultExampleRadios">
+                              <label class="custom-control-label" for="defaultUnchecked4">Absent</label>
+                          </div>
+                      </td>
+
+                  </tr>
+                  <tr>
+                    <td>03</td>
+                    <td>Faizan</td>
+                    <td>Muhib</td>
+                      <td>
+                          <div class="custom-control custom-radio">
+                              <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="defaultExampleRadios">
+                              <label class="custom-control-label" for="defaultUnchecked1">Present</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                              <input type="radio" class="custom-control-input" id="defaultUnchecked2" name="defaultExampleRadios">
+                              <label class="custom-control-label" for="defaultUnchecked2">Late</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                              <input type="radio" class="custom-control-input" id="defaultUnchecked3" name="defaultExampleRadios">
+                              <label class="custom-control-label" for="defaultUnchecked3">Leave</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                              <input type="radio" class="custom-control-input" id="defaultUnchecked4" name="defaultExampleRadios">
+                              <label class="custom-control-label" for="defaultUnchecked4">Absent</label>
+                          </div>
+                      </td>
+
+                  </tr>
+                  <tr>
+                    <td>04</td>
+                    <td>Haris sheikh</td>
+                    <td>Mumtaz khan</td>
+                      <td>
+                          <div class="custom-control custom-radio">
+                              <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="defaultExampleRadios">
+                              <label class="custom-control-label" for="defaultUnchecked1">Present</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                              <input type="radio" class="custom-control-input" id="defaultUnchecked2" name="defaultExampleRadios">
+                              <label class="custom-control-label" for="defaultUnchecked2">Late</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                              <input type="radio" class="custom-control-input" id="defaultUnchecked3" name="defaultExampleRadios">
+                              <label class="custom-control-label" for="defaultUnchecked3">Leave</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                              <input type="radio" class="custom-control-input" id="defaultUnchecked4" name="defaultExampleRadios">
+                              <label class="custom-control-label" for="defaultUnchecked4">Absent</label>
+                          </div>
+                      </td>
+
+                  </tr>
+                  <tr>
+                    <td>05</td>
+                    <td>Helem williams</td>
+                    <td>Khan</td>
+                      <td>
+                          <div class="custom-control custom-radio">
+                              <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="defaultExampleRadios">
+                              <label class="custom-control-label" for="defaultUnchecked1">Present</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                              <input type="radio" class="custom-control-input" id="defaultUnchecked2" name="defaultExampleRadios">
+                              <label class="custom-control-label" for="defaultUnchecked2">Late</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                              <input type="radio" class="custom-control-input" id="defaultUnchecked3" name="defaultExampleRadios">
+                              <label class="custom-control-label" for="defaultUnchecked3">Leave</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                              <input type="radio" class="custom-control-input" id="defaultUnchecked4" name="defaultExampleRadios">
+                              <label class="custom-control-label" for="defaultUnchecked4">Absent</label>
+                          </div>
+                      </td>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+                 <input type="submit" class="btn btn-primary" style="width: 10em">  
+
+            </div>
+          </div>
+
+        </div>
+
+
+        <!----
+            <div class="form-group">
+                    <select id="" class="form-control">
+                       <option disabled selected value="1">----Select Category----</option>
+                      <option class="select-option" value="2">Watering Plants</option>
+                      <option class="select-option" value="3">Room A cleaning</option>
+                      <option class="select-option" value="4" >Room B cleaning</option>
+                      <option class="select-option" value="5" >Kitchen</option>
+                      <option class="select-option" value="5" >Courtyard</option>
+                      <option class="select-option" value="5" >Washroom</option>
+                      <option class="select-option" value="5" >External Office</option>
+                      <option class="select-option" value="5" >Internal Office</option>
+                    </select>
+                  </div>
+
+           <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input type="text" class="form-control form-control-user" id="executionDate" placeholder="Execution Date">
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control form-control-user" id="description" placeholder="Description">
+                </div>
+              </div>
+
+              <button class="btn btn-primary" style="width: 10em">Add</button>
+         </div>
+        </div>-->
+
+      </div>
+    </div>
+
+      <!-- End of Main Content -->
+      {% endblock %}

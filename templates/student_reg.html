@@ -1,0 +1,239 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- Page Heading -->
+          <h1 class="h3 mb-4 text-gray-800">Registration</h1>
+
+          <main class="my-form">
+            <div class="cotainer">
+              <div class="card shadow mb-4">
+                <div class="card-header">
+                  <h6 class="m-0 font-weight-bold text-primary">
+                    <a class="btn btn-primary" href="{{ url_for('registerStaffLink') }}">Staff</a>
+                    <a class="btn btn-primary" href="{{ url_for('registerSponsorLink') }}">Sponsor</a>
+                    <a class="btn btn-primary" href="{{ url_for('registerDonorLink') }}">Donor</a>
+                  </h6>
+                </div>
+                <!-- <div class="card-header">Student Registeration</div> -->
+                <div class="card-body">
+                  <h6 class="m-0 font-weight-bold text-primary">Register a Student</h6>
+            <hr>
+                  <form name="my-form" action="{{ url_for('registerStudent') }}" method="post">
+                    <div class="form-group row">
+                      <label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
+                      <div class="col-md-6">
+                        <input type="text" id="full_name" class="form-control" name="studentFullName" required>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="guardian_name" class="col-md-4 col-form-label text-md-right">Guardian Name</label>
+                      <div class="col-md-6">
+                        <input type="text" id="guardian_name" class="form-control" name="studentGuardian">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                      <div class="col-md-6">
+                        <input type="text" id="email_address" class="form-control" name="studentEmail">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="gender" class="col-md-4 col-form-label text-md-right">Gender</label>
+                      <div class="col-md-6">
+                        <input type="radio" id="html" name="studentGender" value="female">
+                        <label for="html">Female</label>
+                      <!-- </div>
+                      <div class="col-md-6"> -->
+                        <input type="radio" id="css" name="studentGender" value="male">
+                        <label for="css">Male</label>
+                      </div>
+                    </div>
+<!--
+                    <div class="form-group row ">
+                      <label for="email_address" class="col-md-4 col-form-label text-md-right"></label>
+                      <div class="col-md-6">
+                        <input type="checkbox" id="css">
+                        <label for="css">Male</label>
+                      </div>
+                    </div> -->
+
+                    <div class="form-group row">
+                      <label for="religion" class="col-md-4 col-form-label text-md-right">Religion</label>
+                      <div class="col-md-6">
+                        <input type="text" id="religion" class="form-control" name="studentReligion">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="fatherOccupation" class="col-md-4 col-form-label text-md-right">Father's Occupation</label>
+                      <div class="col-md-6">
+                        <input type="text" id="fatherOccupation" class="form-control" name="studentFatherOccupation">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="studentFatherEarning" class="col-md-4 col-form-label text-md-right">Father's Earning</label>
+                      <div class="col-md-6">
+                        <input type="number" id="studentFatherEarning" class="form-control" name="studentFatherEarning" placeholder=0>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="studentMotherOccupation" class="col-md-4 col-form-label text-md-right">Mother's
+                        Occupation</label>
+                      <div class="col-md-6">
+                        <input type="text" id="studentMotherOccupation" class="form-control" name="studentMotherOccupation">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="studentMotherEarning" class="col-md-4 col-form-label text-md-right">Mother's Earning</label>
+                      <div class="col-md-6">
+                        <input type="number" id="studentMotherEarning" class="form-control" name="studentMotherEarning" placeholder=0>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="studentdob" class="col-md-4 col-form-label text-md-right">Date of Birth</label>
+                      <div class="col-md-6">
+                        <div class="input-append date">
+                          <input type="date" id="studentdob" class="form-control form-control-user" name="studentdob">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="studentContact" class="col-md-4 col-form-label text-md-right">Phone Number</label>
+                      <div class="col-md-6">
+                        <input type="text" id="studentContact" class="form-control" name="studentContact">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="studentAddress" class="col-md-4 col-form-label text-md-right">Address</label>
+                      <div class="col-md-6">
+                        <input type="text" id="studentAddress" class="form-control" name="studentAddress">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="studentLastSchool" class="col-md-4 col-form-label text-md-right">Last Attended School</label>
+                      <div class="col-md-6">
+                        <input type="text" id="studentLastSchool" class="form-control" name="studentLastSchool">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="schoolLastSchoolFee" class="col-md-4 col-form-label text-md-right">Last Attended School
+                        Fees</label>
+                      <div class="col-md-6">
+                        <input type="number" id="schoolLastSchoolFee" class="form-control" name="schoolLastSchoolFee">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="lastclass" class="col-md-4 col-form-label text-md-right">Class</label>
+                      <div class="col-md-6">
+                        <!-- <input type="text" id="lastclass" class="form-control"> -->
+                        <select class="form-control" id="class" name="studentClass" required>
+                          {% for class in classes %}
+                            <option class="">{{class.Name}}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="interview_date" class="col-md-4 col-form-label text-md-right">Interview Date</label>
+                      <div class="col-md-6">
+                        <input type="date" id="interview_date" class="form-control" name="studentInterviewDate">
+                      </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                      <label for="test_date" class="col-md-4 col-form-label text-md-right">Admission Test Date</label>
+                      <div class="col-md-6">
+                        <input type="date" id="test_date" class="form-control" name="studentAdmissionTestDate">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="uniform-measurement" class="col-md-4 col-form-label text-md-right">Uniform
+                        Measurements</label>
+                      <div class="col-md-6">
+                        <input type="text" id="uniform-measurement" class="form-control" name="studentUniformMeasurement">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="uniform-fee" class="col-md-4 col-form-label text-md-right">Uniform Fees</label>
+                      <div class="col-md-6">
+                        <input type="number" id="uniform-fee" class="form-control" name="studentUniformFees" placeholder=0>
+                      </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                      <label for="campus" class="col-md-4 col-form-label text-md-right">Campus</label>
+                      <div class="col-md-6">
+                        <!-- <input type="text" id="campus" class="form-control" name="permanent-address"> -->
+                        <select id="campus" class="form-control" name="studentCampus">
+                          <option class="select-option" value="2">TGS 1</option>
+                          <option class="select-option" value="3">TGS 2</option>
+                          <option class="select-option" value="4">TGS 3</option>
+                          <!-- <option class="select-option" value="5">X</option> -->
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="shift" class="col-md-4 col-form-label text-md-right">Shift</label>
+                      <div class="col-md-6">
+                        <select id="shift" class="form-control" name="shift">
+                          <option class="select-option" value="2">Morning</option>
+                          <option class="select-option" value="3">Evening</option>
+                          <!-- <option class="select-option" value="4">III</option> -->
+                          <!-- <option class="select-option" value="5">X</option> -->
+                        </select>
+                        <!-- <input type="shift" id="campus" class="form-control" name="shift"> -->
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="siblings" class="col-md-4 col-form-label text-md-right">No. of Siblings</label>
+                      <div class="col-md-6">
+                        <input type="number" id="siblings" class="form-control form-control-user" placeholder=1 name="studentSiblings">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="image" class="col-md-4 col-form-label text-md-right">Upload Image</label>
+                      <div class="col-md-6">
+                        <input type="file" id="image" class="btn btn-secondary" name="studentImage">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 offset-md-4">
+                      <button type="submit" class="btn btn-primary">
+                        Register
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+          </main>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+{% endblock %}

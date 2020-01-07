@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-4 text-gray-800">Finance Item Categories</h1>
+
+        
+        <!-- /.container-fluid -->
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary"> 
+                          <a class="btn btn-primary" href="{{ url_for('viewFinance') }}">View Log</a>
+            <a class="btn btn-primary" href="{{ url_for('viewFinanceEntry') }}">Enter Activity</a>
+            <a class="btn btn-primary" href="{{ url_for('viewFinanceItem') }}">Item Categories</a> </h6>
+                      </div>
+              <div class="card-body">
+    
+                
+                <h6 class="m-0 font-weight-bold text-primary">Add Item Category</h6>
+                <hr>
+    
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                            <input type="text" class="form-control form-control-user" id="categoryName" placeholder="Category Name">
+                    </div>
+                  </div>           
+    
+                      <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <select id="" class="form-control">
+                                   <option disabled selected value="1">Select Predefined Category</option>
+                                  <option class="select-option" value="2">Fine</option>
+                                  <option class="select-option" value="3">Grocery </option>
+                                  <option class="select-option" value="4" >Other </option>
+                                  </select>
+                                </div>
+                              </div>    
+
+                  <div class="form-group row">
+                  <div class="col">
+                      <textarea type="text" class="form-control form-control-user" id="description" placeholder="Description"></textarea>
+                    </div>
+                    </div>
+    
+                  <button class="btn btn-primary" style="width: 10em">Add</button>
+             
+    
+             <hr>
+    
+             <h6 class="m-0 font-weight-bold text-primary">Remove Item Category</h6>
+                <hr>
+    
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <select id="" class="form-control">
+                           <option disabled selected value="1">----Select Category----</option>
+                          <option class="select-option" value="2">Watering Plants</option>
+                          <option class="select-option" value="3">Room A cleaning</option>
+                          <option class="select-option" value="4" >Room B cleaning</option>
+                          <option class="select-option" value="5" >Kitchen</option>
+                          <option class="select-option" value="5" >Courtyard</option>
+                          <option class="select-option" value="5" >Washroom</option>
+                          <option class="select-option" value="5" >External Office</option>
+                          <option class="select-option" value="5" >Internal Office</option>
+                        </select>
+                        </div>
+                      </div>
+    
+                  <button class="btn btn-danger" style="width: 10em"><i class="fas fa-trash"></i> &nbsp;Remove</button>
+    
+            </div>
+    
+          </div>
+
+            </div>
+          </div>
+            <!-- End of Main Content -->
+            {% endblock %}

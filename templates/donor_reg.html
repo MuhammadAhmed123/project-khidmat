@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+{% block body %}
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-4 text-gray-800">Registration</h1>
+
+          <main class="my-form">
+            <div class="cotainer">
+              <div class="card shadow mb-4">
+                <div class="card-header">
+                  <h6 class="m-0 font-weight-bold text-primary">
+                    <a class="btn btn-primary" href="{{ url_for('registerStudentLink') }}">Student</a>
+                    <a class="btn btn-primary" href="{{ url_for('registerStaffLink') }}">Staff</a>
+                    <a class="btn btn-primary" href="{{ url_for('registerSponsorLink') }}">Sponsor</a>
+                  </h6>
+                </div>
+
+                <div class="card-body">
+                  <h6 class="m-0 font-weight-bold text-primary">Register a Donor</h6>
+            <hr>
+                  <form name="my-form" action="{{ url_for('registerDonor') }}" method="post">
+                    <div class="form-group row">
+                      <label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
+                      <div class="col-md-6">
+                        <input type="text" id="full_name" class="form-control" name="donorFullName" required>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="gender" class="col-md-4 col-form-label text-md-right">Gender</label>
+                      <div class="col-md-6">
+                        <input type="radio" id="html" name="donorGender" value="female">
+                        <label for="html">Female</label>
+                      <!-- </div>
+                      <div class="col-md-6"> -->
+                        <input type="radio" id="css" name="donorGender" value="male">
+                        <label for="css">Male</label>
+                      </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                      <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                      <div class="col-md-6">
+                        <input type="text" id="email_address" class="form-control" name="donorEmail">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="permanent_address" class="col-md-4 col-form-label text-md-right">Address</label>
+                      <div class="col-md-6">
+                        <input type="text" id="permanent_address" class="form-control" name="donorAddress">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
+                      <div class="col-md-6">
+                        <input type="text" id="phone_number" class="form-control" name="donorPhoneNumber">
+                      </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                      <label for="dob" class="col-md-4 col-form-label text-md-right">Date of Birth</label>
+                      <div class="col-md-6">
+                        <div class="input-append date">
+                          <input type="date" id="dob" class="form-control form-control-user" name="donorDOB">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="currentState" class="col-md-4 col-form-label text-md-right">Current State</label>
+                      <div class="col-md-6">
+                        <!-- <input type="text" id="CurrentState" class="form-control" name="permanent-address"> -->
+                        <select id="currentState" class="form-control" name="donorCurrentState">
+                          <option class="select-option" value="Active">Active</option>
+                          <option class="select-option" value="Inactive">Inactive</option>
+                          <!-- <option class="select-option" value="4">III</option>
+                          <option class="select-option" value="5">X</option> -->
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="donorDateDonationStarted" class="col-md-4 col-form-label text-md-right">Date Donation Started</label>
+                      <div class="col-md-6">
+                        <input type="date" id="donorDateDonationStarted" class="form-control form-control-user" name="donorDateDonationStarted">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="organization" class="col-md-4 col-form-label text-md-right">Organization</label>
+                      <div class="col-md-6">
+                        <input type="text" id="organization" class="form-control" name="donorOrganization">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="Remarks" class="col-md-4 col-form-label text-md-right">Remarks</label>
+                      <div class="col-md-6">
+                        <input type="text" id="attendance" class="form-control form-control-user" name="donorRemarks">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 offset-md-4">
+                      <button type="submit" class="btn btn-primary">
+                        Register
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+{% endblock %}

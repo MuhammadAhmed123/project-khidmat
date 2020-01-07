@@ -1,0 +1,104 @@
+{% extends "layout.html "%}
+
+{% block body %}
+
+<!-- Begin Page Content -->
+        <div class="container-fluid">
+          <h1 class="h3 mb-4 text-gray-800">Tests</h1>
+
+          <!-- Page Heading -->
+          <div class="card shadow mb-4">
+			<div class="card-header">Manage Tests</div>
+				<div class="card-body">
+
+				<!-- Add Tests -->
+        <h6 class="m-0 font-weight-bold text-primary">Add Tests</h6><hr>
+
+        <form >
+
+
+          <div class="form-group row">
+            <label for="oldTest" class="col-md-4 col-form-label text-md-right">Select Module</label>
+            <div class="col-md-6">
+                <select class="form-control" id="oldTest" name="existingTests">
+                  <option class="">Mid Exam</option>
+                  <option class="">Final Exam</option>
+                </select>
+            </div>
+        </div>
+      <div class="form-group row">
+          <label for="testName" class="col-md-4 col-form-label text-md-right">Test Name</label>
+          <div class="col-md-6">
+            <input type="text" id="testName" class="form-control" name="testName">
+
+          </div>
+      </div>	
+		<div class="form-group row">
+            <label for="testMarks" class="col-md-4 col-form-label text-md-right">Test Marks</label>
+            <div class="col-md-6">
+                <input type="text" id="testMarks" class="form-control" name="testMarks">
+            </div>
+        </div>
+		
+		<div class="form-group row">
+            <label for="testDate" class="col-md-4 col-form-label text-md-right">Test Date</label>
+            <div class="col-md-6">
+                <input type="Date" id="testDate" class="form-control" name="testDate">
+            </div>
+        </div>
+
+        <div class="col-md-6 offset-md-4">
+            <input type="submit" class="btn btn-primary" value="Add">
+        </div>
+
+      </form>
+<br>
+
+      <!-- Edit Tests -->
+      <h6 class="m-0 font-weight-bold text-primary">Edit Tests</h6><hr>
+
+
+      <form >
+
+      <div class="form-group row">
+          <label for="oldTest" class="col-md-4 col-form-label text-md-right">Edit</label>
+          <div class="col-md-6">
+              <select class="form-control" id="oldTest" name="existingTests">
+                <option class="">Test 1</option>
+                <option class="">Test 2</option>
+				<option class="">Test 3</option>
+              </select>
+          </div>
+      </div>
+
+      <div class="form-group row">
+          <label for="Changeto" class="col-md-4 col-form-label text-md-right">Change to</label>
+          <div class="col-md-6">
+              <input type="text" id="Changeto" class="form-control" name="classEdited">
+          </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="testMarksEdit" class="col-md-4 col-form-label text-md-right">Test Marks</label>
+        <div class="col-md-6">
+            <input type="text" id="testMarksEdit" class="form-control" name="testMarksEdit">
+        </div>
+    </div>
+
+      <div class="col-md-6 offset-md-4">
+          <input type="submit" class="btn btn-primary" value="Edit">
+      </div>
+
+    </form>
+
+
+				</div>
+				</div>
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+      {% endblock %}

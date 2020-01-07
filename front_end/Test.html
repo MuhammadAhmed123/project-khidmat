@@ -106,8 +106,6 @@
             <a class="collapse-item" href="login.html">Login</a>
             <a class="collapse-item" href="register.html">Register</a>
             <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-			<a class="collapse-item" href="MaintenanceActivity.html">Maintenance</a>
-			<a class="collapse-item" href="finance.html">Finance</a>
             <div class="collapse-divider"></div>
             <h6 class="collapse-header">Other Pages:</h6>
             <a class="collapse-item" href="404.html">404 Page</a>
@@ -334,101 +332,119 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Finance Log</h1>
+          <div class="card">
+			<div class="card-header">Manage Tests</div>
+				<div class="card-body">
+
+				<!-- Add Tests -->
+				<h1 class="header">
+          Add Test
+        </h1>
+
+        <form action="{{ url_for('') }}" method='post'>
+
+      <div class="form-group row">
+          <label for="oldTest" class="col-md-4 col-form-label text-md-right">Test Name</label>
+          <div class="col-md-6">
+              <select class="form-control" id="oldTest" name="existingTests">
+                <option class="">Mid Exam</option>
+                <option class="">Final Exam</option>
+              </select>
+          </div>
+      </div>	
+		<div class="form-group row">
+            <label for="testMarks" class="col-md-4 col-form-label text-md-right">Test Marks</label>
+            <div class="col-md-6">
+                <input type="text" id="testMarks" class="form-control" name="testMarks">
+            </div>
+        </div>
+		
+		<div class="form-group row">
+            <label for="testDate" class="col-md-4 col-form-label text-md-right">Test Date</label>
+            <div class="col-md-6">
+                <input type="Date" id="testDate" class="form-control" name="testDate">
+            </div>
+        </div>
+
+        <div class="col-md-6 offset-md-4">
+            <input type="submit" class="btn btn-primary" value="Add">
+        </div>
+
+      </form>
+<br>
+
+      <!-- Edit Tests -->
+      <h1 class="header">
+        Edit Test
+      </h1>
+
+      <form action="{{ url_for('') }}" method='post'>
+
+      <div class="form-group row">
+          <label for="oldTest" class="col-md-4 col-form-label text-md-right">Edit</label>
+          <div class="col-md-6">
+              <select class="form-control" id="oldTest" name="existingTests">
+                <option class="">Test 1</option>
+                <option class="">Test 2</option>
+				<option class="">Test 3</option>
+              </select>
+          </div>
+		  </hr>
+	`<div class="form-group row">
+          <label for="Changeto" class="col-md-4 col-form-label text-md-right">Change to</label>
+          <div class="col-md-6">
+              <input type="text" id="Changeto" class="form-control" name="classEdited">
+          </div>
+      </div>
+</hr>	  
+	  <div class="form-group row">
+          <label for="oldTestMarks" class="col-md-4 col-form-label text-md-right">EditMarks</label>
+          <div class="col-md-6">
+              <select class="form-control" id="oldTestMarks" name="existingTestsMarks">
+                <option class="">student 1 marks</option>
+                <option class="">student 2 marks</option>
+				<option class="">student 3 marks</option>
+              </select>
+      </div>
+
+      <div class="form-group row">
+          <label for="ChangeMarksto" class="col-md-4 col-form-label text-md-right">Change to</label>
+          <div class="col-md-6">
+              <input type="text" id="Changeto" class="form-control" name="classEdited1">
+          </div>
+      </div>
+</hr>
+	  <div class="form-group row">
+          <label for="oldTestDate" class="col-md-4 col-form-label text-md-right">EditDate</label>
+          <div class="col-md-6">
+              <select class="form-control" id="oldTestMarks" name="existingTestsMarks">
+                <option class="">07/01/2019</option>
+              </select>
+      </div>
+
+      <div class="form-group row">
+          <label for="ChangeDateto" class="col-md-4 col-form-label text-md-right">Change to</label>
+          <div class="col-md-6">
+              <input type="text" id="ChangeDateto" class="form-control" name="classEdited2">
+          </div>
+      </div>
+	  </hr>
+      <div class="col-md-6 offset-md-4">
+          <input type="submit" class="btn btn-primary" value="Edit">
+      </div>
+
+    </form>
+
+
+				</div>
+				</div>
+
 
         </div>
         <!-- /.container-fluid -->
 
-        <!-- DataTales Example -->
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary"> 
-              <a class="btn btn-primary" href="finance.html">Finance Log</a> 
-                <a class="btn btn-primary" href="financeEntry.html">Finance Log Entry</a>
-                <a class="btn btn-primary" href="financeItem.html">Manage Item Categories</a> </h6>
-          </div>
-          <div class="card-body">
-
-            <div class="form-group row">
-                <div class="col-sm-3 mb-3 mb-sm-0">
-                    <select id="" class="form-control">
-                      <option disabled selected value="1">Select Mode</option>
-                      <option class="select-option" value="2">Daily</option>
-                      <option class="select-option" value="3">Weekly</option>
-                      <option class="select-option" value="3">Monthly</option>
-                      <option class="select-option" value="3">Yearly</option>
-    
-                    </select>
-                  </div>
-
-              <div class="col-sm-3 mb-3 mb-sm-0">
-                <input type="date" class="form-control">
-
-              </div>
-
-
-              <div class="col-sm-3 mb-3 mb-sm-0">
-                <button class="btn btn-primary" style="width: 10em">Search</button>
-              </div>
-            </div>
-
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>Item Category</th>
-                    <th>Date</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-					<th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>01</td>
-                    <td>Watering Plants</td>
-                    <td>Daniyal</td>
-                    <td>May 21, 2019</td>
-              
-                    <td>Daniyal watered plants.</td>
-                  </tr>
-                  <tr>
-                    <td>Garrett Winters</td>
-                    <td>Accountant</td>
-                    <td>Tokyo</td>
-                    <td>63</td>
-                    <td>$170,750</td>
-                  </tr>
-                  <tr>
-                    <td>Ashton Cox</td>
-                    <td>Junior Technical Author</td>
-                    <td>San Francisco</td>
-                    <td>66</td>
-                    <td>$86,000</td>
-                  </tr>
-                  <tr>
-                    <td>Cedric Kelly</td>
-                    <td>Senior Javascript Developer</td>
-                    <td>Edinburgh</td>
-                    <td>22</td>
-                    <td>2012/03/29</td>
-                  </tr>
-                  <tr>
-                    <td>Airi Satou</td>
-                    <td>Accountant</td>
-                    <td>33</td>
-                    <td>2008/11/28</td>
-                    <td>$162,700</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
       </div>
       <!-- End of Main Content -->
-
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">

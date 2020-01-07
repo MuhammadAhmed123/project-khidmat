@@ -20,22 +20,20 @@
             <hr>
 
             <div class="form-group row">
-                <form action="{{ url_for('viewProfileSearchFunction') }}" method='post'>
-                    <label for="selectCategory" class="col-md-2 col-form-label text-md-right">Select
-                        Category</label>
-                    <div class="col-md-4">
-                        <select id="selectCategory" class="form-control" name="viewProfileSearchCategory">
-                            <option class="select-option" value="1">Students</option>
-                            <option class="select-option" value="2">Staff</option>
-                            <option class="select-option" value="3">Sponsors</option>
-                            <option class="select-option" value="4">Donors</option>
-                        </select>
-                    </div>
-            
-                    <div class="col-md-6">
-                        <input type="submit" name="viewProfileSearch" class="btn btn-primary" style="width: 10em" value="Search">
-                    </div>
-                </form>
+                <label for="selectCategory" class="col-md-2 col-form-label text-md-right">Select
+                    Category</label>
+                <div class="col-md-4">
+                    <select id="selectCategory" class="form-control">
+                        <option class="select-option" value="1">Students</option>
+                        <option class="select-option" value="2">Staff</option>
+                        <option class="select-option" value="3">Sponsors</option>
+                        <option class="select-option" value="4">Donors</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <button class="btn btn-primary" style="width: 10em">Search</button>
+                </div>
             </div>
         </div>
     </div>
@@ -82,7 +80,11 @@
                             <td>2011/04/25</td>
                             <td>$320,800</td>
                         </tr>
+<<<<<<< HEAD
                         
+=======
+
+>>>>>>> 972cae4efe901f2fcb8c6e3c9f296bf6a62157e6
                     </tbody> -->
                     {% endif %}
                 </table>
@@ -93,4 +95,8 @@
 </div>
 </div>
 <!-- End of Main Content -->
+<<<<<<< HEAD
 {% endblock %}
+=======
+{% endblock %}
+>>>>>>> 972cae4efe901f2fcb8c6e3c9f296bf6a62157e6
