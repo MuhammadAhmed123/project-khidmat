@@ -37,35 +37,6 @@ PRIMARY KEY(idClass));
 
 
 
-CREATE TABLE Staff (
-  Person_idPerson INTEGER UNSIGNED  NOT NULL  ,
-  Salary INTEGER UNSIGNED  NOT NULL  ,
-  Category VARCHAR(255)  NULL  ,
-  JoiningDate DATE  NULL  ,
-  Qualification TEXT  NULL    ,
-PRIMARY KEY(Person_idPerson)  ,
-INDEX Staff_FKIndex1(Person_idPerson),
-  FOREIGN KEY(Person_idPerson)
-    REFERENCES Person(idPerson)
-      ON DELETE NO ACTION
-      ON UPDATE NO ACTION);
-
-
-
-CREATE TABLE MaintenanceCategory (
-  idMaintenanceCategory INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
-  Staff_Person_idPerson INTEGER UNSIGNED  NOT NULL  ,
-  CategoryName VARCHAR(255)  NULL  ,
-  DueTimeInterval VARCHAR(255)  NULL    ,
-PRIMARY KEY(idMaintenanceCategory)  ,
-INDEX MaintenanceCategory_FKIndex1(Staff_Person_idPerson),
-  FOREIGN KEY(Staff_Person_idPerson)
-    REFERENCES Staff(Person_idPerson)
-      ON DELETE NO ACTION
-      ON UPDATE NO ACTION);
-
-
-
 CREATE TABLE Sponsor (
   Person_idPerson INTEGER UNSIGNED  NOT NULL  ,
   CurrentState VARCHAR(255)  NULL  ,
@@ -81,30 +52,16 @@ INDEX Sponsor_FKIndex1(Person_idPerson),
 
 
 
-CREATE TABLE MaintenanceActivity (
-  idMaintenanceActivity INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
-  MaintenanceCategory_idMaintenanceCategory INTEGER UNSIGNED  NOT NULL  ,
-  ExecutionDate DATE  NULL  ,
-  Description TEXT  NULL    ,
-PRIMARY KEY(idMaintenanceActivity)  ,
-INDEX MaintenanceActivity_FKIndex1(MaintenanceCategory_idMaintenanceCategory),
-  FOREIGN KEY(MaintenanceCategory_idMaintenanceCategory)
-    REFERENCES MaintenanceCategory(idMaintenanceCategory)
-      ON DELETE NO ACTION
-      ON UPDATE NO ACTION);
-
-
-
-CREATE TABLE BuyingActivity (
-  idBuyingActivity INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
-  Item_idItem INTEGER UNSIGNED  NOT NULL  ,
-  BuyingDate DATE  NULL  ,
-  Quantity INTEGER UNSIGNED  NULL  ,
-  BuyingPrice INTEGER UNSIGNED  NULL    ,
-PRIMARY KEY(idBuyingActivity)  ,
-INDEX BuyingActivity_FKIndex1(Item_idItem),
-  FOREIGN KEY(Item_idItem)
-    REFERENCES Item(idItem)
+CREATE TABLE Staff (
+  Person_idPerson INTEGER UNSIGNED  NOT NULL  ,
+  Salary INTEGER UNSIGNED  NOT NULL  ,
+  Category VARCHAR(255)  NULL  ,
+  JoiningDate DATE  NULL  ,
+  Qualification TEXT  NULL    ,
+PRIMARY KEY(Person_idPerson)  ,
+INDEX Staff_FKIndex1(Person_idPerson),
+  FOREIGN KEY(Person_idPerson)
+    REFERENCES Person(idPerson)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION);
 
@@ -120,6 +77,35 @@ PRIMARY KEY(idAttendance)  ,
 INDEX Attendance_FKIndex1(Person_idPerson),
   FOREIGN KEY(Person_idPerson)
     REFERENCES Person(idPerson)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION);
+
+
+
+CREATE TABLE Donor (
+  Person_idPerson INTEGER UNSIGNED  NOT NULL  ,
+  DateDonoationStarted DATE  NULL  ,
+  CurrentState VARCHAR(255)  NULL  ,
+  Organization VARCHAR(255)  NULL    ,
+PRIMARY KEY(Person_idPerson)  ,
+INDEX Donor_FKIndex1(Person_idPerson),
+  FOREIGN KEY(Person_idPerson)
+    REFERENCES Person(idPerson)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION);
+
+
+
+CREATE TABLE BuyingActivity (
+  idBuyingActivity INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
+  Item_idItem INTEGER UNSIGNED  NOT NULL  ,
+  BuyingDate DATE  NULL  ,
+  Quantity INTEGER UNSIGNED  NULL  ,
+  BuyingPrice INTEGER UNSIGNED  NULL    ,
+PRIMARY KEY(idBuyingActivity)  ,
+INDEX BuyingActivity_FKIndex1(Item_idItem),
+  FOREIGN KEY(Item_idItem)
+    REFERENCES Item(idItem)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION);
 
@@ -146,20 +132,6 @@ CREATE TABLE Image (
   Path VARCHAR(255)  NULL    ,
 PRIMARY KEY(idImage)  ,
 INDEX Image_FKIndex1(Person_idPerson),
-  FOREIGN KEY(Person_idPerson)
-    REFERENCES Person(idPerson)
-      ON DELETE NO ACTION
-      ON UPDATE NO ACTION);
-
-
-
-CREATE TABLE Donor (
-  Person_idPerson INTEGER UNSIGNED  NOT NULL  ,
-  DateDonoationStarted DATE  NULL  ,
-  CurrentState VARCHAR(255)  NULL  ,
-  Organization VARCHAR(255)  NULL    ,
-PRIMARY KEY(Person_idPerson)  ,
-INDEX Donor_FKIndex1(Person_idPerson),
   FOREIGN KEY(Person_idPerson)
     REFERENCES Person(idPerson)
       ON DELETE NO ACTION
@@ -225,6 +197,78 @@ INDEX Student_FKIndex3(Sponsor_Person_idPerson),
 
 
 
+CREATE TABLE TyphoidRecord (
+  idTyphoidRecord INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
+  Student_Person_idPerson INTEGER UNSIGNED  NOT NULL  ,
+  DateOfTest DATE  NULL  ,
+  Remarks TEXT  NULL    ,
+PRIMARY KEY(idTyphoidRecord)  ,
+INDEX TyphoidRecord_FKIndex1(Student_Person_idPerson),
+  FOREIGN KEY(Student_Person_idPerson)
+    REFERENCES Student(Person_idPerson)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION);
+
+
+
+CREATE TABLE MaintenanceCategory (
+  idMaintenanceCategory INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
+  Staff_Person_idPerson INTEGER UNSIGNED  NOT NULL  ,
+  CategoryName VARCHAR(255)  NULL  ,
+  DueTimeInterval VARCHAR(255)  NULL    ,
+PRIMARY KEY(idMaintenanceCategory)  ,
+INDEX MaintenanceCategory_FKIndex1(Staff_Person_idPerson),
+  FOREIGN KEY(Staff_Person_idPerson)
+    REFERENCES Staff(Person_idPerson)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION);
+
+
+
+CREATE TABLE HepatitisRecord (
+  Student_Person_idPerson INTEGER UNSIGNED  NOT NULL  ,
+  HaveHapatitisDose BIT  NULL  ,
+  HepatitisDose1 DATE  NULL  ,
+  HepatitisDose2 DATE  NULL  ,
+  HepatitisDose3 DATE  NULL  ,
+  Remarks TEXT  NULL    ,
+PRIMARY KEY(Student_Person_idPerson)  ,
+INDEX HepatitisRecord_FKIndex1(Student_Person_idPerson),
+  FOREIGN KEY(Student_Person_idPerson)
+    REFERENCES Student(Person_idPerson)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION);
+
+
+
+CREATE TABLE EyeCheckup (
+  idEyeCheckup INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
+  Student_Person_idPerson INTEGER UNSIGNED  NOT NULL  ,
+  DateOfTest DATE  NULL  ,
+  Remarks TEXT  NULL    ,
+PRIMARY KEY(idEyeCheckup)  ,
+INDEX EyeCheckup_FKIndex1(Student_Person_idPerson),
+  FOREIGN KEY(Student_Person_idPerson)
+    REFERENCES Student(Person_idPerson)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION);
+
+
+
+CREATE TABLE GeneralENT (
+  idGeneralENT INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
+  Student_Person_idPerson INTEGER UNSIGNED  NOT NULL  ,
+  DateOfTest DATE  NULL  ,
+  Remarks TEXT  NULL    ,
+PRIMARY KEY(idGeneralENT)  ,
+INDEX GeneralENT_FKIndex1(Student_Person_idPerson),
+  FOREIGN KEY(Student_Person_idPerson)
+    REFERENCES Student(Person_idPerson)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION);
+
+
+
 CREATE TABLE Student_has_Test (
   Student_Person_idPerson INTEGER UNSIGNED  NOT NULL  ,
   Test_idTest INTEGER UNSIGNED  NOT NULL  ,
@@ -256,6 +300,20 @@ INDEX Student_has_Person_FKIndex2(Person_idPerson),
       ON UPDATE NO ACTION,
   FOREIGN KEY(Person_idPerson)
     REFERENCES Person(idPerson)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION);
+
+
+
+CREATE TABLE MaintenanceActivity (
+  idMaintenanceActivity INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
+  MaintenanceCategory_idMaintenanceCategory INTEGER UNSIGNED  NOT NULL  ,
+  ExecutionDate DATE  NULL  ,
+  Description TEXT  NULL    ,
+PRIMARY KEY(idMaintenanceActivity)  ,
+INDEX MaintenanceActivity_FKIndex1(MaintenanceCategory_idMaintenanceCategory),
+  FOREIGN KEY(MaintenanceCategory_idMaintenanceCategory)
+    REFERENCES MaintenanceCategory(idMaintenanceCategory)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION);
 

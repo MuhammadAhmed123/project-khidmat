@@ -14,6 +14,46 @@ def index():
 
 # this registration code has to be edited
 
+editRegNames = []
+editRegIDs = []
+
+@app.route("/registerEdit")
+def registerEdit():
+    return render_template("edit_reg.html", names=editRegNames, ids=editRegIDs)
+
+@app.route("/editRegSelectPopulate")
+def editRegSelectPopulate(selectValue):
+    global editRegNames
+    global editRegIDs
+    print("value -> ", selectValue)
+    if selectValue=="3":
+        editRegNames = db.execute("SELECT Person.Name FROM Person WHERE Person.idPerson=Staff.Person_idPerson")
+        editRegIDs = db.execute("SELECT Person.ID FROM Person WHERE Person.idPerson=Staff.Person_idPerson")        
+    return render_template("edit_reg.html", names=editRegNames, ids=editRegIDs)
+
+@app.route("/viewProfiles")
+def viewProfiles():
+    data = []
+    mode = {"Student": False, "Staff": False, "Sponsor": False, "Donor": False}
+    return render_template("viewProfiles.html", data=data, mode=mode)
+
+@app.route("/viewProfileSearchFunction")
+def viewProfileSearchFunction():
+    data = []
+    mode = {"Student": False, "Staff": False, "Sponsor": False, "Donor": False}
+    category = request.form.get('viewProfileSearchCategory')
+    if category == "1":
+        mode['Student']=True
+    elif category == "2":
+        mode["Staff"]=True
+    elif category == "3":
+        mode["Sponsor"]=True
+    else:
+        mode["Donor"]=True
+    data = db.execute("SELECT * FROM Person,Student")
+    return render_template("viewProfiles.html", data=data, mode=mode)
+
+
 @app.route("/registerStudentLink")
 def registerStudentLink():
     classes = db.execute("SELECT Class.Name FROM Class")
@@ -182,6 +222,52 @@ def addClass():
     db.execute("INSERT INTO Class(Name) VALUES (:name)",{"name":addClassName})
     db.commit()
     return redirect(url_for('classLink'))
+
+
+@app.route("/viewProfilesPage")
+def viewProfilesPage():
+    mode = {'Student': False, 'Staff': False, 'Sponsor': False, 'Donor': False}
+    return render_template("viewProfiles.html", mode=mode, data={})
+
+@app.route("/viewFinance")
+def viewFinance():
+    return render_template("finance.html")
+
+
+@app.route("/viewFinanceEntry")
+def viewFinanceEntry():
+    return render_template("financeEntry.html")
+
+
+@app.route("/viewFinanceItem")
+def viewFinanceItem():
+    return render_template("financeItem.html")
+
+@app.route("/viewAttendance")
+def viewAttendance():
+    return render_template("Attendance.html")
+
+@app.route("/viewMarkAttendance")
+def viewMarkAttendance():
+    return render_template("MarkAttendance.html")
+
+
+@app.route("/MaintenanceEntryLink")
+def MaintenanceEntryLink():
+    return render_template("MaintenanceEntry.html")
+
+@app.route("/MaintenanceCategoryLink")
+def MaintenanceCategoryLink():
+    return render_template("MaintenanceCategory.html")
+
+
+@app.route("/MaintenanceViewLink")
+def MaintenanceViewLink():
+    return render_template("MaintenanceActivity.html")
+
+@app.route("/viewTestPage")
+def viewTestPage():
+    return render_template("Test.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
