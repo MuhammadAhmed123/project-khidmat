@@ -333,7 +333,7 @@
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800">View Attendance</h1>
 
-        </div>
+
         <!-- /.container-fluid -->
 
         <!-- DataTales Example -->
@@ -348,38 +348,40 @@
             
           </div>
           <div class="card-body">
+            
+
 
               <div class="form-group row">
-                  <div class="col-sm-3 mb-3 mb-sm-0">
-                    <select id="" class="form-control">
-                      <option disabled selected value="1">Select Attendees</option>
+                <label for="selectAttendees" class="col-md-4 col-form-label text-md-right">Select Attendees</label>
+                  <div class="col-md-6">
+                    <select id="selectAttendees" class="form-control">
+                      <!-- <option disabled selected value="1">Select Attendees</option> -->
                       <option class="select-option" value="2">Student XI</option>
                       <option class="select-option" value="2">Student XII</option>
                       <option class="select-option" value="3">Team Member</option>
     
                     </select>
                   </div>
-                  <div class="col-sm-3 mb-3 mb-sm-0">
-                    <select id="" class="form-control">
-                      <option disabled selected value="1">Select Attendance Mode</option>
-                      <option class="select-option" value="2">Daily</option>
-                      <option class="select-option" value="3">Weekly</option>
-                      <option class="select-option" value="3">Monthly</option>
-    
-                    </select>
                   </div>
+
+                  
                   <!-- This catagory is to be decided-->
            <!-- Date and time picker with disbaled dates -->
+           <div class="form-group row">
+            <label for="date" class="col-md-4 col-form-label text-md-right">Select Month</label>
+              <div class="col-md-6">
+                <input id="date" type="date" class="form-control">
+              </div>
+           </div>
     
-           <div class="col-sm-3 mb-3 mb-sm-0">
-                  <input type="date" class="form-control">
-            </div>
-    
-    
-            <div class="col-sm-3 mb-3 mb-sm-0">
+              <div class="form-group row">
+            <div class="col-md-6 offset-md-4">
                 <button class="btn btn-primary" style="width: 10em">Search</button>
               </div>
                 </div>
+
+                <hr class="">
+                
 
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -435,32 +437,32 @@
                   <tr>
                     <td>01</td>
                     <td>Ali Raza</td>
-                    <td>Present</td>
+                    <td>P</td>
 
 
                   </tr>
                   <tr>
                     <td>02</td>
                     <td>Ahmed</td>
-                    <td>Absent</td>
+                    <td>A</td>
 
                   </tr>
                   <tr>
                     <td>03</td>
                     <td>Junior Technical Author</td>
-                    <td>leave</td>
+                    <td>LE</td>
 
                   </tr>
                   <tr>
                     <td>04</td>
                     <td>Senior Javascript Developer</td>
-                    <td>Present</td>
+                    <td>P</td>
 
                   </tr>
                   <tr>
                     <td>05</td>
                     <td>Accountant</td>
-                    <td>Leave</td>
+                    <td>LE</td>
 
                   </tr>
                 </tbody>
@@ -498,7 +500,7 @@
               <button class="btn btn-primary" style="width: 10em">Add</button>
          </div>
         </div>-->
-
+      </div>
       </div>
       <!-- End of Main Content -->
 
