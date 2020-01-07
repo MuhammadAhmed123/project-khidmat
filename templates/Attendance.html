@@ -16,8 +16,10 @@
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <!----<h6 class="m-0 font-weight-bold text-primary">Enter maintenance activity</h6>-->
-    <h6 class="m-0 font-weight-bold text-primary"> <a class="btn btn-primary" href="Attendance.html">View Attendance</a> <a class="btn btn-primary" href="MarkAttendance.html">Mark Attendance</a> </h6>
-
+    <h6 class="m-0 font-weight-bold text-primary"> 
+      <a class="btn btn-primary" href="{{ url_for('viewAttendance') }}">View Attendance</a>
+      <a class="btn btn-primary" href="{{ url_for('viewMarkAttendance') }}">Mark Attendance</a> 
+    </h6>
 
     
   </div>
@@ -91,7 +93,7 @@
         <thead>
           <tr>
 
-            <th>Person_id</th>
+            <th>ID</th>
             <th>Student Name </th>
             <th>01</th>
   <th>02</th>
