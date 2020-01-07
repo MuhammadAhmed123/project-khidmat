@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-4 text-gray-800">View Profiles</h1>
+
+
+    <!-- /.container-fluid -->
+
+    <!-- DataTales Example -->
+
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <h6 class="m-0 font-weight-bold text-primary">View and Edit profiles</h6>
+            <hr>
+
+            <div class="form-group row">
+                <label for="selectCategory" class="col-md-2 col-form-label text-md-right">Select
+                    Category</label>
+                <div class="col-md-4">
+                    <select id="selectCategory" class="form-control">
+                        <option class="select-option" value="1">Students</option>
+                        <option class="select-option" value="2">Staff</option>
+                        <option class="select-option" value="3">Sponsors</option>
+                        <option class="select-option" value="4">Donors</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <button class="btn btn-primary" style="width: 10em">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    {%  if mode['Student'] %}
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Guardian</th>
+                            <th>Gender</th>
+                            <th>Contact</th>
+                            <th>Address</th>
+                            <th>Age</th>
+                            <th>Campus</th>
+                            <th>Shift</th>
+                            <th>Email</th>
+                            <th>Religion</th>
+                            <th>Last School</th>
+                            <th>Last School Fees</th>
+                            <th>Father's Occupation</th>
+                            <th>Father's Earning</th>
+                            <th>Mother's Occupation</th>
+                            <th>Mother's Earning</th>
+                            <th>Number of Siblings</th>
+                            <th>Test Date</th>
+                            <th>Interview Date</th>
+                            <th>Uniform Measurement</th>
+                            <th>Uniform Fees</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+
+                    <!-- <tbody>
+                        <tr>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            <td>2011/04/25</td>
+                            <td>$320,800</td>
+                        </tr>
+
+                    </tbody> -->
+                    {% endif %}
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+<!-- End of Main Content -->
+{% endblock %}

@@ -3,16 +3,13 @@
 {% block body %}
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
+          <h1 class="h3 mb-4 text-gray-800">Manage Classes</h1>
           <!-- Page Heading -->
-          <div class="card">
-			<div class="card-header">Manage Classes</div>
+          <div class="card shadow mb-4">
 				<div class="card-body">
 
 				<!-- Add classes -->
-				<h1 class="header">
-          Add Classes
-        </h1>
+        <h6 class="m-0 font-weight-bold text-primary">Add Classes</h6><hr>
 
         <form action="{{ url_for('addClass') }}" method='post'>
 
@@ -31,9 +28,7 @@
 <br>
 
       <!-- Edit Class -->
-      <h1 class="header">
-        Edit Classes
-      </h1>
+      <h6 class="m-0 font-weight-bold text-primary">Edit Classes</h6><hr>
 
       <form action="{{ url_for('editClass') }}" method='post'>
 
