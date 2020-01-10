@@ -25,40 +25,73 @@
             
           </div>
           <div class="card-body">
-
-              <div class="form-group row">
-                  <div class="col-sm-3 mb-3 mb-sm-0">
-                    <select id="" class="form-control">
-                      <option disabled selected value="1">Select Attendees</option>
-                      <option class="select-option" value="2">Student XI</option>
-                      <option class="select-option" value="2">Student XII</option>
-                      <option class="select-option" value="3">Team Member</option>
-    
-                    </select>
-                  </div>
-                  
-                  <!-- This catagory is to be decided-->
-           <!-- Date and time picker with disbaled dates -->
-    
-           <div class="col-sm-3 mb-3 mb-sm-0">
-                  <input type="date" class="form-control">
-           
-            </div>
-    
-    
-                  <div class="col-sm-3 mb-3 mb-sm-0">
-                    <button class="btn btn-primary" style="width: 10em">Search</button>
-                  </div>
+            <div class="form-group row">
+              <label for="selectAttendees" class="col-md-4 col-form-label text-md-right">Select Attendees</label>
+                <div class="col-md-6">
+                  <select id="selectAttendees" class="form-control" onchange="hideClass()">
+                    <!-- <option disabled selected value="1">Select Attendees</option> -->
+                    <option class="select-option" value="1">Student</option>
+                    <option class="select-option" value="2">Staff</option>
+      
+                  </select>
                 </div>
-
+                </div>
+      
+                
+      
+            <div class="form-group row" >
+              <label for="selectClass" id="selectClassLabel" class="col-md-4 col-form-label text-md-right">Select Class</label>
+                <div class="col-md-6">
+                  <select id="selectClass" name="viewAttendanceSelectClass" class="form-control">
+                    <!-- <option disabled selected value="1">Select Attendees</option> -->
+                    <option class="select-option" value="1">XI</option>
+                    <option class="select-option" value="2">XII</option>
+                    <option class="select-option" value="3">IX</option>
+      
+                  </select>
+                </div>
+                </div>
+      
+                <script>
+                
+                function hideClass() {
+                  if (document.getElementById("selectAttendees").value == "1") {
+                    document.getElementById("selectClassLabel").style.display = "block";
+                    document.getElementById("selectClass").style.display = "block";
+                    // document.getElementById("selectClassDiv").setAttribute("hidden","");
+                  } else {
+                    document.getElementById("selectClassLabel").style.display = "none";
+                    document.getElementById("selectClass").style.display = "none";
+                    // document.getElementById("selectClassDiv").removeAttribute("hidden");
+                  }
+                }
+                </script>
+      
+                
+                <!-- This catagory is to be decided-->
+         <!-- Date and time picker with disbaled dates -->
+         <div class="form-group row">
+          <label for="date" class="col-md-4 col-form-label text-md-right">Select Month</label>
+            <div class="col-md-6">
+              <input id="date" type="date" class="form-control">
+            </div>
+         </div>
+      
+            <div class="form-group row">
+          <div class="col-md-6 offset-md-4">
+              <button class="btn btn-primary" style="width: 10em">Search</button>
+            </div>
+              </div>
+      
+              <hr class="">
+            
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
 
-                    <th>Person_id</th>
+                    <th>ID</th>
                     <th>Student Name </th>
-                    <th>Father Name</th>
                     <th>Status</th>
 
                     <div class="form-check">
@@ -73,7 +106,6 @@
                   <tr>
                     <td>01</td>
                     <td>Ahmed</td>
-                    <td>Daniyal</td>
                     <td>
                             <div class="custom-control custom-radio">
                                     <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="defaultExampleRadios">
@@ -97,7 +129,6 @@
                   <tr>
                     <td>Sara</td>
                     <td>Khan</td>
-                    <td>Tokyo</td>
                       <td>
                           <div class="custom-control custom-radio">
                               <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="defaultExampleRadios">
@@ -121,7 +152,6 @@
                   <tr>
                     <td>03</td>
                     <td>Faizan</td>
-                    <td>Muhib</td>
                       <td>
                           <div class="custom-control custom-radio">
                               <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="defaultExampleRadios">
@@ -145,7 +175,6 @@
                   <tr>
                     <td>04</td>
                     <td>Haris sheikh</td>
-                    <td>Mumtaz khan</td>
                       <td>
                           <div class="custom-control custom-radio">
                               <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="defaultExampleRadios">
@@ -169,7 +198,6 @@
                   <tr>
                     <td>05</td>
                     <td>Helem williams</td>
-                    <td>Khan</td>
                       <td>
                           <div class="custom-control custom-radio">
                               <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="defaultExampleRadios">

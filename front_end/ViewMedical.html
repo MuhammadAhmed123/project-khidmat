@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title> Attendance </title>
+  <title> Medical</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -331,9 +331,9 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">View Attendance</h1>
+          <h1 class="h3 mb-4 text-gray-800">Student Medical Record</h1>
 
-
+        </div>
         <!-- /.container-fluid -->
 
         <!-- DataTales Example -->
@@ -342,46 +342,30 @@
         <div class="card shadow mb-4">
           <div class="card-header py-3">
             <!----<h6 class="m-0 font-weight-bold text-primary">Enter maintenance activity</h6>-->
-            <h6 class="m-0 font-weight-bold text-primary"> <a class="btn btn-primary" href="Attendance.html">View Attendance</a> <a class="btn btn-primary" href="MarkAttendance.html">Mark Attendance</a> </h6>
+            <h6 class="m-0 font-weight-bold text-primary"> <a class="btn btn-primary" href="ViewMedical.html">View Medical Details</a> <a class="btn btn-primary" href="ManageMedical.html">  Manage Medical Details</a> </h6>
 
 
             
           </div>
           <div class="card-body">
-            
-
 
               <div class="form-group row">
-                <label for="selectAttendees" class="col-md-4 col-form-label text-md-right">Select Attendees</label>
-                  <div class="col-md-6">
-                    <select id="selectAttendees" class="form-control">
-                      <!-- <option disabled selected value="1">Select Attendees</option> -->
+                  <div class="col-sm-3 mb-3 mb-sm-0">
+                    <select id="" class="form-control">
+                      <option disabled selected value="1">Select Class</option>
                       <option class="select-option" value="2">Student XI</option>
                       <option class="select-option" value="2">Student XII</option>
-                      <option class="select-option" value="3">Team Member</option>
+                      <option class="select-option" value="3">Student VIII</option>
     
                     </select>
                   </div>
-                  </div>
-
                   
-                  <!-- This catagory is to be decided-->
-           <!-- Date and time picker with disbaled dates -->
-           <div class="form-group row">
-            <label for="date" class="col-md-4 col-form-label text-md-right">Select Month</label>
-              <div class="col-md-6">
-                <input id="date" type="date" class="form-control">
-              </div>
-           </div>
     
-              <div class="form-group row">
-            <div class="col-md-6 offset-md-4">
-                <button class="btn btn-primary" style="width: 10em">Search</button>
-              </div>
+    
+                  <div class="col-sm-3 mb-3 mb-sm-0">
+                    <button class="btn btn-primary" style="width: 10em">Search</button>
+                  </div>
                 </div>
-
-                <hr class="">
-                
 
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -390,41 +374,22 @@
 
                     <th>Person_id</th>
                     <th>Student Name </th>
-                    <th>01</th>
-					<th>02</th>
-					<th>03</th>
-					<th>04</th>
-					<th>05</th>
-					<th>06</th>
-					<th>07</th>
-					<th>08</th>
-					<th>09</th>
-					<th>10</th>
-					<th>11</th>
-					<th>12</th>
-					<th>13</th>
-					<th>14</th>
-					<th>15</th>
-					<th>16</th>
-					<th>17</th>
-					<th>18</th>
-					<th>19</th>
-					<th>20</th>
-					<th>21</th>
-					<th>22</th>
-					<th>23</th>
-					<th>24</th>
-					<th>25</th>
-					<th>26</th>
-					<th>27</th>
-					<th>28</th>
-					<th>29</th>
-					<th>30</th>
-					<th>31</th>
-					<th>Total Presents</th>
-					<th>Total Absents</th>
-					<th>Total Leaves</th>
-	
+                    <th>Have Hepatitis Dose</th>
+                    <th>Hepatitis Dose 1 Date</th>
+					<th>Hepatitis Dose 2 Date</th>
+					<th>Hepatitis Dose 3 Date</th>
+					<th>Remarks</th>
+					<th>Typhoid Test Date</th>
+					<th>Remarks</th>
+                      <th>Blood Test Date</th>
+                      <th>Blood Group</th>
+                      <th> Hemoglobin Levels</th>
+                      <th>Remarks</th>
+					<th>Eye Checkup Date </th>
+                      <th>Remarks</th>
+					<th>Date of General ENT Test</th>
+					<th>Remarks</th>
+
                     <div class="form-check">
                       <label class="form-check-label">
 
@@ -436,38 +401,63 @@
                 <tbody>
                   <tr>
                     <td>01</td>
-                    <td>Ali Raza</td>
-                    <td>P</td>
-
+                    <td>Ahmed</td>
+                    <td>Y</td>
+                    <td>12/12/2001</td>
+					<td>12/1/2002</td>
+					<td>12/12/2003</td>
+					<td>Hapatitis is done</td>
+					<td>19/04/2005</td>
+					<td>Clear</td>
+					<td>14/06/2005</td>
+					<td>Vision blur, Eyesight weak. -2.6</td>
+					<td>13/12/2006</td>
+					<td>Healthy</td>
+                      <td>19/04/2005</td>
+                      <td>Healthy</td>
+                      <td>19/04/2005</td>
+                      <td>Not healthy</td>
+					<td> <a href="ManageMedical.html">Edit</a></td>
 
                   </tr>
                   <tr>
-                    <td>02</td>
-                    <td>Ahmed</td>
-                    <td>A</td>
-
+                    <td>Sara</td>
+                    <td>Khan</td>
+                    <td>100</td>
+                      <td>
+                          30
                   </tr>
                   <tr>
                     <td>03</td>
-                    <td>Junior Technical Author</td>
-                    <td>LE</td>
+                    <td>Faizan</td>
+                    <td>100</td>
+                      <td>
+                          60
+                      </td>
 
                   </tr>
                   <tr>
                     <td>04</td>
-                    <td>Senior Javascript Developer</td>
-                    <td>P</td>
+                    <td>Haris sheikh</td>
+                    <td>100</td>
+                      <td>
+                         50
+                      </td>
 
                   </tr>
                   <tr>
                     <td>05</td>
-                    <td>Accountant</td>
-                    <td>LE</td>
+                    <td>Helem williams</td>
+                    <td>100</td>
+                      <td>
+                         80
+                      </td>
 
                   </tr>
                 </tbody>
               </table>
             </div>
+           
           </div>
 
         </div>
@@ -500,7 +490,7 @@
               <button class="btn btn-primary" style="width: 10em">Add</button>
          </div>
         </div>-->
-      </div>
+
       </div>
       <!-- End of Main Content -->
 

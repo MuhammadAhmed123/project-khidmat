@@ -1,155 +1,211 @@
 {% extends "layout.html" %}
 
 {% block body %}
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
-          <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">View Attendance</h1>
-
-        <!-- /.container-fluid -->
-
-        <!-- DataTales Example -->
+  <!-- Page Heading -->
+  <h1 class="h3 mb-4 text-gray-800">View Attendance</h1>
 
 
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <!----<h6 class="m-0 font-weight-bold text-primary">Enter maintenance activity</h6>-->
-            <h6 class="m-0 font-weight-bold text-primary"> 
-              <a class="btn btn-primary" href="{{ url_for('viewAttendance') }}">View Attendance</a>
-              <a class="btn btn-primary" href="{{ url_for('viewMarkAttendance') }}">Mark Attendance</a> 
-            </h6>
+<!-- /.container-fluid -->
 
-            
+<!-- DataTales Example -->
+
+
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <!----<h6 class="m-0 font-weight-bold text-primary">Enter maintenance activity</h6>-->
+    <h6 class="m-0 font-weight-bold text-primary"> 
+      <a class="btn btn-primary" href="{{ url_for('viewAttendance') }}">View Attendance</a>
+      <a class="btn btn-primary" href="{{ url_for('viewMarkAttendance') }}">Mark Attendance</a> 
+    </h6>
+
+    
+  </div>
+  <div class="card-body">
+    
+
+
+      <div class="form-group row">
+        <label for="selectAttendees" class="col-md-4 col-form-label text-md-right">Select Attendees</label>
+          <div class="col-md-6">
+            <select id="selectAttendees" class="form-control" onchange="hideClass()">
+              <!-- <option disabled selected value="1">Select Attendees</option> -->
+              <option class="select-option" value="1">Student</option>
+              <option class="select-option" value="2">Staff</option>
+
+            </select>
           </div>
-          <div class="card-body">
-
-              <div class="form-group row">
-                  <div class="col-sm-3 mb-3 mb-sm-0">
-                    <select id="" class="form-control">
-                      <option disabled selected value="1">Select Attendees</option>
-                      <option class="select-option" value="2">Student XI</option>
-                      <option class="select-option" value="2">Student XII</option>
-                      <option class="select-option" value="3">Team Member</option>
-    
-                    </select>
-                  </div>
-                  <div class="col-sm-3 mb-3 mb-sm-0">
-                    <select id="" class="form-control">
-                      <option disabled selected value="1">Select Attendance Mode</option>
-                      <option class="select-option" value="2">Daily</option>
-                      <option class="select-option" value="3">Weekly</option>
-                      <option class="select-option" value="3">Monthly</option>
-    
-                    </select>
-                  </div>
-                  <!-- This catagory is to be decided-->
-           <!-- Date and time picker with disbaled dates -->
-    
-           <div class="col-sm-3 mb-3 mb-sm-0">
-                  <input type="date" class="form-control">
-            </div>
-    
-    
-            <div class="col-sm-3 mb-3 mb-sm-0">
-                <button class="btn btn-primary" style="width: 10em">Search</button>
-              </div>
-                </div>
-
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-
-                    <th>Person_id</th>
-                    <th>Student Name </th>
-                    <th>Father Name</th>
-                    <th>Status</th>
-
-                    <div class="form-check">
-                      <label class="form-check-label">
-
-                      </label>
-                    </div>
-
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>01</td>
-                    <td>Ali Raza</td>
-                    <td>Daniyal</td>
-                    <td>Present</td>
-
-
-                  </tr>
-                  <tr>
-                    <td>02</td>
-                    <td>Ahmed</td>
-                    <td>Khan</td>
-                    <td>Absent</td>
-
-                  </tr>
-                  <tr>
-                    <td>03</td>
-                    <td>Junior Technical Author</td>
-                    <td>San Francisco</td>
-                    <td>leave</td>
-
-                  </tr>
-                  <tr>
-                    <td>04</td>
-                    <td>Senior Javascript Developer</td>
-                    <td>Edinburgh</td>
-                    <td>Present</td>
-
-                  </tr>
-                  <tr>
-                    <td>05</td>
-                    <td>Accountant</td>
-                    <td>Tokyo</td>
-                    <td>Leave</td>
-
-                  </tr>
-                </tbody>
-              </table>
-            </div>
           </div>
 
+          
+
+      <div class="form-group row" >
+        <label for="selectClass" id="selectClassLabel" class="col-md-4 col-form-label text-md-right">Select Class</label>
+          <div class="col-md-6">
+            <select id="selectClass" name="viewAttendanceSelectClass" class="form-control">
+              <!-- <option disabled selected value="1">Select Attendees</option> -->
+              <option class="select-option" value="1">XI</option>
+              <option class="select-option" value="2">XII</option>
+              <option class="select-option" value="3">IX</option>
+
+            </select>
+          </div>
+          </div>
+
+          <script>
+          
+          function hideClass() {
+            if (document.getElementById("selectAttendees").value == "1") {
+              document.getElementById("selectClassLabel").style.display = "block";
+              document.getElementById("selectClass").style.display = "block";
+              // document.getElementById("selectClassDiv").setAttribute("hidden","");
+            } else {
+              document.getElementById("selectClassLabel").style.display = "none";
+              document.getElementById("selectClass").style.display = "none";
+              // document.getElementById("selectClassDiv").removeAttribute("hidden");
+            }
+          }
+          </script>
+
+          
+          <!-- This catagory is to be decided-->
+   <!-- Date and time picker with disbaled dates -->
+   <div class="form-group row">
+    <label for="date" class="col-md-4 col-form-label text-md-right">Select Month</label>
+      <div class="col-md-6">
+        <input id="date" type="date" class="form-control">
+      </div>
+   </div>
+
+      <div class="form-group row">
+    <div class="col-md-6 offset-md-4">
+        <button class="btn btn-primary" style="width: 10em">Search</button>
+      </div>
         </div>
 
+        <hr class="">
+        
 
-        <!----
-            <div class="form-group">
-                    <select id="" class="form-control">
-                       <option disabled selected value="1">----Select Category----</option>
-                      <option class="select-option" value="2">Watering Plants</option>
-                      <option class="select-option" value="3">Room A cleaning</option>
-                      <option class="select-option" value="4" >Room B cleaning</option>
-                      <option class="select-option" value="5" >Kitchen</option>
-                      <option class="select-option" value="5" >Courtyard</option>
-                      <option class="select-option" value="5" >Washroom</option>
-                      <option class="select-option" value="5" >External Office</option>
-                      <option class="select-option" value="5" >Internal Office</option>
-                    </select>
-                  </div>
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
 
-           <div class="form-group row">
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                  <input type="text" class="form-control form-control-user" id="executionDate" placeholder="Execution Date">
-                </div>
-                <div class="col-sm-6">
-                  <input type="text" class="form-control form-control-user" id="description" placeholder="Description">
-                </div>
-              </div>
+            <th>ID</th>
+            <th>Student Name </th>
+            <th>01</th>
+  <th>02</th>
+  <th>03</th>
+  <th>04</th>
+  <th>05</th>
+  <th>06</th>
+  <th>07</th>
+  <th>08</th>
+  <th>09</th>
+  <th>10</th>
+  <th>11</th>
+  <th>12</th>
+  <th>13</th>
+  <th>14</th>
+  <th>15</th>
+  <th>16</th>
+  <th>17</th>
+  <th>18</th>
+  <th>19</th>
+  <th>20</th>
+  <th>21</th>
+  <th>22</th>
+  <th>23</th>
+  <th>24</th>
+  <th>25</th>
+  <th>26</th>
+  <th>27</th>
+  <th>28</th>
+  <th>29</th>
+  <th>30</th>
+  <th>31</th>
+  <th>Total Presents</th>
+  <th>Total Absents</th>
+  <th>Total Leaves</th>
 
-              <button class="btn btn-primary" style="width: 10em">Add</button>
-         </div>
-        </div>-->
+            <div class="form-check">
+              <label class="form-check-label">
 
-      </div>
+              </label>
+            </div>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>01</td>
+            <td>Ali Raza</td>
+            <td>P</td>
+
+
+          </tr>
+          <tr>
+            <td>02</td>
+            <td>Ahmed</td>
+            <td>A</td>
+
+          </tr>
+          <tr>
+            <td>03</td>
+            <td>Junior Technical Author</td>
+            <td>LE</td>
+
+          </tr>
+          <tr>
+            <td>04</td>
+            <td>Senior Javascript Developer</td>
+            <td>P</td>
+
+          </tr>
+          <tr>
+            <td>05</td>
+            <td>Accountant</td>
+            <td>LE</td>
+
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 
-      <!-- End of Main Content -->
+</div>
 
+
+<!----
+    <div class="form-group">
+            <select id="" class="form-control">
+               <option disabled selected value="1">----Select Category----</option>
+              <option class="select-option" value="2">Watering Plants</option>
+              <option class="select-option" value="3">Room A cleaning</option>
+              <option class="select-option" value="4" >Room B cleaning</option>
+              <option class="select-option" value="5" >Kitchen</option>
+              <option class="select-option" value="5" >Courtyard</option>
+              <option class="select-option" value="5" >Washroom</option>
+              <option class="select-option" value="5" >External Office</option>
+              <option class="select-option" value="5" >Internal Office</option>
+            </select>
+          </div>
+
+   <div class="form-group row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <input type="text" class="form-control form-control-user" id="executionDate" placeholder="Execution Date">
+        </div>
+        <div class="col-sm-6">
+          <input type="text" class="form-control form-control-user" id="description" placeholder="Description">
+        </div>
+      </div>
+
+      <button class="btn btn-primary" style="width: 10em">Add</button>
+ </div>
+</div>-->
+</div>
+</div>
+<!-- End of Main Content -->
       {% endblock %}
