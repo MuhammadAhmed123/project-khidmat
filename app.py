@@ -7,11 +7,24 @@ app = Flask(__name__)
 engine = create_engine("mysql://root:@127.0.0.1/tgsapplication")
 db = scoped_session(sessionmaker(bind=engine))
 
+#
+# @app.route("/loginLink")
+# def loginLink():
+#     return render_template("login.html")
+
+@app.route("/login", methods=["POST"])
+def login():
+    username = request.form.get("username")
+    password = request.form.get("password")
+    if (username == "Admin@gmail.com" and password == "Admin"):
+        return redirect(url_for("registerStudentLink"))
+    flash("Invalid!")
+    return redirect(url_for("index"))
+
 
 @app.route("/")
 def index():
-    return render_template("index.html")
-
+    return render_template("login.html")
 # this registration code has to be edited
 
 editRegNames = []
