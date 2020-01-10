@@ -27,6 +27,46 @@ def index():
     return render_template("login.html")
 # this registration code has to be edited
 
+editRegNames = []
+editRegIDs = []
+
+@app.route("/registerEdit")
+def registerEdit():
+    return render_template("edit_reg.html", names=editRegNames, ids=editRegIDs)
+
+@app.route("/editRegSelectPopulate")
+def editRegSelectPopulate(selectValue):
+    global editRegNames
+    global editRegIDs
+    print("value -> ", selectValue)
+    if selectValue=="3":
+        editRegNames = db.execute("SELECT Person.Name FROM Person WHERE Person.idPerson=Staff.Person_idPerson")
+        editRegIDs = db.execute("SELECT Person.ID FROM Person WHERE Person.idPerson=Staff.Person_idPerson")        
+    return render_template("edit_reg.html", names=editRegNames, ids=editRegIDs)
+
+@app.route("/viewProfiles")
+def viewProfiles():
+    data = []
+    mode = {"Student": False, "Staff": False, "Sponsor": False, "Donor": False}
+    return render_template("viewProfiles.html", data=data, mode=mode)
+
+@app.route("/viewProfileSearchFunction")
+def viewProfileSearchFunction():
+    data = []
+    mode = {"Student": False, "Staff": False, "Sponsor": False, "Donor": False}
+    category = request.form.get('viewProfileSearchCategory')
+    if category == "1":
+        mode['Student']=True
+    elif category == "2":
+        mode["Staff"]=True
+    elif category == "3":
+        mode["Sponsor"]=True
+    else:
+        mode["Donor"]=True
+    data = db.execute("SELECT * FROM Person,Student")
+    return render_template("viewProfiles.html", data=data, mode=mode)
+
+
 @app.route("/registerStudentLink")
 def registerStudentLink():
     classes = db.execute("SELECT Class.Name FROM Class")

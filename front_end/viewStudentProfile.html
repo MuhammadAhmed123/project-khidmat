@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Blank</title>
+  <title>Student Profile</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -348,114 +348,291 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Registration</h1>
+          <h1 class="h3 mb-4 text-gray-800">Student Profile</h1>
 
           <main class="my-form">
             <div class="cotainer">
               <div class="card shadow mb-4">
-                <div class="card-header">
-                  <h6 class="m-0 font-weight-bold text-primary">
-                    <a class="btn btn-primary" href="student_reg.html">Student</a>
-                    <a class="btn btn-primary" href="staff_reg.html">Staff</a>
-                    <a class="btn btn-primary" href="sponsor_reg.html">Sponsor</a>
-                    <a class="btn btn-primary" href="donor_reg.html">Donor</a>
-                  </h6>
-                </div>
-                <!-- <div class="card-header">Sponsor Registeration</div> -->
+                <!-- <div class="card-header">Student Registeration</div> -->
                 <div class="card-body">
-                  <h6 class="m-0 font-weight-bold text-primary">Register a Sponsor</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">View a Student</h6>
             <hr>
+                    <img src="img/profile_default.png" width="200px" height="230px" style="margin-left: 600px; margin-bottom: 20px; border: 2px solid darkgray">
+
                   <form name="my-form" action="" method="">
                     <div class="form-group row">
                       <label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
                       <div class="col-md-6">
-                        <input type="text" id="full_name" class="form-control" name="full-name">
+                        <input type="text" id="full_name" class="form-control" name="full-name" disabled>
                       </div>
                     </div>
                     <div class="form-group row">
+                      <label for="guardian_name" class="col-md-4 col-form-label text-md-right">Guardian Name</label>
+                      <div class="col-md-6">
+                        <input type="text" id="guardian_name" class="form-control" name="full-name" disabled>
+                      </div>
+                    </div>
+
+                      <div class="form-group row">
+                          <label for="lastclass" class="col-md-4 col-form-label text-md-right">Class</label>
+                          <div class="col-md-6">
+                              <!-- <input type="text" id="lastclass" class="form-control"> -->
+                              <select id="lastclass" class="form-control">
+                                  <option class="select-option" value="2">I</option>
+                                  <option class="select-option" value="3">II</option>
+                                  <option class="select-option" value="4">III</option>
+                                  <option class="select-option" value="5">X</option>
+                              </select>
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label for="month" class="col-md-4 col-form-label text-md-right">Month</label>
+                          <div class="col-md-6">
+                              <input type="month" id="month" class="form-control" name="month" min="2020-01-01" value="2020-01-01">
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label for="present" class="col-md-4 col-form-label text-md-right">Present Days</label>
+                          <div class="col-md-6">
+                              <input type="number" id="present" class="form-control" name="present" disabled>
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label for="absent" class="col-md-4 col-form-label text-md-right">Absent Days</label>
+                          <div class="col-md-6">
+                              <input type="number" id="absent" class="form-control" name="absent" disabled>
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label for="leaves" class="col-md-4 col-form-label text-md-right">Leaves</label>
+                          <div class="col-md-6">
+                              <input type="number" id="leaves" class="form-control" name="leaves" disabled>
+                          </div>
+                      </div>
+                    <div class="form-group row">
                       <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
                       <div class="col-md-6">
-                        <input type="text" id="email_address" class="form-control" name="email-address">
+                        <input type="text" id="email_address" class="form-control" name="email-address" disabled>
                       </div>
                     </div>
 
                     <div class="form-group row">
-                      <label for="permanent_address" class="col-md-4 col-form-label text-md-right">Address</label>
+                      <label for="html" class="col-md-4 col-form-label text-md-right">Gender</label>
                       <div class="col-md-6">
-                        <input type="text" id="permanent_address" class="form-control" name="permanent-address">
+                        <input type="radio" id="html" name="gender" disabled>
+                        <label for="html">Female</label>
+                      <!-- </div>
+                      <div class="col-md-6"> -->
+                        <input type="radio" id="css" name="gender">
+                        <label for="css">Male</label>
+                      </div>
+                    </div>
+<!--
+                    <div class="form-group row ">
+                      <label for="email_address" class="col-md-4 col-form-label text-md-right"></label>
+                      <div class="col-md-6">
+                        <input type="checkbox" id="css">
+                        <label for="css">Male</label>
+                      </div>
+                    </div> -->
+
+                    <div class="form-group row">
+                      <label for="religion" class="col-md-4 col-form-label text-md-right">Religion</label>
+                      <div class="col-md-6">
+                        <input type="text" id="religion" class="form-control" name="username" disabled>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="fatheroccupation" class="col-md-4 col-form-label text-md-right">Father's Occupation</label>
+                      <div class="col-md-6">
+                        <input type="text" id="fatheroccupation" class="form-control" name="permanent-address" disabled>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="father_earning" class="col-md-4 col-form-label text-md-right">Father's Earning</label>
+                      <div class="col-md-6">
+                        <input type="text" id="father_earning" class="form-control" name="permanent-address" disabled>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="motheroccupation" class="col-md-4 col-form-label text-md-right">Mother's
+                        Occupation</label>
+                      <div class="col-md-6">
+                        <input type="text" id="motheroccupation" class="form-control" name="permanent-address">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="mother_earning" class="col-md-4 col-form-label text-md-right">Mother's Earning</label>
+                      <div class="col-md-6">
+                        <input type="text" id="mother_earning" class="form-control" name="permanent-address" disabled>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="DOB" class="col-md-4 col-form-label text-md-right">Date of Birth</label>
+                      <div class="col-md-6">
+                        <div class="input-append date">
+                          <input type="date" id="DOB" class="form-control form-control-user" disabled>
+                        </div>
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
                       <div class="col-md-6">
-                        <input type="text" id="phone_number" class="form-control">
+                        <input type="text" id="phone_number" class="form-control" disabled>
                       </div>
                     </div>
 
                     <div class="form-group row">
-                      <label for="religion" class="col-md-4 col-form-label text-md-right">Date of Birth</label>
+                      <label for="permanent_address" class="col-md-4 col-form-label text-md-right">Address</label>
                       <div class="col-md-6">
-                        <div class="input-append date">
-                          <input type="date" id="joiningdate" class="form-control form-control-user">
-                        </div>
+                        <input type="text" id="permanent_address" class="form-control" name="permanent-address" disabled>
+                      </div>
+                    </div>
+                      <div class="form-group row">
+                          <label for="schoolFees" class="col-md-4 col-form-label text-md-right">School Rules</label>
+                          <div class="col-md-6">
+                              <input type="checkbox" id="schoolFees" class="form-check-input col-md-4 col-form-label text-md-right" value="Yes" checked> <label>Yes</label><br>
+                              <input type="checkbox" id="schoolFeesno" class="form-check-input col-md-4 col-form-label text-md-right" value="No"><label>No</label>
+                          </div>
+                      </div>
+
+                    <div class="form-group row">
+                      <label for="lastschool" class="col-md-4 col-form-label text-md-right">Last Attended School</label>
+                      <div class="col-md-6">
+                        <input type="text" id="lastschool" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="lastschoolfee" class="col-md-4 col-form-label text-md-right">Last Attended School
+                        Fees</label>
+                      <div class="col-md-6">
+                        <input type="text" id="lastschoolfee" class="form-control" disabled>
+                      </div>
+                    </div>
+                      <div class="form-group row">
+                          <label for="leavingcert" class="col-md-4 col-form-label text-md-right">School Leaving Certificate</label>
+                          <div class="col-md-6">
+                              <input type="checkbox" id="leavingcert" class="form-check-input col-md-4 col-form-label text-md-right" value="Yes" checked> <label>Yes</label><br>
+                              <input type="checkbox" id="leavingcert" class="form-check-input col-md-4 col-form-label text-md-right" value="No"><label>No</label>
+                          </div>
+                      </div>
+
+                      <div class="form-group row">
+                          <label for="sponsor" class="col-md-4 col-form-label text-md-right">Sponsor</label>
+                          <div class="col-md-6">
+                              <!-- <input type="text" id="lastclass" class="form-control"> -->
+                              <select id="sponsor" class="form-control">
+                                  <option class="select-option" value="2">Person 1</option>
+                                  <option class="select-option" value="3">Person 2</option>
+                                  <option class="select-option" value="4">Person 2</option>
+                                  <option class="select-option" value="5">Person 3</option>
+                              </select>
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label for="letter" class="col-md-4 col-form-label text-md-right">Sponsor Letter</label>
+                          <div class="col-md-6">
+                              <input type="checkbox" id="letter" class="form-check-input col-md-4 col-form-label text-md-right" value="Yes" checked> <label>Yes</label><br>
+                              <input type="checkbox" id="letterno" class="form-check-input col-md-4 col-form-label text-md-right" value="No"><label>No</label>
+                          </div>
+                      </div>
+
+                      <div class="form-group row">
+                          <label for="healthfees" class="col-md-4 col-form-label text-md-right">Health Fees</label>
+                          <div class="col-md-6">
+                              <input type="number" id="healthfees" class="form-control" disabled>
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label for="bloodHealth" class="col-md-4 col-form-label text-md-right">Blood Health</label>
+                          <div class="col-md-6">
+                              <input type="number" id="bloodHealth" class="form-control" disabled>
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label for="schoolfees" class="col-md-4 col-form-label text-md-right">School Fees</label>
+                          <div class="col-md-6">
+                              <input type="number" id="school_Fees" class="form-control" disabled>
+                          </div>
+                      </div>
+
+                    <div class="form-group row">
+                      <label for="interview_date" class="col-md-4 col-form-label text-md-right">Interview Date</label>
+                      <div class="col-md-6">
+                        <input type="date" id="interview_date" class="form-control" disabled>
                       </div>
                     </div>
 
 
                     <div class="form-group row">
-                      <label for="CurrentState" class="col-md-4 col-form-label text-md-right">Current State</label>
+                      <label for="test_date" class="col-md-4 col-form-label text-md-right">Admission Test Date</label>
                       <div class="col-md-6">
-                        <!-- <input type="text" id="CurrentState" class="form-control" name="permanent-address"> -->
-                        <select id="CurrentState" class="form-control">
-                          <option class="select-option" value="2">Active</option>
-                          <option class="select-option" value="3">Inactive</option>
-                          <!-- <option class="select-option" value="4">III</option>
-                          <option class="select-option" value="5">X</option> -->
+                        <input type="date" id="test_date" class="form-control" disabled>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="uniform-measurement" class="col-md-4 col-form-label text-md-right">Uniform
+                        Measurements</label>
+                      <div class="col-md-6">
+                        <input type="text" id="uniform-measurement" class="form-control" disabled>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="uniform-fee" class="col-md-4 col-form-label text-md-right">Uniform Fees</label>
+                      <div class="col-md-6">
+                        <input type="text" id="uniform-fee" class="form-control" disabled>
+                      </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                      <label for="campus" class="col-md-4 col-form-label text-md-right">Campus</label>
+                      <div class="col-md-6">
+                        <!-- <input type="text" id="campus" class="form-control" name="permanent-address"> -->
+                        <select id="campus" class="form-control">
+                          <option class="select-option" value="2">I</option>
+                          <option class="select-option" value="3">II</option>
+                          <option class="select-option" value="4">III</option>
+                          <option class="select-option" value="5">X</option>
                         </select>
                       </div>
                     </div>
 
                     <div class="form-group row">
-                      <label for="SponsorshipDue" class="col-md-4 col-form-label text-md-right">Date Sponsorship Due</label>
+                      <label for="shift" class="col-md-4 col-form-label text-md-right">Shift</label>
                       <div class="col-md-6">
-                        <input type="date" id="joiningdate" class="form-control form-control-user">
+                        <select id="shift" class="form-control">
+                          <option class="select-option" value="2">I</option>
+                          <option class="select-option" value="3">II</option>
+                          <option class="select-option" value="4">III</option>
+                          <option class="select-option" value="5">X</option>
+                        </select>
+                        <!-- <input type="shift" id="campus" class="form-control" name="shift"> -->
                       </div>
                     </div>
+
                     <div class="form-group row">
-                      <label for="SponsorshipStartDate" class="col-md-4 col-form-label text-md-right">Date Sponsorship
-                        Started</label>
+                      <label for="siblings" class="col-md-4 col-form-label text-md-right">No. of Siblings</label>
                       <div class="col-md-6">
-                        <input type="date" id="sponsorshipstartdate" class="form-control form-control-user">
+                        <input type="number" id="siblings" class="form-control form-control-user" placeholder=1>
                       </div>
                     </div>
 
-                      <div class="form-group row">
-                          <label for="company" class="col-md-4 col-form-label text-md-right">Company</label>
-                          <div class="col-md-6">
-                              <input type="text" id="company" class="form-control" name="company">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label for="designation" class="col-md-4 col-form-label text-md-right">Designation</label>
-                          <div class="col-md-6">
-                              <input type="text" id="designation" class="form-control" name="designation">
-                          </div>
-                      </div>
 
-                    <!-- <div class="form-group row">
-                      <label for="campus" class="col-md-4 col-form-label text-md-right">Campus</label>
-                      <div class="col-md-6">
-                        <input type="text" id="campus" class="form-control" name="permanent-address">
-                      </div>
-                    </div> -->
-
-
+<hr>
                     <div class="col-md-6 offset-md-4">
-                      <button type="submit" class="btn btn-primary">
-                        Register
+                      <button type="submit" class="btn btn-primary" style="width: 200px; margin-left: 150px">
+                        Download Profile
                       </button>
                     </div>
                   </form>
@@ -464,6 +641,7 @@
             </div>
 
           </main>
+
         </div>
         <!-- /.container-fluid -->
 

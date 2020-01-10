@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Blank</title>
+  <title>Edit Student Reg</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -456,8 +456,16 @@
                         <input type="text" id="permanent_address" class="form-control" name="permanent-address">
                       </div>
                     </div>
+                      <div class="form-group row">
+                          <label for="schoolFees" class="col-md-4 col-form-label text-md-right">School Rules</label>
+                          <div class="col-md-6">
+                              <input type="checkbox" id="schoolFees" class="form-check-input col-md-4 col-form-label text-md-right" value="Yes" checked> <label>Yes</label><br>
+                              <input type="checkbox" id="schoolFeesno" class="form-check-input col-md-4 col-form-label text-md-right" value="No"><label>No</label>
+                          </div>
+                      </div>
 
-                    <div class="form-group row">
+
+                      <div class="form-group row">
                       <label for="lastschool" class="col-md-4 col-form-label text-md-right">Last Attended School</label>
                       <div class="col-md-6">
                         <input type="text" id="lastschool" class="form-control">
@@ -471,8 +479,16 @@
                         <input type="text" id="lastschoolfee" class="form-control">
                       </div>
                     </div>
+                      <div class="form-group row">
+                          <label for="leavingcert" class="col-md-4 col-form-label text-md-right">School Leaving Certificate</label>
+                          <div class="col-md-6">
+                              <input type="checkbox" id="leavingcert" class="form-check-input col-md-4 col-form-label text-md-right" value="Yes" checked> <label>Yes</label><br>
+                              <input type="checkbox" id="leavingcert" class="form-check-input col-md-4 col-form-label text-md-right" value="No"><label>No</label>
+                          </div>
+                      </div>
 
-                    <div class="form-group row">
+
+                      <div class="form-group row">
                       <label for="lastclass" class="col-md-4 col-form-label text-md-right">Class</label>
                       <div class="col-md-6">
                         <!-- <input type="text" id="lastclass" class="form-control"> -->
@@ -484,6 +500,44 @@
                         </select>
                       </div>
                     </div>
+                      <div class="form-group row">
+                          <label for="sponsor" class="col-md-4 col-form-label text-md-right">Sponsor</label>
+                          <div class="col-md-6">
+                              <!-- <input type="text" id="lastclass" class="form-control"> -->
+                              <select id="sponsor" class="form-control">
+                                  <option class="select-option" value="2">Person 1</option>
+                                  <option class="select-option" value="3">Person 2</option>
+                                  <option class="select-option" value="4">Person 2</option>
+                                  <option class="select-option" value="5">Person 3</option>
+                              </select>
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label for="letter" class="col-md-4 col-form-label text-md-right">Sponsor Letter</label>
+                          <div class="col-md-6">
+                              <input type="checkbox" id="letter" class="form-check-input col-md-4 col-form-label text-md-right" value="Yes" checked> <label>Yes</label><br>
+                              <input type="checkbox" id="letterno" class="form-check-input col-md-4 col-form-label text-md-right" value="No"><label>No</label>
+                          </div>
+                      </div>
+
+                      <div class="form-group row">
+                          <label for="healthfees" class="col-md-4 col-form-label text-md-right">Health Fees</label>
+                          <div class="col-md-6">
+                              <input type="number" id="healthfees" class="form-control">
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label for="bloodHealth" class="col-md-4 col-form-label text-md-right">Blood Health</label>
+                          <div class="col-md-6">
+                              <input type="number" id="bloodHealth" class="form-control" >
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label for="schoolfees" class="col-md-4 col-form-label text-md-right">School Fees</label>
+                          <div class="col-md-6">
+                              <input type="number" id="school_Fees" class="form-control" >
+                          </div>
+                      </div>
 
                     <div class="form-group row">
                       <label for="interview_date" class="col-md-4 col-form-label text-md-right">Interview Date</label>

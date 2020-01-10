@@ -350,120 +350,138 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Registration</h1>
+          <div class="card">
+            <div class="card-header">Manage Vehicle Maintenance Entry</div>
+            <div class="card-body">
 
-          <main class="my-form">
-            <div class="cotainer">
-              <div class="card shadow mb-4">
-                <div class="card-header">
-                  <h6 class="m-0 font-weight-bold text-primary">
-                    <a class="btn btn-primary" href="student_reg.html">Student</a>
-                    <a class="btn btn-primary" href="staff_reg.html">Staff</a>
-                    <a class="btn btn-primary" href="sponsor_reg.html">Sponsor</a>
-                    <a class="btn btn-primary" href="donor_reg.html">Donor</a>
-                  </h6>
+              <!-- Add classes -->
+              <h6 class="m-0 font-weight-bold text-primary">
+                Add Vehicle Maintenance Entry
+              </h6>
+              <hr>
+
+              <form action="{{ url_for('') }}" method='post'>
+
+
+                <div class="form-group row">
+                  <label for="vehicleName" class="col-md-4 col-form-label text-md-right">Select Vehicle</label>
+                  <div class="col-md-6">
+                    <select class="form-control" id="vehicleName" name="vehicleName">
+                      <option class="">Car</option>
+                      <option class="">Van</option>
+                    </select>
+                  </div>
                 </div>
-                <!-- <div class="card-header">Sponsor Registeration</div> -->
-                <div class="card-body">
-                  <h6 class="m-0 font-weight-bold text-primary">Register a Sponsor</h6>
-            <hr>
-                  <form name="my-form" action="" method="">
-                    <div class="form-group row">
-                      <label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
-                      <div class="col-md-6">
-                        <input type="text" id="full_name" class="form-control" name="full-name">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
-                      <div class="col-md-6">
-                        <input type="text" id="email_address" class="form-control" name="email-address">
-                      </div>
-                    </div>
 
-                    <div class="form-group row">
-                      <label for="permanent_address" class="col-md-4 col-form-label text-md-right">Address</label>
-                      <div class="col-md-6">
-                        <input type="text" id="permanent_address" class="form-control" name="permanent-address">
-                      </div>
-                    </div>
-
-                    <div class="form-group row">
-                      <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
-                      <div class="col-md-6">
-                        <input type="text" id="phone_number" class="form-control">
-                      </div>
-                    </div>
-
-                    <div class="form-group row">
-                      <label for="religion" class="col-md-4 col-form-label text-md-right">Date of Birth</label>
-                      <div class="col-md-6">
-                        <div class="input-append date">
-                          <input type="date" id="joiningdate" class="form-control form-control-user">
-                        </div>
-                      </div>
-                    </div>
-
-
-                    <div class="form-group row">
-                      <label for="CurrentState" class="col-md-4 col-form-label text-md-right">Current State</label>
-                      <div class="col-md-6">
-                        <!-- <input type="text" id="CurrentState" class="form-control" name="permanent-address"> -->
-                        <select id="CurrentState" class="form-control">
-                          <option class="select-option" value="2">Active</option>
-                          <option class="select-option" value="3">Inactive</option>
-                          <!-- <option class="select-option" value="4">III</option>
-                          <option class="select-option" value="5">X</option> -->
-                        </select>
-                      </div>
-                    </div>
-
-                    <div class="form-group row">
-                      <label for="SponsorshipDue" class="col-md-4 col-form-label text-md-right">Date Sponsorship Due</label>
-                      <div class="col-md-6">
-                        <input type="date" id="joiningdate" class="form-control form-control-user">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="SponsorshipStartDate" class="col-md-4 col-form-label text-md-right">Date Sponsorship
-                        Started</label>
-                      <div class="col-md-6">
-                        <input type="date" id="sponsorshipstartdate" class="form-control form-control-user">
-                      </div>
-                    </div>
-
-                      <div class="form-group row">
-                          <label for="company" class="col-md-4 col-form-label text-md-right">Company</label>
-                          <div class="col-md-6">
-                              <input type="text" id="company" class="form-control" name="company">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label for="designation" class="col-md-4 col-form-label text-md-right">Designation</label>
-                          <div class="col-md-6">
-                              <input type="text" id="designation" class="form-control" name="designation">
-                          </div>
-                      </div>
-
-                    <!-- <div class="form-group row">
-                      <label for="campus" class="col-md-4 col-form-label text-md-right">Campus</label>
-                      <div class="col-md-6">
-                        <input type="text" id="campus" class="form-control" name="permanent-address">
-                      </div>
-                    </div> -->
-
-
-                    <div class="col-md-6 offset-md-4">
-                      <button type="submit" class="btn btn-primary">
-                        Register
-                      </button>
-                    </div>
-                  </form>
-                </div>
+                <div class="form-group row">
+                  <label for="maintenanceCat" class="col-md-4 col-form-label text-md-right">Select Maintenance Category</label>
+                  <div class="col-md-6">
+                      <select class="form-control" id="maintenanceCat" name="maintenanceCat">
+                        <option class="">Nut</option>
+                        <option class="">Bolt</option>
+                      </select>
+                  </div>
               </div>
-            </div>
 
-          </main>
+                <div class="form-group row">
+                  <label for="maintenanceDate" class="col-md-4 col-form-label text-md-right">Maintenance Date</label>
+                  <div class="col-md-6">
+                    <input type="date" id="maintenanceDate" class="form-control" name="vehicleMaintenanceDate">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="maintenanceExpense" class="col-md-4 col-form-label text-md-right">Expense</label>
+                  <div class="col-md-6">
+                    <input type="number" id="maintenanceExpense" class="form-control" name="maintenanceExpense">
+                  </div>
+                </div>
+
+
+                <div class="form-group row">
+                  <label for="maintenanceRemarks" class="col-md-4 col-form-label text-md-right">Remarks</label>
+                  <div class="col-md-6">
+                    <input type="text" id="maintenanceRemarks" class="form-control" name="maintenanceRemarks">
+                  </div>
+                </div>
+
+
+                <div class="col-md-6 offset-md-4">
+                  <input type="submit" class="btn btn-primary" value="Add">
+                </div>
+
+              </form>
+              <br>
+
+              <!-- Edit Class -->
+              <h6 class="m-0 font-weight-bold text-primary">
+                Edit Vehicle Maintenance Entry
+              </h6>
+              <hr>
+              <form action="{{ url_for('') }}" method='post'>
+
+                <div class="form-group row">
+                  <label for="vehicleMaintenanceNameEdit" class="col-md-4 col-form-label text-md-right">Vehicle To Edit</label>
+                  <div class="col-md-6">
+                    <select class="form-control" id="vehicleMaintenanceNameEdit" name="vehicleMaintenanceNameEdit">
+                      <option class="">Car</option>
+                      <option class="">Van</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="vehicleMaintenanceNameEditTo" class="col-md-4 col-form-label text-md-right">Select Other Vehicle</label>
+                  <div class="col-md-6">
+                    <select class="form-control" id="vehicleMaintenanceNameEditTo" name="vehicleMaintenanceNameEditTo">
+                      <option class="">Car</option>
+                      <option class="">Van</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="maintenanceCatEdit" class="col-md-4 col-form-label text-md-right">Change Maintenance Category</label>
+                  <div class="col-md-6">
+                      <select class="form-control" id="maintenanceCatEdit" name="maintenanceCatEdit">
+                        <option class="">Nut</option>
+                        <option class="">Bolt</option>
+                      </select>
+                  </div>
+              </div>
+
+                <div class="form-group row">
+                  <label for="maintenanceDateEdit" class="col-md-4 col-form-label text-md-right">Change Maintenance Date</label>
+                  <div class="col-md-6">
+                    <input type="date" id="maintenanceDateEdit" class="form-control" name="maintenanceDateEdit">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="maintenanceExpenseEdit" class="col-md-4 col-form-label text-md-right">Change Expense</label>
+                  <div class="col-md-6">
+                    <input type="number" id="maintenanceExpenseEdit" class="form-control" name="maintenanceExpenseEdit">
+                  </div>
+                </div>
+
+
+                <div class="form-group row">
+                  <label for="maintenanceRemarksEdit" class="col-md-4 col-form-label text-md-right">Change Remarks</label>
+                  <div class="col-md-6">
+                    <input type="text" id="maintenanceRemarksEdit" class="form-control" name="maintenanceRemarksEdit">
+                  </div>
+                </div>
+                <div class="col-md-6 offset-md-4">
+                  <input type="submit" class="btn btn-primary" value="Edit">
+                </div>
+
+              </form>
+
+
+            </div>
+          </div>
+
+
         </div>
         <!-- /.container-fluid -->
 

@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title> Attendance </title>
+  <title> Profile</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -73,9 +73,12 @@
         <div id="collapseAdmin" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="AdminMaintenance_Log.html">Maintenance</a>
-            <a class="collapse-item active" href="Attendance.html">Attendance</a>
+            <a class="collapse-item " href="Attendance.html">Attendance</a>
             <a class="collapse-item" href="finance.html">Finance</a>
             <a class="collapse-item" href="RegisterPerson.html">Registration</a>
+			<a class="collapse-item active " href="StudentProfile.html">Profile</a>
+			<a class="collapse-item active " href="StudentProfile.html">Profile</a>
+              <a class="collapse-item " href="Donations.html.html">Donations</a>
           </div>
         </div>
       </li>
@@ -154,7 +157,6 @@
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
             <li class="nav-item dropdown no-arrow d-sm-none">
               <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
@@ -331,100 +333,45 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">View Attendance</h1>
+          <h1 class="h3 mb-4 text-gray-800">View Donor Profile</h1>
 
-
+        </div>
         <!-- /.container-fluid -->
 
         <!-- DataTales Example -->
 
 
         <div class="card shadow mb-4">
-          <div class="card-header py-3">
+          <div class="card-header py-1">
             <!----<h6 class="m-0 font-weight-bold text-primary">Enter maintenance activity</h6>-->
-            <h6 class="m-0 font-weight-bold text-primary"> <a class="btn btn-primary" href="Attendance.html">View Attendance</a> <a class="btn btn-primary" href="MarkAttendance.html">Mark Attendance</a> </h6>
+            <h6 class="m-0 font-weight-bold text-primary">
+                <a class="btn btn-primary" href="StudentProfile.html" style="padding-left: 135px; padding-right: 135px; padding-top: 20px;padding-bottom: 20px; margin-top: 10px">Student</a>
+                <a class="btn btn-primary" href="StaffProfile.html" style="padding-left: 135px; padding-right: 135px; padding-top: 20px; padding-bottom: 20px ;margin-top: 10px ">Staff</a>
+              <a class="btn btn-primary" href="SponsorProfile.html" style="padding-left: 135px; padding-right: 135px; padding-top: 20px; padding-bottom: 20px; margin-top: 10px">Sponsor</a>
+              <a class="btn btn-primary" href="DonorProfile.html" style="padding-left: 135px; padding-right: 135px; padding-top: 20px ;padding-bottom: 20px; margin-top: 10px">Donor</a> <h6>
 
 
             
           </div>
           <div class="card-body">
-            
-
-
-              <div class="form-group row">
-                <label for="selectAttendees" class="col-md-4 col-form-label text-md-right">Select Attendees</label>
-                  <div class="col-md-6">
-                    <select id="selectAttendees" class="form-control">
-                      <!-- <option disabled selected value="1">Select Attendees</option> -->
-                      <option class="select-option" value="2">Student XI</option>
-                      <option class="select-option" value="2">Student XII</option>
-                      <option class="select-option" value="3">Team Member</option>
-    
-                    </select>
-                  </div>
-                  </div>
 
                   
-                  <!-- This catagory is to be decided-->
-           <!-- Date and time picker with disbaled dates -->
-           <div class="form-group row">
-            <label for="date" class="col-md-4 col-form-label text-md-right">Select Month</label>
-              <div class="col-md-6">
-                <input id="date" type="date" class="form-control">
-              </div>
-           </div>
     
-              <div class="form-group row">
-            <div class="col-md-6 offset-md-4">
-                <button class="btn btn-primary" style="width: 10em">Search</button>
-              </div>
-                </div>
-
-                <hr class="">
-                
-
+			<h3>Donor Details</h3>
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
 
-                    <th>Person_id</th>
-                    <th>Student Name </th>
-                    <th>01</th>
-					<th>02</th>
-					<th>03</th>
-					<th>04</th>
-					<th>05</th>
-					<th>06</th>
-					<th>07</th>
-					<th>08</th>
-					<th>09</th>
-					<th>10</th>
-					<th>11</th>
-					<th>12</th>
-					<th>13</th>
-					<th>14</th>
-					<th>15</th>
-					<th>16</th>
-					<th>17</th>
-					<th>18</th>
-					<th>19</th>
-					<th>20</th>
-					<th>21</th>
-					<th>22</th>
-					<th>23</th>
-					<th>24</th>
-					<th>25</th>
-					<th>26</th>
-					<th>27</th>
-					<th>28</th>
-					<th>29</th>
-					<th>30</th>
-					<th>31</th>
-					<th>Total Presents</th>
-					<th>Total Absents</th>
-                    <th>Total Lates</th>
-					<th>Total Leaves</th>
+                    <th>ID</th>
+                    <th>Name </th>
+					<th>Gender </th>
+					<th>Contact </th>
+					<th>Date Donation Started </th>
+					<th>Email Address </th>
+					<th>Remarks</th>
+					
+					
 	
                     <div class="form-check">
                       <label class="form-check-label">
@@ -438,41 +385,100 @@
                   <tr>
                     <td>01</td>
                     <td>Ali Raza</td>
-                    <td>P</td>
-
+                    <td>Raza Sohail </td>
+					<td>Male</td>
+					<td>033333333</td>
+					<td>a-123 B Street X Area, Karachi</td>
+					<td>01/01/2001</td>
+					<td> <a href="EditStudent.html">Edit</a></td>
 
                   </tr>
                   <tr>
                     <td>02</td>
                     <td>Ahmed</td>
-                    <td>A</td>
+                    <td>Absent</td>
 
                   </tr>
                   <tr>
                     <td>03</td>
                     <td>Junior Technical Author</td>
-                    <td>LE</td>
+                    <td>leave</td>
 
                   </tr>
                   <tr>
                     <td>04</td>
                     <td>Senior Javascript Developer</td>
-                    <td>P</td>
+                    <td>Present</td>
 
                   </tr>
                   <tr>
                     <td>05</td>
                     <td>Accountant</td>
-                    <td>LE</td>
+                    <td>Leave</td>
 
                   </tr>
                 </tbody>
               </table>
             </div>
-          </div>
+          
+		  
+		  
+			<h3>Donation Details</h3>
+		    <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
 
-        </div>
+                    <th>Date</th>
+                    <th>Amount </th>
+					<th>Remarks </th>
+					
+					
+	
+                    <div class="form-check">
+                      <label class="form-check-label">
 
+                      </label>
+                    </div>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>01</td>
+                    <td>Ali Raza</td>
+                    <td>Raza Sohail </td>
+					<td> <a href="EditStudent.html">Edit</a></td>
+
+                  </tr>
+                  <tr>
+                    <td>02</td>
+                    <td>Ahmed</td>
+                    <td>Absent</td>
+
+                  </tr>
+                  <tr>
+                    <td>03</td>
+                    <td>Junior Technical Author</td>
+                    <td>leave</td>
+
+                  </tr>
+                  <tr>
+                    <td>04</td>
+                    <td>Senior Javascript Developer</td>
+                    <td>Present</td>
+
+                  </tr>
+                  <tr>
+                    <td>05</td>
+                    <td>Accountant</td>
+                    <td>Leave</td>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        
 
         <!----
             <div class="form-group">
@@ -501,7 +507,7 @@
               <button class="btn btn-primary" style="width: 10em">Add</button>
          </div>
         </div>-->
-      </div>
+
       </div>
       <!-- End of Main Content -->
 
