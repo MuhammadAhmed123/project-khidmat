@@ -30,6 +30,45 @@ def index():
 editRegNames = []
 editRegIDs = []
 
+@app.route("/utilityLink")
+def utilityLink():
+    return render_template("Utilities.html")
+
+@app.route("/utility", methods=["POST"])
+def utility():
+    billName = request.form.get("billName")
+    billDueDate = request.form.get("billDueDate")
+    billAmount = request.form.get("billAmount")
+    billPaymentDate = request.form.get("billPaymentDate")
+    billRemarks = request.form.get("billRemarks")
+
+    db.execute("INSERT INTO utilitybills (Category, DueDate, PaymentDate, Amount, Remarks) VALUES (:Category, :DueDate, :PaymentDate, :Amount, :Remarks) ",{"Category":billName, "DueDate":billDueDate, "PaymentDate":billPaymentDate, "Amount":billAmount, "Remarks":billRemarks})
+    db.commit()
+    return redirect(url_for('utilityLink'))
+
+
+
+@app.route("/eventLink")
+def eventLink():
+    return render_template("events_information.html")
+
+@app.route("/event", methods=["POST"])
+def event():
+    eventName = request.form.get("eventName")
+    eventDate = request.form.get("eventDate")
+    eventBudget = request.form.get("eventBudget")
+    eventDetails = request.form.get("eventDetails")
+
+    db.execute("INSERT INTO event (Name, Date, Budget, Remarks) VALUES (:Name, :Date, :Budget, :Remarks) ",{"Name":eventName, "Date":eventDate, "Budget":eventBudget, "Remarks":eventDetails})
+    db.commit()
+    return redirect(url_for('eventLink'))
+
+@app.route("/eventEdit", methods=["POST"])
+def eventEdit():
+
+    return redirect(url_for('eventLink'))
+
+
 @app.route("/registerEdit")
 def registerEdit():
     return render_template("edit_reg.html", names=editRegNames, ids=editRegIDs)
@@ -41,7 +80,7 @@ def editRegSelectPopulate(selectValue):
     print("value -> ", selectValue)
     if selectValue=="3":
         editRegNames = db.execute("SELECT Person.Name FROM Person WHERE Person.idPerson=Staff.Person_idPerson")
-        editRegIDs = db.execute("SELECT Person.ID FROM Person WHERE Person.idPerson=Staff.Person_idPerson")        
+        editRegIDs = db.execute("SELECT Person.ID FROM Person WHERE Person.idPerson=Staff.Person_idPerson")
     return render_template("edit_reg.html", names=editRegNames, ids=editRegIDs)
 
 @app.route("/viewProfiles")

@@ -440,7 +440,3 @@ INDEX Student_has_Test_FKIndex2(Test_idTest),
     REFERENCES Test(idTest)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION);
-
-
-
-
