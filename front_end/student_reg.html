@@ -423,7 +423,7 @@
                                 <div class="form-group row">
                                     <label for="father_earning" class="col-md-4 col-form-label text-md-right">Father's Earning</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="father_earning" class="form-control" name="permanent-address">
+                                        <input type="number" id="father_earning" class="form-control" name="permanent-address">
                                     </div>
                                 </div>
 
@@ -438,7 +438,7 @@
                                 <div class="form-group row">
                                     <label for="mother_earning" class="col-md-4 col-form-label text-md-right">Mother's Earning</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="mother_earning" class="form-control" name="permanent-address">
+                                        <input type="number" id="mother_earning" class="form-control" name="permanent-address">
                                     </div>
                                 </div>
 
@@ -454,7 +454,7 @@
                                 <div class="form-group row">
                                     <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="phone_number" class="form-control">
+                                        <input type="number" id="phone_number" class="form-control">
                                     </div>
                                 </div>
 
@@ -465,10 +465,14 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="schoolFees" class="col-md-4 col-form-label text-md-right">School Rules</label>
+                                    <label for="schoolRules" class="col-md-4 col-form-label text-md-right">School Rules</label>
                                     <div class="col-md-6">
-                                        <input type="checkbox" id="schoolFees" class="form-check-input col-md-4 col-form-label text-md-right" value="Yes" checked> <label>Yes</label><br>
-                                        <input type="checkbox" id="schoolFeesno" class="form-check-input col-md-4 col-form-label text-md-right" value="No"><label>No</label>
+                                        <input type="radio" id="Yes" name="SchoolRulesYes">
+                                        <label for="html">Yes</label>
+                                        <!-- </div>
+                                        <div class="col-md-6"> -->
+                                        <input type="radio" id="No" name="SchoolRulesNo">
+                                        <label for="css">No</label>
                                     </div>
                                 </div>
 
@@ -484,14 +488,20 @@
                                     <label for="lastschoolfee" class="col-md-4 col-form-label text-md-right">Last Attended School
                                         Fees</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="lastschoolfee" class="form-control">
+                                        <input type="number" id="lastschoolfee" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="leavingcert" class="col-md-4 col-form-label text-md-right">School Leaving Certificate</label>
                                     <div class="col-md-6">
-                                        <input type="checkbox" id="leavingcert" class="form-check-input col-md-4 col-form-label text-md-right" value="Yes" checked> <label>Yes</label><br>
-                                        <input type="checkbox" id="leavingcert" class="form-check-input col-md-4 col-form-label text-md-right" value="No"><label>No</label>
+                                        <div class="col-md-6">
+                                            <input type="radio" id="Yes1" name="SLCY">
+                                            <label for="html">Yes</label>
+                                            <!-- </div>
+                                            <div class="col-md-6"> -->
+                                            <input type="radio" id="No1" name="SLCN">
+                                            <label for="css">No</label>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -523,15 +533,19 @@
                                 <div class="form-group row">
                                     <label for="letter" class="col-md-4 col-form-label text-md-right">Sponsor Letter</label>
                                     <div class="col-md-6">
-                                        <input type="checkbox" id="letter" class="form-check-input col-md-4 col-form-label text-md-right" value="Yes" checked> <label>Yes</label><br>
-                                        <input type="checkbox" id="letterno" class="form-check-input col-md-4 col-form-label text-md-right" value="No"><label>No</label>
+                                        <input type="radio" id="letter" name="Yes2">
+                                        <label for="html">Yes</label>
+                                        <!-- </div>
+                                        <div class="col-md-6"> -->
+                                        <input type="radio" id="letter1" name="No2">
+                                        <label for="css">No</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="healthfees" class="col-md-4 col-form-label text-md-right">Health Fees</label>
                                     <div class="col-md-6">
-                                        <input type="number" id="healthfees" class="form-control" disabled>
+                                        <input type="number" id="healthfees" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -543,7 +557,7 @@
                                 <div class="form-group row">
                                     <label for="schoolfees" class="col-md-4 col-form-label text-md-right">School Fees</label>
                                     <div class="col-md-6">
-                                        <input type="number" id="school_Fees" class="form-control" disabled>
+                                        <input type="number" id="school_Fees" class="form-control">
                                     </div>
                                 </div>
 
@@ -573,7 +587,7 @@
                                 <div class="form-group row">
                                     <label for="uniform-fee" class="col-md-4 col-form-label text-md-right">Uniform Fees</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="uniform-fee" class="form-control">
+                                        <input type="number" id="uniform-fee" class="form-control">
                                     </div>
                                 </div>
 
@@ -595,10 +609,8 @@
                                     <label for="shift" class="col-md-4 col-form-label text-md-right">Shift</label>
                                     <div class="col-md-6">
                                         <select id="shift" class="form-control">
-                                            <option class="select-option" value="2">I</option>
-                                            <option class="select-option" value="3">II</option>
-                                            <option class="select-option" value="4">III</option>
-                                            <option class="select-option" value="5">X</option>
+                                            <option class="select-option" value="2">Morning</option>
+                                            <option class="select-option" value="3">Afternoon</option>
                                         </select>
                                         <!-- <input type="shift" id="campus" class="form-control" name="shift"> -->
                                     </div>
@@ -613,7 +625,7 @@
 
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Update
+                                        Register
                                     </button>
                                 </div>
                             </form>
