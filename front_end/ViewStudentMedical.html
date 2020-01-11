@@ -337,9 +337,10 @@
 				<div class="card-body">
 
 				<!-- Add classes -->
-				<h1 class="header">
-          Student Information
-        </h1>
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        Student Information
+                    </h6>
+                    <hr>
 
         <form action="{{ url_for('') }}" method='post'>
 
@@ -357,17 +358,15 @@
             </div>
         </div>
 
-            <div class="col-md-6 offset-md-4">
-            <input type="submit" class="btn btn-primary" value="Edit" disabled>
-        </div>
 
       </form>
 <br>
 
       <!--  Hepatitis -->
-      <h1 class="header">
-        View Hepatitis Record
-      </h1>
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        View Hepatitis Record
+                    </h6>
+                    <hr>
 
       <form action="{{ url_for('') }}" method='post'>
 
@@ -408,18 +407,16 @@
           <div class="form-group row">
               <label for="hepatitisRemark" class="col-md-4 col-form-label text-md-right">Remarks</label>
               <div class="col-md-6">
-                  <textarea id="hepatitisRemark" rows="4" cols="76" disabled></textarea>
+                  <textarea id="hepatitisRemarks" rows="4" cols="76" disabled></textarea>
               </div>
           </div>
 
 
-          <div class="col-md-6 offset-md-4">
-          <input type="submit" class="btn btn-primary" value="Edit">
-      </div>
           <!-- Edit Typhoid -->
-          <h1 class="header">
+          <h6 class="m-0 font-weight-bold text-primary">
               View Typhoid Record
-          </h1>
+          </h6>
+          <hr>
 
           <form action="{{ url_for('') }}" method='post'>
 
@@ -442,13 +439,11 @@
               </div>
 
 
-              <div class="col-md-6 offset-md-4">
-                  <input type="submit" class="btn btn-primary" value="Edit">
-              </div>
               <!-- Edit Blood -->
-              <h1 class="header">
+              <h6 class="m-0 font-weight-bold text-primary">
                   View Blood Test Record
-              </h1>
+              </h6>
+              <hr>
 
               <form action="{{ url_for('') }}" method='post'>
 
@@ -482,13 +477,11 @@
                   </div>
 
 
-                  <div class="col-md-6 offset-md-4">
-                      <input type="submit" class="btn btn-primary" value="Edit">
-                  </div>
                   <!-- ENT -->
-                  <h1 class="header">
+                  <h6 class="m-0 font-weight-bold text-primary">
                       View ENT Record
-                  </h1>
+                  </h6>
+                  <hr>
 
                   <form action="{{ url_for('') }}" method='post'>
 
@@ -526,9 +519,6 @@
                       </div>
 
 
-                      <div class="col-md-6 offset-md-4">
-                          <input type="submit" class="btn btn-primary" value="Edit">
-                      </div>
                         <hr>
                       <div class="col-md-6 offset-md-4">
                           <input type="downloadForm" class="btn btn-primary" value="Download Form">

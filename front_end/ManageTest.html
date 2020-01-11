@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Edit Medical</title>
+  <title>SB Admin 2 - Blank</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -109,7 +109,7 @@
             <div class="collapse-divider"></div>
             <h6 class="collapse-header">Other Pages:</h6>
             <a class="collapse-item" href="404.html">404 Page</a>
-            <a class="collapse-item active" href="blank.html">Edit Medical</a>
+            <a class="collapse-item active" href="blank.html">Blank Page</a>
           </div>
         </div>
       </li>
@@ -333,207 +333,105 @@
 
           <!-- Page Heading -->
           <div class="card">
-			<div class="card-header">Edit Medical Record</div>
+			<div class="card-header">Manage Tests</div>
 				<div class="card-body">
 
-				<!-- Add classes -->
-                    <h6 class="m-0 font-weight-bold text-primary">
-                        Student Information
-                    </h6>
-                    <hr>
+				<!-- Add Tests -->
+				<h1 class="header">
+          Add Test
+        </h1>
 
         <form action="{{ url_for('') }}" method='post'>
 
-            <div class="form-group row">
-                <label for="stdId" class="col-md-4 col-form-label text-md-right">Student Id</label>
-                <div class="col-md-6">
-                    <input type="number" id="stdId" class="form-control" name="id">
-                </div>
-            </div>
-
-        <div class="form-group row">
-            <label for="stdName" class="col-md-4 col-form-label text-md-right">Student Name</label>
+      <div class="form-group row">
+          <label for="oldTest" class="col-md-4 col-form-label text-md-right">Test Name</label>
+          <div class="col-md-6">
+              <select class="form-control" id="oldTest" name="existingTests">
+                <option class="">Mid Exam</option>
+                <option class="">Final Exam</option>
+              </select>
+          </div>
+      </div>	
+		<div class="form-group row">
+            <label for="testMarks" class="col-md-4 col-form-label text-md-right">Test Marks</label>
             <div class="col-md-6">
-                <input type="text" id="stdName" class="form-control" name="stdName">
+                <input type="text" id="testMarks" class="form-control" name="testMarks">
+            </div>
+        </div>
+		
+		<div class="form-group row">
+            <label for="testDate" class="col-md-4 col-form-label text-md-right">Test Date</label>
+            <div class="col-md-6">
+                <input type="Date" id="testDate" class="form-control" name="testDate">
             </div>
         </div>
 
-            <div class="col-md-6 offset-md-4">
-            <input type="submit" class="btn btn-primary" value="Edit">
+        <div class="col-md-6 offset-md-4">
+            <input type="submit" class="btn btn-primary" value="Add">
         </div>
 
       </form>
 <br>
 
-      <!-- Edit Hepatitis -->
-                    <h6 class="m-0 font-weight-bold text-primary">
-                        Edit Hepatitis Record
-                    </h6>
-                    <hr>
+      <!-- Edit Tests -->
+      <h1 class="header">
+        Edit Test
+      </h1>
 
       <form action="{{ url_for('') }}" method='post'>
 
       <div class="form-group row">
-          <label class="col-md-4 col-form-label text-md-right">Have Hepatitis Dose:</label>
-          <div class="col-md-6 offset-md-4">
-              <input type="radio"  id="yeslHepatitisDose" value="Yes">YES
-              <input type="radio"  id="noHepatitisDose" value="Yes">NO
-
+          <label for="oldTest" class="col-md-4 col-form-label text-md-right">Edit</label>
+          <div class="col-md-6">
+              <select class="form-control" id="oldTest" name="existingTests">
+                <option class="">Test 1</option>
+                <option class="">Test 2</option>
+				<option class="">Test 3</option>
+              </select>
+          </div>
+		  </hr>
+	`<div class="form-group row">
+          <label for="Changeto" class="col-md-4 col-form-label text-md-right">Change to</label>
+          <div class="col-md-6">
+              <input type="text" id="Changeto" class="form-control" name="classEdited">
           </div>
       </div>
+</hr>	  
+	  <div class="form-group row">
+          <label for="oldTestMarks" class="col-md-4 col-form-label text-md-right">EditMarks</label>
+          <div class="col-md-6">
+              <select class="form-control" id="oldTestMarks" name="existingTestsMarks">
+                <option class="">student 1 marks</option>
+                <option class="">student 2 marks</option>
+				<option class="">student 3 marks</option>
+              </select>
+      </div>
 
-          <div class="form-group row">
-              <label for="Dose1" class="col-md-4 col-form-label text-md-right">Dose 1 Date</label>
-              <div class="col-md-6">
-                  <div class="input-append date">
-                      <input type="date" id="Dose1" class="form-control form-control-user">
-                  </div>
-              </div>
+      <div class="form-group row">
+          <label for="ChangeMarksto" class="col-md-4 col-form-label text-md-right">Change to</label>
+          <div class="col-md-6">
+              <input type="text" id="Changeto" class="form-control" name="classEdited1">
           </div>
-          <div class="form-group row">
-              <label for="Dose2" class="col-md-4 col-form-label text-md-right">Dose 2 Date</label>
-              <div class="col-md-6">
-                  <div class="input-append date">
-                      <input type="date" id="Dose2" class="form-control form-control-user">
-                  </div>
-              </div>
-          </div>
-          <div class="form-group row">
-              <label for="Dose3" class="col-md-4 col-form-label text-md-right">Dose 3 Date</label>
-              <div class="col-md-6">
-                  <div class="input-append date">
-                      <input type="date" id="Dose3" class="form-control form-control-user">
-                  </div>
-              </div>
-          </div>
+      </div>
+</hr>
+	  <div class="form-group row">
+          <label for="oldTestDate" class="col-md-4 col-form-label text-md-right">EditDate</label>
+          <div class="col-md-6">
+              <select class="form-control" id="oldTestMarks" name="existingTestsMarks">
+                <option class="">07/01/2019</option>
+              </select>
+      </div>
 
-          <div class="form-group row">
-              <label for="hepatitisRemark" class="col-md-4 col-form-label text-md-right">Remarks</label>
-              <div class="col-md-6">
-                  <textarea id="hepatitisRemark" rows="4" cols="76"></textarea>
-              </div>
+      <div class="form-group row">
+          <label for="ChangeDateto" class="col-md-4 col-form-label text-md-right">Change to</label>
+          <div class="col-md-6">
+              <input type="text" id="ChangeDateto" class="form-control" name="classEdited2">
           </div>
-
-
-          <div class="col-md-6 offset-md-4">
+      </div>
+	  </hr>
+      <div class="col-md-6 offset-md-4">
           <input type="submit" class="btn btn-primary" value="Edit">
       </div>
-          <!-- Edit Typhoid -->
-          <h6 class="m-0 font-weight-bold text-primary">
-              Edit Typhoid Record
-          </h6>
-          <hr>
-
-          <form action="{{ url_for('') }}" method='post'>
-
-
-              <div class="form-group row">
-                  <label for="typhoidtest" class="col-md-4 col-form-label text-md-right">Typhoid Test Date</label>
-                  <div class="col-md-6">
-                      <div class="input-append date">
-                          <input type="date" id="typhoidtest" class="form-control form-control-user">
-                      </div>
-                  </div>
-              </div>
-
-
-              <div class="form-group row">
-                  <label for="hepatitisRemark" class="col-md-4 col-form-label text-md-right">Remarks</label>
-                  <div class="col-md-6">
-                      <textarea id="hepatitisRemarks" rows="4" cols="76"></textarea>
-                  </div>
-              </div>
-
-
-              <div class="col-md-6 offset-md-4">
-                  <input type="submit" class="btn btn-primary" value="Edit">
-              </div>
-              <!-- Edit Blood -->
-              <h6 class="m-0 font-weight-bold text-primary">
-                  Edit Blood Test Record
-              </h6>
-              <hr>
-
-              <form action="{{ url_for('') }}" method='post'>
-
-
-                  <div class="form-group row">
-                      <label for="BloodTestDate" class="col-md-4 col-form-label text-md-right">Blood Test Date</label>
-                      <div class="col-md-6">
-                          <div class="input-append date">
-                              <input type="date" id="BloodTestDate" class="form-control form-control-user">
-                          </div>
-                      </div>
-                  </div>
-                  <div class="form-group row">
-                      <label for="bloodgroup" class="col-md-4 col-form-label text-md-right">Blood Group</label>
-                      <div class="col-md-6">
-                          <input type="text" id="bloodgroup" class="form-control" name="stdName">
-                      </div>
-                  </div>
-                  <div class="form-group row">
-                      <label for="hemoglobinLevels" class="col-md-4 col-form-label text-md-right">Hemoglobin Levels</label>
-                      <div class="col-md-6">
-                          <input type="text" id="hemoglobinLevels" class="form-control" name="stdName">
-                      </div>
-                  </div>
-
-                  <div class="form-group row">
-                      <label for="bloodTestRemark" class="col-md-4 col-form-label text-md-right">Remarks</label>
-                      <div class="col-md-6">
-                          <textarea id="bloodTestRemark" rows="4" cols="76"></textarea>
-                      </div>
-                  </div>
-
-
-                  <div class="col-md-6 offset-md-4">
-                      <input type="submit" class="btn btn-primary" value="Edit">
-                  </div>
-                  <!-- ENT -->
-                  <h6 class="m-0 font-weight-bold text-primary">
-                      Edit ENT Record
-                  </h6>
-                  <hr>
-
-                  <form action="{{ url_for('') }}" method='post'>
-
-
-                      <div class="form-group row">
-                          <label for="entTestDate" class="col-md-4 col-form-label text-md-right">Eye Checkup Date</label>
-                          <div class="col-md-6">
-                              <div class="input-append date">
-                                  <input type="date" id="entTestDate" class="form-control form-control-user">
-                              </div>
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label for="eyeRemark" class="col-md-4 col-form-label text-md-right">Remarks</label>
-                          <div class="col-md-6">
-                              <textarea id="eyeRemark" rows="4" cols="76"></textarea>
-                          </div>
-                      </div>
-
-                      <div class="form-group row">
-                          <label for="genaralTest" class="col-md-4 col-form-label text-md-right">General Checkup Date</label>
-                          <div class="col-md-6">
-                              <div class="input-append date">
-                                  <input type="date" id="genaralTest" class="form-control form-control-user">
-                              </div>
-                          </div>
-                      </div>
-
-
-                      <div class="form-group row">
-                          <label for="entRemark" class="col-md-4 col-form-label text-md-right">Remarks</label>
-                          <div class="col-md-6">
-                              <textarea id="entRemark" rows="4" cols="76"></textarea>
-                          </div>
-                      </div>
-
-
-                      <div class="col-md-6 offset-md-4">
-                          <input type="submit" class="btn btn-primary" value="Edit">
-                      </div>
 
     </form>
 
