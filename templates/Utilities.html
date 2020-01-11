@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="card">
+			<div class="card-header">Add Utility Information</div>
+				<div class="card-body">
+
+				<!-- Add classes -->
+				<h3 class="header" style="text-align: center; margin-bottom:20px ">
+          ADD BILL INFORMATION
+        </h3>
+
+        <form action="{{ url_for('utility') }}" method='post'>
+
+        <div class="form-group row">
+            <label for="classname" class="col-md-4 col-form-label text-md-right">Bill Name</label>
+            <div class="col-md-6">
+                <input type="text" id="classname" class="form-control" name="billName">
+            </div>
+        </div>
+            <div class="form-group row">
+                <label for="billDueDate" class="col-md-4 col-form-label text-md-right">Due Date</label>
+                <div class="col-md-6">
+                    <div class="input-append date">
+                        <input type="date" id="dueDate" name="billDueDate" class="form-control form-control-user">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="amount" class="col-md-4 col-form-label text-md-right">Bill Amount</label>
+                <div class="col-md-6">
+                    <input type="number" id="amount" class="form-control" name="billAmount">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="billPaymentDate" class="col-md-4 col-form-label text-md-right">Payment Date</label>
+                <div class="col-md-6">
+                    <div class="input-append date">
+                        <input type="date" id="billPaymentDate" name="billPaymentDate" class="form-control form-control-user">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="billRemarks" class="col-md-4 col-form-label text-md-right">Remarks</label>
+                <div class="col-md-6">
+                    <textarea id="billRemarks" style="width: 650px; height: 100px" name="billRemarks"></textarea>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-6 offset-md-4">
+            <input type="submit" class="btn btn-primary" value="Add">
+        </div>
+
+      </form>
+<br>
+
+    </form>
+
+
+				</div>
+				</div>
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+{% endblock %}

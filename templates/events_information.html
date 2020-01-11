@@ -1,0 +1,141 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="card">
+			<div class="card-header">Manage Event Information</div>
+				<div class="card-body">
+
+				<!-- Add classes -->
+				<h2 class="header" style="text-align: center; margin-bottom: 30px">
+          Add Event
+        </h2>
+
+        <form action="{{ url_for('event') }}" method='post'>
+
+        <div class="form-group row">
+            <label for="event_name" class="col-md-4 col-form-label text-md-right">Event Name</label>
+            <div class="col-md-6">
+                <input type="text" id="event_name" name="eventName" class="form-control" >
+            </div>
+        </div>
+            <div class="form-group row">
+                <label for="eventDate" class="col-md-4 col-form-label text-md-right">Event Date</label>
+                <div class="col-md-6">
+                    <div class="input-append date">
+                        <input type="date" id="eventDate" name="eventDate" class="form-control form-control-user">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="event_budget" class="col-md-4 col-form-label text-md-right">Event Budget</label>
+                <div class="col-md-6">
+                    <input type="number" id="event_budget"  name="eventBudget" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="event_Remark" class="col-md-4 col-form-label text-md-right">Event Details</label>
+                <div class="col-md-6">
+                    <textarea id="event_Remark" style="width: 650px; height: 100px" name="eventDetails"></textarea>
+                </div>
+            </div>
+
+
+            <div class="col-md-6 offset-md-4">
+            <input type="submit" class="btn btn-primary" value="Add">
+        </div>
+
+      </form>
+<br>
+
+      <!-- Edit Modules -->
+                    <h2 class="header" style="text-align: center; margin-bottom: 30px">
+                        Edit Event
+                    </h2>
+
+      <form action="{{ url_for('eventEdit') }}" method='post'>
+
+      <div class="form-group row">
+          <label for="oldEvent" class="col-md-4 col-form-label text-md-right">Event to Edit</label>
+          <div class="col-md-6">
+              <select class="form-control" id="oldEvent" name="existingevent">
+                <option class="">Naat Competition</option>
+                <option class="">Fund Raising</option>
+              </select>
+          </div>
+      </div>
+
+      <div class="form-group row">
+          <label for="Changeto" class="col-md-4 col-form-label text-md-right">Change to</label>
+          <div class="col-md-6">
+              <input type="text" id="Changeto" class="form-control" name="classEdited">
+          </div>
+      </div>
+
+          <div class="form-group row">
+              <label for="eventDate" class="col-md-4 col-form-label text-md-right">Event Date</label>
+              <div class="col-md-6">
+                  <div class="input-append date">
+                      <input type="date" id="eventDate" name="eventDate" class="form-control form-control-user">
+                  </div>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="changeeventDate" class="col-md-4 col-form-label text-md-right">Change to</label>
+              <div class="col-md-6">
+                  <div class="input-append date">
+                      <input type="date" id="changeeventDate" name="changeeventDate" class="form-control form-control-user">
+                  </div>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="event_budget" class="col-md-4 col-form-label text-md-right">Event Budget</label>
+              <div class="col-md-6">
+                  <input type="number" id="event_budget"  name="event_budget" class="form-control">
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="Changetbud" class="col-md-4 col-form-label text-md-right">Change to</label>
+              <div class="col-md-6">
+                  <input type="number" id="Changetobud" class="form-control" name="classEdited">
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="event_Remark" class="col-md-4 col-form-label text-md-right">Event Details</label>
+              <div class="col-md-6">
+                  <textarea id="event_Remark" style="width: 650px; height: 100px" ></textarea>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="change_event_Remark" class="col-md-4 col-form-label text-md-right">Details Change to </label>
+              <div class="col-md-6">
+                  <textarea id="change_event_Remark" style="width: 650px; height: 100px" ></textarea>
+              </div>
+          </div>
+
+
+
+          <div class="col-md-6 offset-md-4">
+          <input type="submit" class="btn btn-primary" value="Edit">
+      </div>
+
+    </form>
+
+
+				</div>
+				</div>
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+{% endblock %}
