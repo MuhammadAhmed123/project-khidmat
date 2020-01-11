@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b95241b-1193-492e-913c-82deafe9819a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/student_edit_reg.html" afterPath="$PROJECT_DIR$/front_end/student_edit_reg.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/student_reg.html" afterPath="$PROJECT_DIR$/front_end/student_reg.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/ManageTest.html" afterPath="$PROJECT_DIR$/front_end/ManageTest.html" />
     </list>
     <ignored path="project-khidmat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,38 +27,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="medial_edit.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/medial_edit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-22.076923" vertical-offset="8980" max-vertical-offset="10353">
-              <caret line="562" column="0" selection-start-line="562" selection-start-column="0" selection-end-line="562" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewStudentMedical.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/ViewStudentMedical.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.115385" vertical-offset="7603" max-vertical-offset="10149">
-              <caret line="478" column="0" selection-start-line="478" selection-start-column="0" selection-end-line="478" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#textarea#0;n#div#0;n#div#3;n#form#0;n#form#0;n#form#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Modules.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/Modules.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.346154" vertical-offset="6243" max-vertical-offset="8687">
-              <caret line="380" column="0" selection-start-line="380" selection-start-column="0" selection-end-line="380" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="StaffProfile.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front_end/StaffProfile.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -110,11 +77,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="student_edit_reg.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="student_edit_reg.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front_end/student_edit_reg.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9440789" vertical-offset="9898" max-vertical-offset="11798">
+            <state vertical-scroll-proportion="-18.153847" vertical-offset="10000" max-vertical-offset="11798">
               <caret line="616" column="0" selection-start-line="616" selection-start-column="0" selection-end-line="616" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ManageTest.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/front_end/ManageTest.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.027960526" vertical-offset="6987" max-vertical-offset="8636">
+              <caret line="412" column="32" selection-start-line="412" selection-start-column="32" selection-end-line="412" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vehicleMaintenance.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front_end/vehicleMaintenance.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="9333">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vehicleRegistration.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front_end/vehicleRegistration.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.6153846" vertical-offset="6001" max-vertical-offset="8755">
+              <caret line="357" column="15" selection-start-line="357" selection-start-column="15" selection-end-line="357" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -152,6 +149,7 @@
         <option value="$PROJECT_DIR$/front_end/DonorProfile.html" />
         <option value="$PROJECT_DIR$/front_end/student_reg.html" />
         <option value="$PROJECT_DIR$/front_end/student_edit_reg.html" />
+        <option value="$PROJECT_DIR$/front_end/ManageTest.html" />
       </list>
     </option>
   </component>
@@ -359,22 +357,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/ManageTest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.730769" vertical-offset="7004" max-vertical-offset="8619">
-          <caret line="433" column="12" selection-start-line="433" selection-start-column="12" selection-end-line="433" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/vehicleRegistration.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8461537" vertical-offset="5865" max-vertical-offset="8755">
-          <caret line="357" column="15" selection-start-line="357" selection-start-column="15" selection-end-line="357" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front_end/medial_edit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-22.076923" vertical-offset="8980" max-vertical-offset="10353">
@@ -451,8 +433,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/student_edit_reg.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9440789" vertical-offset="9898" max-vertical-offset="11798">
+        <state vertical-scroll-proportion="-18.153847" vertical-offset="10000" max-vertical-offset="11798">
           <caret line="616" column="0" selection-start-line="616" selection-start-column="0" selection-end-line="616" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/vehicleMaintenance.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9333">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/vehicleRegistration.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6153846" vertical-offset="6001" max-vertical-offset="8755">
+          <caret line="357" column="15" selection-start-line="357" selection-start-column="15" selection-end-line="357" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/ManageTest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.027960526" vertical-offset="6987" max-vertical-offset="8636">
+          <caret line="412" column="32" selection-start-line="412" selection-start-column="32" selection-end-line="412" selection-end-column="32" />
           <folding />
         </state>
       </provider>
