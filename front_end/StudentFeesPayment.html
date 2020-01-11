@@ -333,48 +333,51 @@
 
                 <!-- Page Heading -->
                 <div class="card">
-                    <div class="card-header">Manage Increments</div>
+                    <div class="card-header">Student Fees</div>
                     <div class="card-body">
 
-                 <!-- Add classes -->
+                        <!-- Add classes -->
                         <h6 class="m-0 font-weight-bold text-primary">
-                            Increment Salaries
+                            Student Fees
                         </h6>
 
-                        <form action="{{ url_for('') }}" method='post'>
-
-                            <div class="col-sm-3 mb-3 mb-sm-0 dropdown-menu-md-right">
-                                <select id="" class="form-control">
-                                    <option disabled selected value="1">Select Category</option>
-                                    <option class="select-option" value="2">Teacher</option>
-                                    <option class="select-option" value="3">Accounts</option>
-                                </select>
-                            </div>
-                        </form>
 
                         <form action="{{ url_for('') }}" method='post'>
-                            <div class="col-sm-3 mb-3 mb-sm-0">
+                            <div class="form-group row col-sm-3 mb-3 mb-sm-0">
+
                                 <select id="" class="form-control">
-                                    <option disabled selected value="1">Select Employee Name</option>
+                                    <option disabled selected value="1">Select Student Name</option>
                                     <option class="select-option" value="2">Afzal Khan</option>
                                     <option class="select-option" value="3">Shoaib Ali</option>
                                 </select>
+
+                            </div>
+                        </form>
+                        <form action="{{ url_for('') }}" method='post'>
+                            <div class="form-group row col-sm-3 mb-3 mb-sm-0">
+
+                                <select id="" class="form-control">
+                                    <option disabled selected value="1">Select Fee Category</option>
+                                    <option class="select-option" value="2">Medical</option>
+                                    <option class="select-option" value="3">Academic</option>
+                                </select>
+
                             </div>
                         </form>
                         <form action="{{ url_for('') }}" method='post'>
                             <div class="form-group row">
-                                <label for="incrementPercentage" class="col-md-4 col-form-label text-md-right">increment Percentage</label>
+                                <label for="incrementPercentage" class="col-md-4 col-form-label text-md-right">Amount</label>
                                 <div class="col-md-6">
                                     <input type="number" id="incrementPercentage" class="form-control">
                                 </div>
                             </div>
                         </form>
-                            <div class="form-group row">
-                                <label for="DateIssue" class="col-md-4 col-form-label text-md-right">Date of Increment</label>
-                                <div class="col-md-6">
-                                    <input type="date" id="DateIssue" class="form-control" name="DateIssue">
-                                </div>
+                        <div class="form-group row">
+                            <label for="DateIssue" class="col-md-4 col-form-label text-md-right">Date</label>
+                            <div class="col-md-6">
+                                <input type="date" id="DateIssue" class="form-control" name="DateIssue">
                             </div>
+                        </div>
 
 
                         </form>
@@ -383,14 +386,7 @@
 
                         <form action="{{ url_for('') }}" method='post'>
 
-                            <div class="form-group row">
-                                <label class="col-md-4 col-form-label text-md-right">First Increment:</label>
-                                <div class="col-md-6 offset-md-4">
-                                    <input type="radio"  id="yesFirst" value="Yes"> YES <br/>
-                                    <input type="radio"  id="noFirst" value="Yes"> NO
 
-                                </div>
-                            </div>
 
 
                             <div class="form-group row">
@@ -407,7 +403,7 @@
 
 
 
-                                    </form>
+                        </form>
 
 
                     </div>

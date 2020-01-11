@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b95241b-1193-492e-913c-82deafe9819a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/Increment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/ViewMedical.html" afterPath="$PROJECT_DIR$/front_end/ViewMedical.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/medial_edit.html" afterPath="$PROJECT_DIR$/front_end/medial_edit.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/StudentFeesPayment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/Increment.html" afterPath="$PROJECT_DIR$/front_end/Increment.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="project-khidmat.iws" />
@@ -72,11 +71,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Increment.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Increment.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front_end/Increment.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3848684" vertical-offset="5631" max-vertical-offset="8177">
-              <caret line="345" column="84" selection-start-line="345" selection-start-column="84" selection-end-line="345" selection-end-column="84" />
+            <state vertical-scroll-proportion="-8.346154" vertical-offset="6600" max-vertical-offset="8177">
+              <caret line="401" column="0" selection-start-line="401" selection-start-column="0" selection-end-line="401" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StudentFeesPayment.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/front_end/StudentFeesPayment.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7549342" vertical-offset="5678" max-vertical-offset="8109">
+              <caret line="361" column="93" selection-start-line="361" selection-start-column="93" selection-end-line="361" selection-end-column="93" />
               <folding />
             </state>
           </provider>
@@ -107,16 +116,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-12.269231" vertical-offset="5886" max-vertical-offset="8415">
               <caret line="365" column="15" selection-start-line="365" selection-start-column="15" selection-end-line="365" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vehicleMaintenance.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/vehicleMaintenance.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="9333">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -158,6 +157,7 @@
         <option value="$PROJECT_DIR$/front_end/ViewMedical.html" />
         <option value="$PROJECT_DIR$/front_end/medial_edit.html" />
         <option value="$PROJECT_DIR$/front_end/Increment.html" />
+        <option value="$PROJECT_DIR$/front_end/StudentFeesPayment.html" />
       </list>
     </option>
   </component>
@@ -508,8 +508,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/Increment.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3848684" vertical-offset="5631" max-vertical-offset="8177">
-          <caret line="345" column="84" selection-start-line="345" selection-start-column="84" selection-end-line="345" selection-end-column="84" />
+        <state vertical-scroll-proportion="-8.346154" vertical-offset="6600" max-vertical-offset="8177">
+          <caret line="401" column="0" selection-start-line="401" selection-start-column="0" selection-end-line="401" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/StudentFeesPayment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7549342" vertical-offset="5678" max-vertical-offset="8109">
+          <caret line="361" column="93" selection-start-line="361" selection-start-column="93" selection-end-line="361" selection-end-column="93" />
           <folding />
         </state>
       </provider>
