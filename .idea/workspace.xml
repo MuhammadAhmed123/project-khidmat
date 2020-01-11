@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6b95241b-1193-492e-913c-82deafe9819a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/StudentFeesPayment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/Increment.html" afterPath="$PROJECT_DIR$/front_end/Increment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="6b95241b-1193-492e-913c-82deafe9819a" name="Default" comment="" />
     <ignored path="project-khidmat.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
