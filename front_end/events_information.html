@@ -399,6 +399,9 @@
           </div>
 
       </div>
+      </form>
+
+      <form action="{{ url_for('') }}" method='post'>
 
       <div class="form-group row">
           <label for="Changeto" class="col-md-4 col-form-label text-md-right">Change to</label>
@@ -406,15 +409,21 @@
               <input type="text" id="Changeto" class="form-control" name="classEdited">
           </div>
       </div>
+      </form>
 
-          <div class="form-group row">
+      <form action="{{ url_for('') }}" method='post'>
+
+      <div class="form-group row">
               <label for="eventDate" class="col-md-4 col-form-label text-md-right">Event Date</label>
               <div class="col-md-6">
                   <div class="input-append date">
                       <input type="date" id="eventDate" name="eventDate" class="form-control form-control-user">
                   </div>
               </div>
-          </div>
+      </div>
+      </form>
+
+      <form action="{{ url_for('') }}" method='post'>
           <div class="form-group row">
               <label for="changeeventDate" class="col-md-4 col-form-label text-md-right">Change to</label>
               <div class="col-md-6">
@@ -423,12 +432,18 @@
                   </div>
               </div>
           </div>
+      </form>
+
+      <form action="{{ url_for('') }}" method='post'>
           <div class="form-group row">
               <label for="event_budget" class="col-md-4 col-form-label text-md-right">Event Budget</label>
               <div class="col-md-6">
                   <input type="number" id="event_budget"  name="event_budget" class="form-control">
               </div>
           </div>
+      </form>
+
+      <form action="{{ url_for('') }}" method='post'>
           <div class="form-group row">
               <label for="Changetobud" class="col-md-4 col-form-label text-md-right">Change to</label>
               <div class="col-md-6">
@@ -436,24 +451,30 @@
               </div>
           </div>
 
+      </form>
+
+       <form action="{{ url_for('') }}" method='post'>
           <div class="form-group row">
               <label for="event_Remark" class="col-md-4 col-form-label text-md-right">Event Details</label>
               <div class="col-md-6">
                   <textarea id="event_Remark" style="width: 650px; height: 100px" ></textarea>
               </div>
           </div>
+       </form>
+
+       <form action="{{ url_for('') }}" method='post'>
           <div class="form-group row">
               <label for="change_event_Remark" class="col-md-4 col-form-label text-md-right">Details Change to </label>
               <div class="col-md-6">
                   <textarea id="change_event_Remark" style="width: 650px; height: 100px" ></textarea>
               </div>
           </div>
+       </form>
 
 
-
-          <div class="col-md-6 offset-md-4">
+       <div class="col-md-6 offset-md-4">
           <input type="submit" class="btn btn-primary" value="Update">
-      </div>
+       </div>
 
     </form>
 
