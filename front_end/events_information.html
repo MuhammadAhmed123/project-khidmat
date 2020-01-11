@@ -337,9 +337,9 @@
 				<div class="card-body">
 
 				<!-- Add classes -->
-				<h2 class="header" style="text-align: center; margin-bottom: 30px">
-          Add Event
-        </h2>
+                    <h6 class="m-0 font-weight-bold text-primary">Add Event</h6>
+                    <hr>
+
 
         <form action="{{ url_for('') }}" method='post'>
 
@@ -380,9 +380,9 @@
 <br>
 
       <!-- Edit Modules -->
-                    <h2 class="header" style="text-align: center; margin-bottom: 30px">
-                        Edit Event
-                    </h2>
+
+                    <h6 class="m-0 font-weight-bold text-primary">Edit Event</h6>
+                    <hr>
 
       <form action="{{ url_for('') }}" method='post'>
 
@@ -450,6 +450,10 @@
           <div class="col-md-6 offset-md-4">
           <input type="submit" class="btn btn-primary" value="Edit">
       </div>
+          <hr>
+          <div class="col-md-6 offset-md-4">
+              <input type="submit" class="btn btn-primary" value="Submit" style="width: 300px; margin-left: 60px">
+          </div>
 
     </form>
 
