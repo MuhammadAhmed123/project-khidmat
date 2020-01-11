@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b95241b-1193-492e-913c-82deafe9819a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/Modules.html" afterPath="$PROJECT_DIR$/front_end/Modules.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/DonorProfile.html" afterPath="$PROJECT_DIR$/front_end/DonorProfile.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/SponsorProfile.html" afterPath="$PROJECT_DIR$/front_end/SponsorProfile.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/StaffProfile.html" afterPath="$PROJECT_DIR$/front_end/StaffProfile.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/StudentProfile.html" afterPath="$PROJECT_DIR$/front_end/StudentProfile.html" />
     </list>
     <ignored path="project-khidmat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,46 +30,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Attendance.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/Attendance.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.153847" vertical-offset="7433" max-vertical-offset="9741">
-              <caret line="465" column="31" selection-start-line="465" selection-start-column="31" selection-end-line="465" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="student_reg.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/student_reg.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.5384617" vertical-offset="6052" max-vertical-offset="11730">
-              <caret line="366" column="75" selection-start-line="366" selection-start-column="75" selection-end-line="366" selection-end-column="75" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DonorProfile.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/DonorProfile.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="9843">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewMarks.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/ViewMarks.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.884615" vertical-offset="7297" max-vertical-offset="9435">
-              <caret line="452" column="0" selection-start-line="452" selection-start-column="0" selection-end-line="452" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="medial_edit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front_end/medial_edit.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -89,11 +52,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Modules.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Modules.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front_end/Modules.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.86019737" vertical-offset="6804" max-vertical-offset="8687">
-              <caret line="431" column="66" selection-start-line="431" selection-start-column="66" selection-end-line="431" selection-end-column="66" />
+            <state vertical-scroll-proportion="-8.346154" vertical-offset="6243" max-vertical-offset="8687">
+              <caret line="380" column="0" selection-start-line="380" selection-start-column="0" selection-end-line="380" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StaffProfile.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front_end/StaffProfile.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-18.307692" vertical-offset="5678" max-vertical-offset="9826">
+              <caret line="362" column="18" selection-start-line="362" selection-start-column="18" selection-end-line="362" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SponsorProfile.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front_end/SponsorProfile.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-22.076923" vertical-offset="9439" max-vertical-offset="11628">
+              <caret line="589" column="14" selection-start-line="589" selection-start-column="14" selection-end-line="589" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StudentProfile.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front_end/StudentProfile.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.15384616" vertical-offset="5988" max-vertical-offset="10319">
+              <caret line="352" column="21" selection-start-line="352" selection-start-column="21" selection-end-line="352" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DonorProfile.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/front_end/DonorProfile.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.9440789" vertical-offset="8572" max-vertical-offset="9962">
+              <caret line="538" column="26" selection-start-line="538" selection-start-column="26" selection-end-line="538" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -122,7 +125,7 @@
       <file leaf-file-name="donor_reg.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front_end/donor_reg.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.461538" vertical-offset="5890" max-vertical-offset="8772">
+            <state vertical-scroll-proportion="-17.346153" vertical-offset="5737" max-vertical-offset="8772">
               <caret line="364" column="22" selection-start-line="364" selection-start-column="22" selection-end-line="364" selection-end-column="22" />
               <folding />
             </state>
@@ -146,6 +149,10 @@
         <option value="$PROJECT_DIR$/front_end/medial_edit.html" />
         <option value="$PROJECT_DIR$/front_end/ViewStudentMedical.html" />
         <option value="$PROJECT_DIR$/front_end/Modules.html" />
+        <option value="$PROJECT_DIR$/front_end/StaffProfile.html" />
+        <option value="$PROJECT_DIR$/front_end/StudentProfile.html" />
+        <option value="$PROJECT_DIR$/front_end/SponsorProfile.html" />
+        <option value="$PROJECT_DIR$/front_end/DonorProfile.html" />
       </list>
     </option>
   </component>
@@ -345,26 +352,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/donor_reg.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.461538" vertical-offset="5890" max-vertical-offset="8772">
-          <caret line="364" column="22" selection-start-line="364" selection-start-column="22" selection-end-line="364" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front_end/student_reg.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.5384617" vertical-offset="6052" max-vertical-offset="11730">
           <caret line="366" column="75" selection-start-line="366" selection-start-column="75" selection-end-line="366" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/DonorProfile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9843">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -413,8 +404,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/Modules.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.86019737" vertical-offset="6804" max-vertical-offset="8687">
-          <caret line="431" column="66" selection-start-line="431" selection-start-column="66" selection-end-line="431" selection-end-column="66" />
+        <state vertical-scroll-proportion="-8.346154" vertical-offset="6243" max-vertical-offset="8687">
+          <caret line="380" column="0" selection-start-line="380" selection-start-column="0" selection-end-line="380" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/donor_reg.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.346153" vertical-offset="5737" max-vertical-offset="8772">
+          <caret line="364" column="22" selection-start-line="364" selection-start-column="22" selection-end-line="364" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/SponsorProfile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-22.076923" vertical-offset="9439" max-vertical-offset="11628">
+          <caret line="589" column="14" selection-start-line="589" selection-start-column="14" selection-end-line="589" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/StudentProfile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15384616" vertical-offset="5988" max-vertical-offset="10319">
+          <caret line="352" column="21" selection-start-line="352" selection-start-column="21" selection-end-line="352" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/StaffProfile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.307692" vertical-offset="5678" max-vertical-offset="9826">
+          <caret line="362" column="18" selection-start-line="362" selection-start-column="18" selection-end-line="362" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/DonorProfile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9440789" vertical-offset="8572" max-vertical-offset="9962">
+          <caret line="538" column="26" selection-start-line="538" selection-start-column="26" selection-end-line="538" selection-end-column="26" />
           <folding />
         </state>
       </provider>
