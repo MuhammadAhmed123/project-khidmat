@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6b95241b-1193-492e-913c-82deafe9819a" name="Default" comment="" />
+    <list default="true" id="6b95241b-1193-492e-913c-82deafe9819a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/events_information.html" afterPath="$PROJECT_DIR$/front_end/events_information.html" />
+    </list>
     <ignored path="project-khidmat.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -35,13 +37,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="events_information.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="events_information.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/front_end/events_information.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.6923075" vertical-offset="7280" max-vertical-offset="9044">
-              <caret line="440" column="35" selection-start-line="440" selection-start-column="35" selection-end-line="440" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.30098686" vertical-offset="6481" max-vertical-offset="8993">
+              <caret line="392" column="58" selection-start-line="392" selection-start-column="58" selection-end-line="392" selection-end-column="58" />
               <folding>
                 <element signature="n#style#0;n#textarea#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#textarea#0;n#div#0;n#div#6;n#form#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#textarea#0;n#div#0;n#div#7;n#form#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -77,10 +81,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StudentFeesPayment.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StudentFeesPayment.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front_end/StudentFeesPayment.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7549342" vertical-offset="5678" max-vertical-offset="8109">
+            <state vertical-scroll-proportion="-13.730769" vertical-offset="5780" max-vertical-offset="8109">
               <caret line="361" column="93" selection-start-line="361" selection-start-column="93" selection-end-line="361" selection-end-column="93" />
               <folding />
             </state>
@@ -149,11 +153,11 @@
         <option value="$PROJECT_DIR$/front_end/student_reg.html" />
         <option value="$PROJECT_DIR$/front_end/student_edit_reg.html" />
         <option value="$PROJECT_DIR$/front_end/ManageTest.html" />
-        <option value="$PROJECT_DIR$/front_end/events_information.html" />
         <option value="$PROJECT_DIR$/front_end/ViewMedical.html" />
         <option value="$PROJECT_DIR$/front_end/medial_edit.html" />
         <option value="$PROJECT_DIR$/front_end/Increment.html" />
         <option value="$PROJECT_DIR$/front_end/StudentFeesPayment.html" />
+        <option value="$PROJECT_DIR$/front_end/events_information.html" />
       </list>
     </option>
   </component>
@@ -452,16 +456,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/events_information.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.6923075" vertical-offset="7280" max-vertical-offset="9044">
-          <caret line="440" column="35" selection-start-line="440" selection-start-column="35" selection-end-line="440" selection-end-column="35" />
-          <folding>
-            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front_end/ViewMedical.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.461538" vertical-offset="5576" max-vertical-offset="9554">
@@ -512,9 +506,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/StudentFeesPayment.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7549342" vertical-offset="5678" max-vertical-offset="8109">
+        <state vertical-scroll-proportion="-13.730769" vertical-offset="5780" max-vertical-offset="8109">
           <caret line="361" column="93" selection-start-line="361" selection-start-column="93" selection-end-line="361" selection-end-column="93" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/events_information.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30098686" vertical-offset="6481" max-vertical-offset="8993">
+          <caret line="392" column="58" selection-start-line="392" selection-start-column="58" selection-end-line="392" selection-end-column="58" />
+          <folding>
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#6;n#form#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#7;n#form#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
