@@ -337,9 +337,10 @@
 				<div class="card-body">
 
 				<!-- Add classes -->
-				<h1 class="header">
-          Add Modlue
-        </h1>
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        Add Module
+                    </h6>
+                    <hr>
 
         <form action="{{ url_for('') }}" method='post'>
 
@@ -376,9 +377,10 @@
 <br>
 
       <!-- Edit Modules -->
-      <h1 class="header">
-        Edit Modules
-      </h1>
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        Edit Module
+                    </h6>
+                    <hr>
 
       <form action="{{ url_for('') }}" method='post'>
 
@@ -407,6 +409,14 @@
                   </div>
               </div>
           </div>
+
+          <div class="form-group row">
+              <label for="ChangeDateto" class="col-md-4 col-form-label text-md-right">Change to</label>
+              <div class="col-md-6">
+                  <input type="date" id="ChangeDateto" class="form-control" name="classEdited">
+              </div>
+          </div>
+
           <div class="form-group row">
               <label for="endDateEdit" class="col-md-4 col-form-label text-md-right">End Date</label>
               <div class="col-md-6">
@@ -416,6 +426,12 @@
               </div>
           </div>
 
+          <div class="form-group row">
+              <label for="ChangeEndto" class="col-md-4 col-form-label text-md-right">Change to</label>
+              <div class="col-md-6">
+                  <input type="date" id="ChangeEndto" class="form-control" name="classEdited">
+              </div>
+          </div>
 
           <div class="col-md-6 offset-md-4">
           <input type="submit" class="btn btn-primary" value="Edit">
