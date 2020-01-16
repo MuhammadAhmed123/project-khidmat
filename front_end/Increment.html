@@ -339,29 +339,41 @@
                  <!-- Add classes -->
                         <h6 class="m-0 font-weight-bold text-primary">
                             Increment Salaries
-                        </h6>
-
+                        </h6> <hr>
                         <form action="{{ url_for('') }}" method='post'>
 
-                            <div class="col-sm-3 mb-3 mb-sm-0 dropdown-menu-md-right">
-                                <select id="" class="form-control">
-                                    <option disabled selected value="1">Select Category</option>
-                                    <option class="select-option" value="2">Teacher</option>
-                                    <option class="select-option" value="3">Accounts</option>
-                                </select>
+                            <div class="form-group row">
+                                <label for="oldTest" class="col-md-4 col-form-label text-md-right">Test Name</label>
+                                <div class="col-md-6">
+                                    <select class="form-control" id="oldTest" name="existingTests">
+                                        <option disabled selected value="1">Select Category</option>
+                                        <option class="select-option" value="2">Teacher</option>
+                                        <option class="select-option" value="3">Accounts</option>
+                                    </select>
+                                </div>
                             </div>
-                        </form>
-
-                        <form action="{{ url_for('') }}" method='post'>
-                            <div class="col-sm-3 mb-3 mb-sm-0">
-                                <select id="" class="form-control">
-                                    <option disabled selected value="1">Select Employee Name</option>
-                                    <option class="select-option" value="2">Afzal Khan</option>
-                                    <option class="select-option" value="3">Shoaib Ali</option>
-                                </select>
+                            <div class="form-group row">
+                                <label for="oldTest" class="col-md-4 col-form-label text-md-right">Test Name</label>
+                                <div class="col-md-6">
+                                    <select class="form-control" id="oldTest" name="existingTests">
+                                        <option disabled selected value="1">Select Employee Name</option>
+                                        <option class="select-option" value="2">Afzal Khan</option>
+                                        <option class="select-option" value="3">Shoaib Ali</option>
+                                    </select>
+                                </div>
                             </div>
-                        </form>
-                        <form action="{{ url_for('') }}" method='post'>
+
+                            <div class="form-group row">
+                                <label for="testMarks" class="col-md-4 col-form-label text-md-right">Test Marks</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="testMarks" class="form-control" name="testMarks">
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
                             <div class="form-group row">
                                 <label for="incrementPercentage" class="col-md-4 col-form-label text-md-right">increment Percentage</label>
                                 <div class="col-md-6">
@@ -407,15 +419,12 @@
 
 
 
-                                    </form>
+                        </form>
 
 
-                    </div>
                 </div>
-
-
             </div>
-            <!-- /.container-fluid -->
+
 
         </div>
         <!-- End of Main Content -->
@@ -433,7 +442,7 @@
     </div>
     <!-- End of Content Wrapper -->
 
-</div>
+
 <!-- End of Page Wrapper -->
 
 <!-- Scroll to Top Button-->

@@ -339,31 +339,30 @@
                         <!-- Add classes -->
                         <h6 class="m-0 font-weight-bold text-primary">
                             Student Fees
-                        </h6>
+                        </h6><hr>
 
 
                         <form action="{{ url_for('') }}" method='post'>
-                            <div class="form-group row col-sm-3 mb-3 mb-sm-0">
 
-                                <select id="" class="form-control">
-                                    <option disabled selected value="1">Select Student Name</option>
-                                    <option class="select-option" value="2">Afzal Khan</option>
-                                    <option class="select-option" value="3">Shoaib Ali</option>
-                                </select>
-
+                            <div class="form-group row">
+                                <label for="oldTest" class="col-md-4 col-form-label text-md-right">Test Name</label>
+                                <div class="col-md-6">
+                                    <select class="form-control" id="oldTest" name="existingTests">
+                                        <option class="select-option" value="2">Afzal Khan</option>
+                                        <option class="select-option" value="3">Shoaib Ali</option>
+                                    </select>
+                                </div>
                             </div>
-                        </form>
-                        <form action="{{ url_for('') }}" method='post'>
-                            <div class="form-group row col-sm-3 mb-3 mb-sm-0">
-
-                                <select id="" class="form-control">
-                                    <option disabled selected value="1">Select Fee Category</option>
-                                    <option class="select-option" value="2">Medical</option>
-                                    <option class="select-option" value="3">Academic</option>
-                                </select>
-
+                            <div class="form-group row">
+                                <label for="oldTest" class="col-md-4 col-form-label text-md-right">Test Name</label>
+                                <div class="col-md-6">
+                                    <select class="form-control" id="oldTest" name="existingTests">
+                                        <option disabled selected value="1">Select Fee Category</option>
+                                        <option class="select-option" value="2">Medical</option>
+                                        <option class="select-option" value="3">Academic</option>
+                                    </select>
+                                </div>
                             </div>
-                        </form>
                         <form action="{{ url_for('') }}" method='post'>
                             <div class="form-group row">
                                 <label for="incrementPercentage" class="col-md-4 col-form-label text-md-right">Amount</label>
