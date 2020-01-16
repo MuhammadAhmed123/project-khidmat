@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+
+{% block body %}
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="card">
+			<div class="card-header">Manage Vehicles</div>
+				<div class="card-body">
+
+				<!-- Add classes -->
+				<h6 class="m-0 font-weight-bold text-primary">
+          Add Vehicle
+        </h6>
+        <hr>
+
+        <form action="{{ url_for('vehicleAdd') }}" method='post'>
+
+        <div class="form-group row">
+            <label for="vehicleName" class="col-md-4 col-form-label text-md-right">Vehicle Name</label>
+            <div class="col-md-6">
+                <input type="text" id="vehicleName" class="form-control" name="vehicleName" required>
+            </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="regNum" class="col-md-4 col-form-label text-md-right">Registration Number</label>
+          <div class="col-md-6">
+              <input type="text" id="regNum" class="form-control" name="vehicleRegistrationNumber">
+          </div>
+      </div>
+
+
+        <div class="col-md-6 offset-md-4">
+            <input type="submit" class="btn btn-primary" value="Add">
+        </div>
+
+      </form>
+<br>
+
+      <!-- Edit Class -->
+      <h6 class="m-0 font-weight-bold text-primary">
+        Edit Vehicles
+      </h6>
+      <hr>
+      <form action="{{ url_for('vehicleSearch') }}" method='post'>
+
+      <div class="form-group row">
+          <label for="vehicleNameEdit" class="col-md-4 col-form-label text-md-right">Vehicle To Edit</label>
+          <div class="col-md-6">
+              <select class="form-control" id="vehicleNameEdit" name="vehicleToEdit" required>
+                {% for i in vehicles %}
+                  <option class="">{{i.Name}}</option>
+                {% endfor %}
+
+              </select>
+          </div>
+      </div>
+      <div class="col-md-6 offset-md-4">
+          <input type="submit" class="btn btn-primary" value="Search">
+      </div>
+
+    </form>
+
+    <form action="{{ url_for('vehicleUpdate') }}" method='post'>
+
+      <div class="form-group row">
+          <label for="Changeto" class="col-md-4 col-form-label text-md-right">Old Vehicle</label>
+          <div class="col-md-6">
+              <input type="text" id="Changeto" class="form-control" name="oldVehicle" disabled placeholder="{{ ov }}">
+          </div>
+      </div>
+
+      <div class="form-group row">
+          <label for="Changeto" class="col-md-4 col-form-label text-md-right">New Vehicle</label>
+          <div class="col-md-6">
+              <input type="text" id="Changeto" class="form-control" name="newVehicle" required>
+          </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label for="ChangetoReg" class="col-md-4 col-form-label text-md-right">Old Vehicle Registration Number</label>
+        <div class="col-md-6">
+            <input type="text" id="ChangetoReg" class="form-control" name="oldVehicleRegistrationNumber" disabled placeholder="{{ ovrn }}">
+        </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="ChangetoReg" class="col-md-4 col-form-label text-md-right">New Vehicle Registration Number</label>
+      <div class="col-md-6">
+          <input type="text" id="ChangetoReg" class="form-control" name="newVehicleRegistrationNumber" required>
+      </div>
+  </div>
+
+      <div class="col-md-6 offset-md-4">
+          <input type="submit" class="btn btn-primary" value="Update">
+      </div>
+
+    </form>
+
+
+				</div>
+				</div>
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+{% endblock %}

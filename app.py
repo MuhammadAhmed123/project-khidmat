@@ -6,13 +6,73 @@ existingEvent = ""
 eventEditId = -1
 editRegNames = []
 editRegIDs = []
-
+vehicleEditId = -1
 
 
 app = Flask(__name__)
 
 engine = create_engine("mysql://root:@127.0.0.1/tgsapplication")
 db = scoped_session(sessionmaker(bind=engine))
+
+@app.route("/vehicleLink")
+def vehicleLink():
+    vehicleCol = list(db.execute("SELECT * FROM vehicle WHERE idVehicle = :vehicleEditId",{"vehicleEditId":vehicleEditId}))
+    if vehicleEditId == -1 or vehicleCol == []:
+        vehicleCol = [("", "")]
+    ov = vehicleCol[0][1]
+    ovrn = vehicleCol[0][2]
+    vehicles = db.execute("SELECT Name FROM vehicle")
+
+    return render_template("vehicle.html",vehicles = vehicles , ov = ov, ovrn = ovrn)
+
+@app.route("/vehicleAdd", methods=["POST"])
+def vehicleAdd():
+    vehicleName = request.form.get("vehicleName")
+    vehicleRegistrationNumber = request.form.get("vehicleRegistrationNumber")
+
+    db.execute("INSERT INTO vehicle (Name, RegistrationNumber) VALUES (:Name, :RegistrationNumber)",{"Name":vehicleName, "RegistrationNumber":vehicleRegistrationNumber})
+    db.commit()
+    return redirect(url_for("vehicleLink"))
+
+@app.route("/vehicleSearch", methods=["POST"])
+def vehicleSearch():
+    global vehicleEditId
+    vehicleToEdit = request.form.get("vehicleToEdit")
+    vehicleEditId = list(db.execute("SELECT idVehicle FROM vehicle WHERE Name = :vehicleToEdit",{"vehicleToEdit":vehicleToEdit}))
+    if vehicleEditId == []:
+        vehicleEditId = -1
+    else:
+        vehicleEditId = vehicleEditId[0][0]
+    return redirect(url_for("vehicleLink"))
+
+@app.route("/vehicleUpdate", methods=["POST"])
+def vehicleUpdate():
+    print("vehicleEditId 2 : ", vehicleEditId)
+    newVehicle = request.form.get("newVehicle")
+    newVehicleRegistrationNumber = request.form.get("newVehicleRegistrationNumber")
+    if vehicleEditId != -1:
+        db.execute("UPDATE vehicle SET Name = :newVehicle, RegistrationNumber = :newVehicleRegistrationNumber WHERE idVehicle = :vehicleEditId",{"newVehicle":newVehicle, "newVehicleRegistrationNumber":newVehicleRegistrationNumber, "vehicleEditId":vehicleEditId})
+        db.commit()
+
+    return redirect(url_for("vehicleLink"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #
 # @app.route("/loginLink")
