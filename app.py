@@ -2,6 +2,13 @@ from flask import Flask, render_template, request, redirect, url_for
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
+existingEvent = ""
+eventEditId = -1
+editRegNames = []
+editRegIDs = []
+
+
+
 app = Flask(__name__)
 
 engine = create_engine("mysql://root:@127.0.0.1/tgsapplication")
@@ -22,13 +29,10 @@ def login():
     return redirect(url_for("index"))
 
 
+
 @app.route("/")
 def index():
     return render_template("login.html")
-# this registration code has to be edited
-
-editRegNames = []
-editRegIDs = []
 
 @app.route("/utilityLink")
 def utilityLink():
@@ -46,11 +50,25 @@ def utility():
     db.commit()
     return redirect(url_for('utilityLink'))
 
-
+def dateProcess(date):
+    if date == "N/A" or date == "None" or date == "":
+        return date
+    return (date[5:7]+"-"+date[8:]+"-"+date[0:4])
 
 @app.route("/eventLink")
 def eventLink():
-    return render_template("events_information.html")
+    global existingEvent
+    events = db.execute("SELECT Name FROM event")
+    existingEventCol = list(db.execute("SELECT * FROM event WHERE Name=:existingEvent", {"existingEvent":existingEvent}))
+    if existingEvent == "" or existingEvent == []:
+        existingEventCol = [(0,"","","","")]
+    print("existingEventCol ",existingEventCol)
+    oldId = existingEventCol[0][0]
+    oldName = existingEventCol[0][1]
+    oldDate = dateProcess(str(existingEventCol[0][2]))
+    oldBudget = existingEventCol[0][3]
+    oldRemarks =  existingEventCol[0][4]
+    return render_template("events_information.html", events=events, oldName=oldName, oldDate=oldDate, oldBudget=oldBudget, oldRemarks=oldRemarks)
 
 @app.route("/event", methods=["POST"])
 def event():
@@ -63,11 +81,32 @@ def event():
     db.commit()
     return redirect(url_for('eventLink'))
 
-@app.route("/eventEdit", methods=["POST"])
-def eventEdit():
-
+@app.route("/eventSearch", methods=["POST"])
+def eventSearch():
+    global existingEvent
+    global eventEditId
+    existingEvent = request.form.get("existingEvent")
+    eventEditId = list(db.execute("SELECT idEvent FROM event where event.Name = :existingEvent",{"existingEvent":existingEvent}))[0][0]
     return redirect(url_for('eventLink'))
 
+@app.route("/eventEdit", methods=["POST"])
+def eventUpdate():
+    global eventEditId
+    if eventEditId != -1:
+        newEventName = request.form.get("newEventName")
+        newEventDate = request.form.get("newEventDate")
+        newEventBudget = request.form.get("newEventBudget")
+        newEventDetails = request.form.get("newEventDetails")
+        # print("eventEditId: ", eventEditId)
+        db.execute("UPDATE event SET Name = :newEventName, Date = :newEventDate, Budget = :newEventBudget, Remarks = :newEventDetails WHERE idEvent = :eventEditId",{"newEventName":newEventName, "newEventDate":newEventDate, "newEventBudget":newEventBudget, "newEventDetails":newEventDetails, "eventEditId":eventEditId})
+        db.commit()
+    else:
+        pass
+        # should show message to select event first.
+    events = db.execute("SELECT Name FROM event")
+    return render_template("events_information.html", events=events)
+
+    # return redirect(url_for('eventLink'))
 
 @app.route("/registerEdit")
 def registerEdit():
@@ -150,7 +189,7 @@ def registerStudent():
     return redirect(url_for('registerStudentLink'))
 
 @app.route("/registerStaffLink")
-def registerStaffLink():
+def registerStaffLink(tryn):
     return render_template("staff_reg.html")
 
 @app.route("/registerStaff", methods=["POST"])
@@ -178,7 +217,7 @@ def registerStaff():
     db.execute("INSERT INTO Staff (Person_idPerson, Salary, Category, joiningDate, Qualification) VALUES (:ID, :Salary, :Category, :joiningDate, :Qualification)",{"ID":personID, "Salary":salary, "Category":staffCategory, "joiningDate":joiningDate, "Qualification":qualification})
     db.commit()
 
-    return redirect(url_for("registerStaffLink"))
+    return redirect(url_for("registerStaffLink", tryn=0))
 
 
 @app.route("/registerDonorLink")
