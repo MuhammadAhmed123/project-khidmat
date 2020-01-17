@@ -7,6 +7,7 @@ eventEditId = -1
 editRegNames = []
 editRegIDs = []
 vehicleEditId = -1
+vehCatToEditId = -1
 
 
 app = Flask(__name__)
@@ -14,11 +15,74 @@ app = Flask(__name__)
 engine = create_engine("mysql://root:@127.0.0.1/tgsapplication")
 db = scoped_session(sessionmaker(bind=engine))
 
+@app.route("/vehicleMaintenaceCat")
+def vehicleMaintenaceCat():
+    global vehCatToEditId
+    categories = db.execute("SELECT Name FROM vehiclemaintenancecategory")
+    vehCatCol = list(db.execute("SELECT * FROM vehiclemaintenancecategory WHERE idVehicleMaintenanceCategory = :vehCatToEditId",{"vehCatToEditId":vehCatToEditId}))
+    if vehCatCol == [] or vehCatToEditId == -1:
+        vehCatCol = [("", "", "")]
+    ovcn = vehCatCol[0][1]
+    ovcd = vehCatCol[0][2]
+    return render_template("vehicleMaintenanceCategory.html", categories=categories, ovcn = ovcn, ovcd = ovcd)
+
+@app.route("/vehicleCatAdd", methods=["POST"])
+def vehicleCatAdd():
+    vehCatName = request.form.get("vehCatName")
+    vehCatDescription = request.form.get("vehCatDescription")
+
+    db.execute("INSERT INTO vehiclemaintenancecategory (Name, Description) VALUES (:vehCatName, :vehCatDescription)",{"vehCatName":vehCatName, "vehCatDescription":vehCatDescription})
+    db.commit()
+    return redirect(url_for("vehicleMaintenaceCat"))
+
+@app.route("/vehicleCatSearch", methods=["POST"])
+def vehicleCatSearch():
+    global vehCatToEditId
+    vehCatToEdit = request.form.get("vehCatToEdit")
+    vehCatToEditId = list(db.execute("SELECT idVehicleMaintenanceCategory FROM vehiclemaintenancecategory WHERE Name = :vehCatToEdit",{"vehCatToEdit":vehCatToEdit}))
+    if vehCatToEditId == []:
+        vehCatToEditId = -1
+    else:
+        vehCatToEditId = vehCatToEditId[0][0]
+
+    return redirect(url_for("vehicleMaintenaceCat"))
+
+@app.route("/vehicleCatUpdate", methods=["POST"])
+def vehicleCatUpdate():
+    global vehCatToEditId
+
+    newVehCatName = request.form.get("newVehCatName")
+    newVehCatDes = request.form.get("newVehCatDes")
+
+    if vehCatToEditId != -1:
+        db.execute("UPDATE vehiclemaintenancecategory SET Name = :newVehCatName, Description = :newVehCatDes WHERE idVehicleMaintenanceCategory = :vehCatToEditId",{"newVehCatName":newVehCatName, "newVehCatDes":newVehCatDes, "vehCatToEditId":vehCatToEditId})
+        db.commit()
+
+    return redirect(url_for("vehicleMaintenaceCat"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @app.route("/vehicleLink")
 def vehicleLink():
     vehicleCol = list(db.execute("SELECT * FROM vehicle WHERE idVehicle = :vehicleEditId",{"vehicleEditId":vehicleEditId}))
     if vehicleEditId == -1 or vehicleCol == []:
-        vehicleCol = [("", "")]
+        vehicleCol = [("", "", "")]
     ov = vehicleCol[0][1]
     ovrn = vehicleCol[0][2]
     vehicles = db.execute("SELECT Name FROM vehicle")
@@ -55,24 +119,6 @@ def vehicleUpdate():
         db.commit()
 
     return redirect(url_for("vehicleLink"))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #
 # @app.route("/loginLink")
@@ -400,8 +446,44 @@ def viewAttendance():
 
 @app.route("/viewMarkAttendance")
 def viewMarkAttendance():
-    return render_template("MarkAttendance.html")
+    classes = db.execute("SELECT Class.Name FROM Class")
+    return render_template("MarkAttendance.html", classes=classes, people=[])
 
+attendancePeople = []
+attendanceDate = ''
+
+@app.route("/searchMarkAttendance", methods=["POST"])
+def searchMarkAttendance():
+    global attendancePeople
+    global attendanceDate
+    attendees = request.form.get('selectAttendeesMA')
+    Class = request.form.get("studentClassMA")
+    attendanceDate = request.form.get('dateMA')
+    print(attendees,Class, attendanceDate)
+    classes = db.execute("SELECT Class.Name FROM Class")                # for populating the select box class again
+    people = []
+    # below is working for populating the marking attendance table
+    if attendees != "Staff":
+        classID = list(db.execute("SELECT class.idClass from class WHERE class.Name =:Class", {"Class":Class}))[0][0]
+        people = list(db.execute("SELECT person.ID,person.Name FROM person,student WHERE person.idPerson=student.Person_idPerson AND student.Class_idClass=:classID",{"classID":classID}))
+        attendancePeople = people
+        # print(people)
+    return render_template("MarkAttendance.html", classes=classes, people=people)
+
+@app.route("/submitAttendance",methods=["POST"])
+def submitAttendance():
+    global attendancePeople
+    global attendanceDate
+    state = {}
+    for person in attendancePeople:
+        state[person[0]] = request.form.get(person[0])
+    print(state)
+    for ID in state:
+        personID = list(db.execute("SELECT person.idPerson FROM person WHERE person.ID=:ID",{"ID":ID}))[0][0]
+        db.execute("INSERT INTO attendance (idAttendance, Person_idPerson, Date, State, Remarks) VALUES (NULL, :personID, '2019-12-11', :status, NULL);",{"personID":personID, "status":state[ID]})
+        db.commit()
+    print("submitted attendance")
+    return redirect(url_for('viewMarkAttendance'))
 
 @app.route("/MaintenanceEntryLink")
 def MaintenanceEntryLink():

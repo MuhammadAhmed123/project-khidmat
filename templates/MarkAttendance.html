@@ -3,263 +3,270 @@
 
 {% block body %}
 <!-- Begin Page Content -->
-        <div class="container-fluid">
+<div class="container-fluid">
 
-          <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Mark Attendance</h1>
+  <!-- Page Heading -->
+  <h1 class="h3 mb-4 text-gray-800">Mark Attendance</h1>
 
-        <!-- /.container-fluid -->
+  <!-- /.container-fluid -->
 
-        <!-- DataTales Example -->
-
-
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <!----<h6 class="m-0 font-weight-bold text-primary">Enter maintenance activity</h6>-->
-            <h6 class="m-0 font-weight-bold text-primary"> 
-              <a class="btn btn-primary" href="{{ url_for('viewAttendance') }}">View Attendance</a>
-              <a class="btn btn-primary" href="{{ url_for('viewMarkAttendance') }}">Mark Attendance</a> 
-            </h6>
+  <!-- DataTales Example -->
 
 
-            
-          </div>
-          <div class="card-body">
-            <div class="form-group row">
-              <label for="selectAttendees" class="col-md-4 col-form-label text-md-right">Select Attendees</label>
-                <div class="col-md-6">
-                  <select id="selectAttendees" class="form-control" onchange="hideClass()">
-                    <!-- <option disabled selected value="1">Select Attendees</option> -->
-                    <option class="select-option" value="1">Student</option>
-                    <option class="select-option" value="2">Staff</option>
-      
-                  </select>
-                </div>
-                </div>
-      
-                
-      
-            <div class="form-group row" >
-              <label for="selectClass" id="selectClassLabel" class="col-md-4 col-form-label text-md-right">Select Class</label>
-                <div class="col-md-6">
-                  <select id="selectClass" name="viewAttendanceSelectClass" class="form-control">
-                    <!-- <option disabled selected value="1">Select Attendees</option> -->
-                    <option class="select-option" value="1">XI</option>
-                    <option class="select-option" value="2">XII</option>
-                    <option class="select-option" value="3">IX</option>
-      
-                  </select>
-                </div>
-                </div>
-      
-                <script>
-                
-                function hideClass() {
-                  if (document.getElementById("selectAttendees").value == "1") {
-                    document.getElementById("selectClassLabel").style.display = "block";
-                    document.getElementById("selectClass").style.display = "block";
-                    // document.getElementById("selectClassDiv").setAttribute("hidden","");
-                  } else {
-                    document.getElementById("selectClassLabel").style.display = "none";
-                    document.getElementById("selectClass").style.display = "none";
-                    // document.getElementById("selectClassDiv").removeAttribute("hidden");
-                  }
-                }
-                </script>
-      
-                
-                <!-- This catagory is to be decided-->
-         <!-- Date and time picker with disbaled dates -->
-         <div class="form-group row">
-          <label for="date" class="col-md-4 col-form-label text-md-right">Select Month</label>
-            <div class="col-md-6">
-              <input id="date" type="date" class="form-control">
-            </div>
-         </div>
-      
-            <div class="form-group row">
-          <div class="col-md-6 offset-md-4">
-              <button class="btn btn-primary" style="width: 10em">Search</button>
-            </div>
-              </div>
-      
-              <hr class="">
-            
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <!----<h6 class="m-0 font-weight-bold text-primary">Enter maintenance activity</h6>-->
+      <h6 class="m-0 font-weight-bold text-primary">
+        <a class="btn btn-primary" href="{{ url_for('viewAttendance') }}">View Attendance</a>
+        <a class="btn btn-primary" href="{{ url_for('viewMarkAttendance') }}">Mark Attendance</a>
+      </h6>
 
-                    <th>ID</th>
-                    <th>Student Name </th>
-                    <th>Status</th>
 
-                    <div class="form-check">
-                      <label class="form-check-label">
 
-                      </label>
-                    </div>
+    </div>
+    <div class="card-body">
 
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>01</td>
-                    <td>Ahmed</td>
-                    <td>
-                            <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="defaultExampleRadios">
-                                    <label class="custom-control-label" for="defaultUnchecked1">Present</label>
-                            </div>
-                            <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="defaultUnchecked2" name="defaultExampleRadios">
-                                    <label class="custom-control-label" for="defaultUnchecked2">Late</label>
-                            </div>
-                            <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="defaultUnchecked3" name="defaultExampleRadios">
-                                    <label class="custom-control-label" for="defaultUnchecked3">Leave</label>
-                            </div>
-                            <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="defaultUnchecked4" name="defaultExampleRadios">
-                                    <label class="custom-control-label" for="defaultUnchecked4">Absent</label>
-                                </div>
-                    </td>
+      <form action="{{ url_for('searchMarkAttendance') }}" method="post">
 
-                  </tr>
-                  <tr>
-                    <td>Sara</td>
-                    <td>Khan</td>
-                      <td>
-                          <div class="custom-control custom-radio">
-                              <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="defaultExampleRadios">
-                              <label class="custom-control-label" for="defaultUnchecked1">Present</label>
-                          </div>
-                          <div class="custom-control custom-radio">
-                              <input type="radio" class="custom-control-input" id="defaultUnchecked2" name="defaultExampleRadios">
-                              <label class="custom-control-label" for="defaultUnchecked2">Late</label>
-                          </div>
-                          <div class="custom-control custom-radio">
-                              <input type="radio" class="custom-control-input" id="defaultUnchecked3" name="defaultExampleRadios">
-                              <label class="custom-control-label" for="defaultUnchecked3">Leave</label>
-                          </div>
-                          <div class="custom-control custom-radio">
-                              <input type="radio" class="custom-control-input" id="defaultUnchecked4" name="defaultExampleRadios">
-                              <label class="custom-control-label" for="defaultUnchecked4">Absent</label>
-                          </div>
-                      </td>
+      <div class="form-group row">
+        <label for="selectAttendees" class="col-md-4 col-form-label text-md-right">Select Attendees</label>
+        <div class="col-md-6">
+          <select id="selectAttendees" class="form-control" onchange="hideClass()"  name="selectAttendeesMA">
+            <!-- <option disabled selected value="1">Select Attendees</option> -->
+            <option class="select-option">Student</option>
+            <option class="select-option">Staff</option>
 
-                  </tr>
-                  <tr>
-                    <td>03</td>
-                    <td>Faizan</td>
-                      <td>
-                          <div class="custom-control custom-radio">
-                              <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="defaultExampleRadios">
-                              <label class="custom-control-label" for="defaultUnchecked1">Present</label>
-                          </div>
-                          <div class="custom-control custom-radio">
-                              <input type="radio" class="custom-control-input" id="defaultUnchecked2" name="defaultExampleRadios">
-                              <label class="custom-control-label" for="defaultUnchecked2">Late</label>
-                          </div>
-                          <div class="custom-control custom-radio">
-                              <input type="radio" class="custom-control-input" id="defaultUnchecked3" name="defaultExampleRadios">
-                              <label class="custom-control-label" for="defaultUnchecked3">Leave</label>
-                          </div>
-                          <div class="custom-control custom-radio">
-                              <input type="radio" class="custom-control-input" id="defaultUnchecked4" name="defaultExampleRadios">
-                              <label class="custom-control-label" for="defaultUnchecked4">Absent</label>
-                          </div>
-                      </td>
-
-                  </tr>
-                  <tr>
-                    <td>04</td>
-                    <td>Haris sheikh</td>
-                      <td>
-                          <div class="custom-control custom-radio">
-                              <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="defaultExampleRadios">
-                              <label class="custom-control-label" for="defaultUnchecked1">Present</label>
-                          </div>
-                          <div class="custom-control custom-radio">
-                              <input type="radio" class="custom-control-input" id="defaultUnchecked2" name="defaultExampleRadios">
-                              <label class="custom-control-label" for="defaultUnchecked2">Late</label>
-                          </div>
-                          <div class="custom-control custom-radio">
-                              <input type="radio" class="custom-control-input" id="defaultUnchecked3" name="defaultExampleRadios">
-                              <label class="custom-control-label" for="defaultUnchecked3">Leave</label>
-                          </div>
-                          <div class="custom-control custom-radio">
-                              <input type="radio" class="custom-control-input" id="defaultUnchecked4" name="defaultExampleRadios">
-                              <label class="custom-control-label" for="defaultUnchecked4">Absent</label>
-                          </div>
-                      </td>
-
-                  </tr>
-                  <tr>
-                    <td>05</td>
-                    <td>Helem williams</td>
-                      <td>
-                          <div class="custom-control custom-radio">
-                              <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="defaultExampleRadios">
-                              <label class="custom-control-label" for="defaultUnchecked1">Present</label>
-                          </div>
-                          <div class="custom-control custom-radio">
-                              <input type="radio" class="custom-control-input" id="defaultUnchecked2" name="defaultExampleRadios">
-                              <label class="custom-control-label" for="defaultUnchecked2">Late</label>
-                          </div>
-                          <div class="custom-control custom-radio">
-                              <input type="radio" class="custom-control-input" id="defaultUnchecked3" name="defaultExampleRadios">
-                              <label class="custom-control-label" for="defaultUnchecked3">Leave</label>
-                          </div>
-                          <div class="custom-control custom-radio">
-                              <input type="radio" class="custom-control-input" id="defaultUnchecked4" name="defaultExampleRadios">
-                              <label class="custom-control-label" for="defaultUnchecked4">Absent</label>
-                          </div>
-                      </td>
-
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div>
-                 <input type="submit" class="btn btn-primary" style="width: 10em">  
-
-            </div>
-          </div>
-
+          </select>
         </div>
+      </div>
 
 
-        <!----
-            <div class="form-group">
-                    <select id="" class="form-control">
-                       <option disabled selected value="1">----Select Category----</option>
-                      <option class="select-option" value="2">Watering Plants</option>
-                      <option class="select-option" value="3">Room A cleaning</option>
-                      <option class="select-option" value="4" >Room B cleaning</option>
-                      <option class="select-option" value="5" >Kitchen</option>
-                      <option class="select-option" value="5" >Courtyard</option>
-                      <option class="select-option" value="5" >Washroom</option>
-                      <option class="select-option" value="5" >External Office</option>
-                      <option class="select-option" value="5" >Internal Office</option>
-                    </select>
-                  </div>
 
-           <div class="form-group row">
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                  <input type="text" class="form-control form-control-user" id="executionDate" placeholder="Execution Date">
+      <div class="form-group row" >
+        <label for="selectClass" id="selectClassLabel" class="col-md-4 col-form-label text-md-right">Select Class</label>
+        <div class="col-md-6">
+          <select id="selectClass" name="studentClassMA" class="form-control">
+            <!-- <option disabled selected value="1">Select Attendees</option> -->
+            {% for class in classes %}
+              <option class="">{{class.Name}}</option>
+            {% endfor %}
+
+          </select>
+        </div>
+      </div>
+
+      <!-- This catagory is to be decided-->
+      <!-- Date and time picker with disbaled dates -->
+      <div class="form-group row">
+        <label for="date" class="col-md-4 col-form-label text-md-right">Select Month</label>
+        <div class="col-md-6">
+          <input id="date" type="date" class="form-control" name="dateMA">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-md-6 offset-md-4">
+          <input type="submit" class="btn btn-primary" style="width: 10em" value="Search">
+        </div>
+      </div>
+
+</form>
+      <hr class="">
+
+      <form class="" action="{{ url_for('submitAttendance') }}" method="post">
+
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+
+              <th>ID</th>
+              <th>Name</th>
+              <th>Status</th>
+
+
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              {% for person in people %}
+                <td class="">{{person.ID}}</td>
+                <td class="">{{person.Name}}</td>
+
+              <td>
+                <div class="custom-control custom-radio">
+                  <input type="radio" checked class="custom-control-input" id="{{person.ID}}P" value="1" name="{{person.ID}}">
+                  <label class="custom-control-label" for="{{person.ID}}P">Present</label>
                 </div>
-                <div class="col-sm-6">
-                  <input type="text" class="form-control form-control-user" id="description" placeholder="Description">
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="{{person.ID}}L" value="2" name="{{person.ID}}">
+                  <label class="custom-control-label" for="{{person.ID}}L">Late</label>
                 </div>
-              </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="{{person.ID}}LE" value="3" name="{{person.ID}}">
+                  <label class="custom-control-label" for="{{person.ID}}LE">Leave</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="{{person.ID}}A" value="4" name="{{person.ID}}">
+                  <label class="custom-control-label" for="{{person.ID}}A">Absent</label>
+                </div>
+              </td>
 
-              <button class="btn btn-primary" style="width: 10em">Add</button>
-         </div>
-        </div>-->
+
+            </tr>
+{% endfor %}
+            <!-- <tr>
+              <td>Sara</td>
+              <td>Khan</td>
+              <td>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="defaultExampleRadios">
+                  <label class="custom-control-label" for="defaultUnchecked1">Present</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="defaultUnchecked2" name="defaultExampleRadios">
+                  <label class="custom-control-label" for="defaultUnchecked2">Late</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="defaultUnchecked3" name="defaultExampleRadios">
+                  <label class="custom-control-label" for="defaultUnchecked3">Leave</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="defaultUnchecked4" name="defaultExampleRadios">
+                  <label class="custom-control-label" for="defaultUnchecked4">Absent</label>
+                </div>
+              </td>
+
+            </tr>
+            <tr>
+              <td>03</td>
+              <td>Faizan</td>
+              <td>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="defaultExampleRadios">
+                  <label class="custom-control-label" for="defaultUnchecked1">Present</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="defaultUnchecked2" name="defaultExampleRadios">
+                  <label class="custom-control-label" for="defaultUnchecked2">Late</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="defaultUnchecked3" name="defaultExampleRadios">
+                  <label class="custom-control-label" for="defaultUnchecked3">Leave</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="defaultUnchecked4" name="defaultExampleRadios">
+                  <label class="custom-control-label" for="defaultUnchecked4">Absent</label>
+                </div>
+              </td>
+
+            </tr>
+            <tr>
+              <td>04</td>
+              <td>Haris sheikh</td>
+              <td>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="defaultExampleRadios">
+                  <label class="custom-control-label" for="defaultUnchecked1">Present</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="defaultUnchecked2" name="defaultExampleRadios">
+                  <label class="custom-control-label" for="defaultUnchecked2">Late</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="defaultUnchecked3" name="defaultExampleRadios">
+                  <label class="custom-control-label" for="defaultUnchecked3">Leave</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="defaultUnchecked4" name="defaultExampleRadios">
+                  <label class="custom-control-label" for="defaultUnchecked4">Absent</label>
+                </div>
+              </td>
+
+            </tr>
+            <tr>
+              <td>05</td>
+              <td>Helem williams</td>
+              <td>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="defaultExampleRadios">
+                  <label class="custom-control-label" for="defaultUnchecked1">Present</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="defaultUnchecked2" name="defaultExampleRadios">
+                  <label class="custom-control-label" for="defaultUnchecked2">Late</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="defaultUnchecked3" name="defaultExampleRadios">
+                  <label class="custom-control-label" for="defaultUnchecked3">Leave</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="defaultUnchecked4" name="defaultExampleRadios">
+                  <label class="custom-control-label" for="defaultUnchecked4">Absent</label>
+                </div>
+              </td>
+
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <input type="submit" class="btn btn-primary" style="width: 10em" name="submitMarkAttendance">
 
       </div>
+      </form>
     </div>
 
-      <!-- End of Main Content -->
-      {% endblock %}
+  </div>
+
+
+  <!----
+  <div class="form-group">
+  <select id="" class="form-control">
+  <option disabled selected value="1">----Select Category----</option>
+  <option class="select-option" value="2">Watering Plants</option>
+  <option class="select-option" value="3">Room A cleaning</option>
+  <option class="select-option" value="4" >Room B cleaning</option>
+  <option class="select-option" value="5" >Kitchen</option>
+  <option class="select-option" value="5" >Courtyard</option>
+  <option class="select-option" value="5" >Washroom</option>
+  <option class="select-option" value="5" >External Office</option>
+  <option class="select-option" value="5" >Internal Office</option>
+</select>
+</div>
+
+<div class="form-group row">
+<div class="col-sm-6 mb-3 mb-sm-0">
+<input type="text" class="form-control form-control-user" id="executionDate" placeholder="Execution Date">
+</div>
+<div class="col-sm-6">
+<input type="text" class="form-control form-control-user" id="description" placeholder="Description">
+</div>
+</div>
+
+<button class="btn btn-primary" style="width: 10em">Add</button>
+</div>
+</div>-->
+
+<script>
+
+  function hideClass() {
+    if (document.getElementById("selectAttendees").value == "1") {
+      document.getElementById("selectClassLabel").style.display = "block";
+      document.getElementById("selectClass").style.display = "block";
+      // document.getElementById("selectClassDiv").setAttribute("hidden","");
+    } else {
+      document.getElementById("selectClassLabel").style.display = "none";
+      document.getElementById("selectClass").style.display = "none";
+      // document.getElementById("selectClassDiv").removeAttribute("hidden");
+    }
+  }
+</script>
+
+
+</div>
+</div>
+
+<!-- End of Main Content -->
+{% endblock %}
