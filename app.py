@@ -15,6 +15,45 @@ app = Flask(__name__)
 engine = create_engine("mysql://root:@127.0.0.1/tgsapplication")
 db = scoped_session(sessionmaker(bind=engine))
 
+@app.route("/vehicleMaintenanceLink")
+def vehicleMaintenanceLink():
+    mainCategories = db.execute("SELECT Name FROM vehiclemaintenancecategory")
+    vehicles = db.execute("SELECT Name FROM vehicle")
+
+    return render_template("vehicleMaintenance.html", mainCategories=mainCategories, vehicles=vehicles)
+
+
+@app.route("/vehMainAdd", methods=["POST"])
+def vehMainAdd():
+
+    vehicleName = request.form.get("vehicleName")
+    maintenanceCat = request.form.get("maintenanceCat")
+    vehId = list(db.execute("SELECT idVehicle FROM vehicle WHERE Name = :vehicleName",{"vehicleName":vehicleName}))[0][0]
+    mainCatId = list(db.execute("SELECT idVehicleMaintenanceCategory FROM vehiclemaintenancecategory WHERE Name = :maintenanceCat",{"maintenanceCat":maintenanceCat}))[0][0]
+    vehicleMaintenanceDate = request.form.get("vehicleMaintenanceDate")
+    vehicleMaintenanceExpense = request.form.get("vehicleMaintenanceExpense")
+    vehicleMaintenanceRemarks = request.form.get("vehicleMaintenanceRemarks")
+
+    db.execute("INSERT INTO vehiclemaintenance (VehicleMaintenanceCategory_idVehicleMaintenanceCategory, Vehicle_idVehicle, Expense, Date, Remarks) VALUES (:vehId, :mainCatId, :vehicleMaintenanceExpense, :vehicleMaintenanceDate, :vehicleMaintenanceRemarks)",{"vehId":vehId, "mainCatId":mainCatId, "vehicleMaintenanceExpense":vehicleMaintenanceExpense, "vehicleMaintenanceDate":vehicleMaintenanceDate, "vehicleMaintenanceRemarks":vehicleMaintenanceRemarks})
+    db.commit()
+
+    return redirect(url_for("vehicleMaintenanceLink"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @app.route("/vehicleMaintenaceCat")
 def vehicleMaintenaceCat():
     global vehCatToEditId

@@ -1,0 +1,147 @@
+{% extends "layout.html" %}
+
+{% block body %}
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="card">
+            <div class="card-header">Manage Vehicle Maintenance Entry</div>
+            <div class="card-body">
+
+              <!-- Add classes -->
+              <h6 class="m-0 font-weight-bold text-primary">
+                Add Vehicle Maintenance Entry
+              </h6>
+              <hr>
+
+              <form action="{{ url_for('vehMainAdd') }}" method='post'>
+
+
+                <div class="form-group row">
+                  <label for="vehicleName" class="col-md-4 col-form-label text-md-right">Select Vehicle</label>
+                  <div class="col-md-6">
+                    <select class="form-control" id="vehicleName" name="vehicleName">
+                      {% for i in vehicles %}
+                      <option> {{i.Name}} </option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="maintenanceCat" class="col-md-4 col-form-label text-md-right">Select Maintenance Category</label>
+                  <div class="col-md-6">
+                      <select class="form-control" id="maintenanceCat" name="maintenanceCat">
+                        {% for i in mainCategories %}
+                        <option> {{i.Name}} </option>
+                        {% endfor %}
+                      </select>
+                  </div>
+              </div>
+
+                <div class="form-group row">
+                  <label for="maintenanceDate" class="col-md-4 col-form-label text-md-right">Maintenance Date</label>
+                  <div class="col-md-6">
+                    <input type="date" id="maintenanceDate" class="form-control" name="vehicleMaintenanceDate" required>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="maintenanceExpense" class="col-md-4 col-form-label text-md-right">Expense</label>
+                  <div class="col-md-6">
+                    <input type="number" id="maintenanceExpense" class="form-control" name="vehicleMaintenanceExpense">
+                  </div>
+                </div>
+
+
+                <div class="form-group row">
+                  <label for="maintenanceRemarks" class="col-md-4 col-form-label text-md-right">Remarks</label>
+                  <div class="col-md-6">
+                    <input type="text" id="maintenanceRemarks" class="form-control" name="vehicleMaintenanceRemarks">
+                  </div>
+                </div>
+
+
+                <div class="col-md-6 offset-md-4">
+                  <input type="submit" class="btn btn-primary" value="Add">
+                </div>
+
+              </form>
+              <br>
+
+              <!-- Edit Class -->
+              <h6 class="m-0 font-weight-bold text-primary">
+                Edit Vehicle Maintenance Entry
+              </h6>
+              <hr>
+              <form action="{{ url_for('vehicleMaintenanceLink') }}" method='post'>
+
+                <div class="form-group row">
+                  <label for="vehicleMaintenanceNameEdit" class="col-md-4 col-form-label text-md-right">Vehicle To Edit</label>
+                  <div class="col-md-6">
+                    <select class="form-control" id="vehicleMaintenanceNameEdit" name="vehicleMaintenanceNameEdit">
+                      <option class="">Car</option>
+                      <option class="">Van</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="vehicleMaintenanceNameEditTo" class="col-md-4 col-form-label text-md-right">Select Other Vehicle</label>
+                  <div class="col-md-6">
+                    <select class="form-control" id="vehicleMaintenanceNameEditTo" name="vehicleMaintenanceNameEditTo">
+                      <option class="">Car</option>
+                      <option class="">Van</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="maintenanceCatEdit" class="col-md-4 col-form-label text-md-right">Change Maintenance Category</label>
+                  <div class="col-md-6">
+                      <select class="form-control" id="maintenanceCatEdit" name="maintenanceCatEdit">
+                        <option class="">Nut</option>
+                        <option class="">Bolt</option>
+                      </select>
+                  </div>
+              </div>
+
+                <div class="form-group row">
+                  <label for="maintenanceDateEdit" class="col-md-4 col-form-label text-md-right">Change Maintenance Date</label>
+                  <div class="col-md-6">
+                    <input type="date" id="maintenanceDateEdit" class="form-control" name="maintenanceDateEdit">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="maintenanceExpenseEdit" class="col-md-4 col-form-label text-md-right">Change Expense</label>
+                  <div class="col-md-6">
+                    <input type="number" id="maintenanceExpenseEdit" class="form-control" name="maintenanceExpenseEdit">
+                  </div>
+                </div>
+
+
+                <div class="form-group row">
+                  <label for="maintenanceRemarksEdit" class="col-md-4 col-form-label text-md-right">Change Remarks</label>
+                  <div class="col-md-6">
+                    <input type="text" id="maintenanceRemarksEdit" class="form-control" name="maintenanceRemarksEdit">
+                  </div>
+                </div>
+                <div class="col-md-6 offset-md-4">
+                  <input type="submit" class="btn btn-primary" value="Edit">
+                </div>
+
+              </form>
+
+
+            </div>
+          </div>
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+{% endblock %}
