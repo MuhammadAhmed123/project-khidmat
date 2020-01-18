@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="card">
+			<div class="card-header">Manage Vehicle Maintenance Categories</div>
+				<div class="card-body">
+
+				<!-- Add classes -->
+				<h6 class="m-0 font-weight-bold text-primary">
+          Add Vehicle Maintenance Category
+        </h6>
+        <hr>
+
+        <form action="{{ url_for('vehicleCatAdd') }}" method='post'>
+
+        <div class="form-group row">
+            <label for="catName" class="col-md-4 col-form-label text-md-right">Category Name</label>
+            <div class="col-md-6">
+                <input type="text" id="catName" class="form-control" name="vehCatName" required>
+            </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="description" class="col-md-4 col-form-label text-md-right">Category Description</label>
+          <div class="col-md-6">
+              <input type="text" id="description" class="form-control" name="vehCatDescription">
+          </div>
+      </div>
+
+
+        <div class="col-md-6 offset-md-4">
+            <input type="submit" class="btn btn-primary" value="Add">
+        </div>
+
+      </form>
+<br>
+
+      <!-- Edit Class -->
+      <h6 class="m-0 font-weight-bold text-primary">
+        Edit Vehicle Maintenance Category
+      </h6>
+      <hr>
+      <form action="{{ url_for('vehicleCatSearch') }}" method='post'>
+
+      <div class="form-group row">
+          <label for="maintenanceCatEdit" class="col-md-4 col-form-label text-md-right">Category To Edit</label>
+          <div class="col-md-6">
+              <select class="form-control" id="maintenanceCatEdit" name="vehCatToEdit">
+                {% for i in categories %}
+                <option>{{ i.Name }}</option>
+                {% endfor %}
+              </select>
+          </div>
+      </div>
+      <div class="col-md-6 offset-md-4">
+          <input type="submit" class="btn btn-primary" value="Search">
+      </div>
+
+</form>
+      <form action="{{ url_for('vehicleCatUpdate') }}" method='post'>
+
+      <div class="form-group row">
+          <label for="CatChangeto" class="col-md-4 col-form-label text-md-right">Old Vehicle Category Name</label>
+          <div class="col-md-6">
+              <input type="text" id="CatChangeto" class="form-control" name="oldVehCatName" disabled placeholder="{{ ovcn }}">
+          </div>
+      </div>
+
+      <div class="form-group row">
+          <label for="CatChangeto" class="col-md-4 col-form-label text-md-right">New Vehicle Category Name</label>
+          <div class="col-md-6">
+              <input type="text" id="CatChangeto" class="form-control" name="newVehCatName" required>
+          </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="ChangetoDes" class="col-md-4 col-form-label text-md-right">Old Vehicle Category Description</label>
+        <div class="col-md-6">
+            <input type="text" id="ChangetoDes" class="form-control" name="oldVehCatDes" disabled placeholder="{{ ovcd }}">
+        </div>
+    </div>
+    <div class="form-group row">
+      <label for="ChangetoDes" class="col-md-4 col-form-label text-md-right">New Vehicle Category Description</label>
+      <div class="col-md-6">
+          <input type="text" id="ChangetoDes" class="form-control" name="newVehCatDes">
+      </div>
+  </div>
+
+      <div class="col-md-6 offset-md-4">
+          <input type="submit" class="btn btn-primary" value="Update">
+      </div>
+
+    </form>
+
+
+				</div>
+				</div>
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+{% endblock %}
