@@ -64,16 +64,6 @@ PRIMARY KEY(idUtilityBills));
 
 
 
-CREATE TABLE BloodHealth (
-  idBloodHealth INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
-  BloodGroup VARCHAR(20)  NULL  ,
-  HaemoglobinLevel FLOAT  NULL  ,
-  Remarks TEXT  NULL  ,
-  LastTestDate DATE  NULL    ,
-PRIMARY KEY(idBloodHealth));
-
-
-
 CREATE TABLE Class (
   idClass INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
   Name VARCHAR(20)  NULL  ,
@@ -284,7 +274,6 @@ INDEX Test_FKIndex2(Module_idModule),
 
 CREATE TABLE Student (
   Person_idPerson INTEGER UNSIGNED  NOT NULL  ,
-  BloodHealth_idBloodHealth INTEGER UNSIGNED  NOT NULL  ,
   Sponsor_Person_idPerson INTEGER UNSIGNED  NULL  ,
   Class_idClass INTEGER UNSIGNED  NOT NULL  ,
   Religion VARCHAR(255)  NULL  ,
@@ -312,8 +301,7 @@ CREATE TABLE Student (
 PRIMARY KEY(Person_idPerson)  ,
 INDEX Student_FKIndex1(Person_idPerson)  ,
 INDEX Student_FKIndex2(Class_idClass)  ,
-INDEX Student_FKIndex3(Sponsor_Person_idPerson)  ,
-INDEX Student_FKIndex4(BloodHealth_idBloodHealth),
+INDEX Student_FKIndex3(Sponsor_Person_idPerson),
   FOREIGN KEY(Person_idPerson)
     REFERENCES Person(idPerson)
       ON DELETE NO ACTION
@@ -324,10 +312,6 @@ INDEX Student_FKIndex4(BloodHealth_idBloodHealth),
       ON UPDATE NO ACTION,
   FOREIGN KEY(Sponsor_Person_idPerson)
     REFERENCES Sponsor(Person_idPerson)
-      ON DELETE NO ACTION
-      ON UPDATE NO ACTION,
-  FOREIGN KEY(BloodHealth_idBloodHealth)
-    REFERENCES BloodHealth(idBloodHealth)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION);
 
@@ -356,6 +340,22 @@ CREATE TABLE TyphoidRecord (
   Remarks TEXT  NULL    ,
 PRIMARY KEY(idTyphoidRecord)  ,
 INDEX TyphoidRecord_FKIndex1(Student_Person_idPerson),
+  FOREIGN KEY(Student_Person_idPerson)
+    REFERENCES Student(Person_idPerson)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION);
+
+
+
+CREATE TABLE BloodHealth (
+  idBloodHealth INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
+  Student_Person_idPerson INTEGER UNSIGNED  NOT NULL  ,
+  BloodGroup VARCHAR(20)  NULL  ,
+  HaemoglobinLevel FLOAT  NULL  ,
+  Remarks TEXT  NULL  ,
+  LastTestDate DATE  NULL    ,
+PRIMARY KEY(idBloodHealth)  ,
+INDEX BloodHealth_FKIndex1(Student_Person_idPerson),
   FOREIGN KEY(Student_Person_idPerson)
     REFERENCES Student(Person_idPerson)
       ON DELETE NO ACTION
@@ -440,3 +440,7 @@ INDEX Student_has_Test_FKIndex2(Test_idTest),
     REFERENCES Test(idTest)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION);
+
+
+
+
