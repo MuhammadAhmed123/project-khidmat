@@ -54,7 +54,7 @@ def vehMainAdd():
 
 
 
-@app.route("/vehicleMaintenaceCat")
+@app.route("/vehicleMaintenanceCat")
 def vehicleMaintenaceCat():
     global vehCatToEditId
     categories = db.execute("SELECT Name FROM vehiclemaintenancecategory")
