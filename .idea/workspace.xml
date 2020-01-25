@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b95241b-1193-492e-913c-82deafe9819a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/medial_edit.html" afterPath="$PROJECT_DIR$/front_end/medial_edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/EditBlood.html" afterPath="$PROJECT_DIR$/front_end/EditBlood.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/EditENT.html" afterPath="$PROJECT_DIR$/front_end/EditENT.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/EditHepatitis.html" afterPath="$PROJECT_DIR$/front_end/EditHepatitis.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/EditTyphoid.html" afterPath="$PROJECT_DIR$/front_end/EditTyphoid.html" />
     </list>
     <ignored path="project-khidmat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,10 +66,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="medial_edit.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="medial_edit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front_end/medial_edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33552632" vertical-offset="6324" max-vertical-offset="7582">
+            <state vertical-scroll-proportion="-58.846153" vertical-offset="4998" max-vertical-offset="7582">
               <caret line="384" column="0" selection-start-line="384" selection-start-column="0" selection-end-line="384" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#form#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -78,8 +81,8 @@
       <file leaf-file-name="EditHepatitis.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front_end/EditHepatitis.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.346153" vertical-offset="7004" max-vertical-offset="8619">
-              <caret line="437" column="32" selection-start-line="437" selection-start-column="32" selection-end-line="437" selection-end-column="32" />
+            <state vertical-scroll-proportion="-10.461538" vertical-offset="5423" max-vertical-offset="8585">
+              <caret line="335" column="59" selection-start-line="335" selection-start-column="59" selection-end-line="335" selection-end-column="59" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#form#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -87,11 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EditTyphoid.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EditTyphoid.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/front_end/EditTyphoid.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.8846154" vertical-offset="6783" max-vertical-offset="8313">
-              <caret line="408" column="46" selection-start-line="408" selection-start-column="46" selection-end-line="408" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.39144737" vertical-offset="5610" max-vertical-offset="8279">
+              <caret line="344" column="71" selection-start-line="344" selection-start-column="71" selection-end-line="344" selection-end-column="71" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#form#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -102,8 +105,8 @@
       <file leaf-file-name="EditBlood.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front_end/EditBlood.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65384614" vertical-offset="6001" max-vertical-offset="8483">
-              <caret line="354" column="28" selection-start-line="354" selection-start-column="28" selection-end-line="354" selection-end-column="28" />
+            <state vertical-scroll-proportion="-1.9615384" vertical-offset="5848" max-vertical-offset="8449">
+              <caret line="347" column="29" selection-start-line="347" selection-start-column="29" selection-end-line="347" selection-end-column="29" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#form#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -114,8 +117,8 @@
       <file leaf-file-name="EditENT.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front_end/EditENT.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="6.0384617" vertical-offset="6668" max-vertical-offset="8517">
-              <caret line="383" column="0" selection-start-line="383" selection-start-column="0" selection-end-line="383" selection-end-column="0" />
+            <state vertical-scroll-proportion="-5.730769" vertical-offset="5648" max-vertical-offset="8483">
+              <caret line="341" column="29" selection-start-line="341" selection-start-column="29" selection-end-line="341" selection-end-column="29" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#form#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -170,11 +173,11 @@
         <option value="$PROJECT_DIR$/front_end/StudentFeesPayment.html" />
         <option value="$PROJECT_DIR$/front_end/events_information.html" />
         <option value="$PROJECT_DIR$/front_end/Alerts.html" />
-        <option value="$PROJECT_DIR$/front_end/EditHepatitis.html" />
-        <option value="$PROJECT_DIR$/front_end/EditTyphoid.html" />
+        <option value="$PROJECT_DIR$/front_end/medial_edit.html" />
         <option value="$PROJECT_DIR$/front_end/EditBlood.html" />
         <option value="$PROJECT_DIR$/front_end/EditENT.html" />
-        <option value="$PROJECT_DIR$/front_end/medial_edit.html" />
+        <option value="$PROJECT_DIR$/front_end/EditHepatitis.html" />
+        <option value="$PROJECT_DIR$/front_end/EditTyphoid.html" />
       </list>
     </option>
   </component>
@@ -272,6 +275,26 @@
     <property name="FullScreen" value="false" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -634,20 +657,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/EditHepatitis.html">
+    <entry file="file://$PROJECT_DIR$/front_end/medial_edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.346153" vertical-offset="7004" max-vertical-offset="8619">
-          <caret line="437" column="32" selection-start-line="437" selection-start-column="32" selection-end-line="437" selection-end-column="32" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#form#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/EditTyphoid.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8846154" vertical-offset="6783" max-vertical-offset="8313">
-          <caret line="408" column="46" selection-start-line="408" selection-start-column="46" selection-end-line="408" selection-end-column="46" />
+        <state vertical-scroll-proportion="-58.846153" vertical-offset="4998" max-vertical-offset="7582">
+          <caret line="384" column="0" selection-start-line="384" selection-start-column="0" selection-end-line="384" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#form#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -656,8 +669,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/EditBlood.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614" vertical-offset="6001" max-vertical-offset="8483">
-          <caret line="354" column="28" selection-start-line="354" selection-start-column="28" selection-end-line="354" selection-end-column="28" />
+        <state vertical-scroll-proportion="-1.9615384" vertical-offset="5848" max-vertical-offset="8449">
+          <caret line="347" column="29" selection-start-line="347" selection-start-column="29" selection-end-line="347" selection-end-column="29" />
           <folding>
             <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#form#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -666,18 +679,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/EditENT.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="6.0384617" vertical-offset="6668" max-vertical-offset="8517">
-          <caret line="383" column="0" selection-start-line="383" selection-start-column="0" selection-end-line="383" selection-end-column="0" />
+        <state vertical-scroll-proportion="-5.730769" vertical-offset="5648" max-vertical-offset="8483">
+          <caret line="341" column="29" selection-start-line="341" selection-start-column="29" selection-end-line="341" selection-end-column="29" />
           <folding>
             <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#form#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/medial_edit.html">
+    <entry file="file://$PROJECT_DIR$/front_end/EditHepatitis.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33552632" vertical-offset="6324" max-vertical-offset="7582">
-          <caret line="384" column="0" selection-start-line="384" selection-start-column="0" selection-end-line="384" selection-end-column="0" />
+        <state vertical-scroll-proportion="-10.461538" vertical-offset="5423" max-vertical-offset="8585">
+          <caret line="335" column="59" selection-start-line="335" selection-start-column="59" selection-end-line="335" selection-end-column="59" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#form#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/EditTyphoid.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39144737" vertical-offset="5610" max-vertical-offset="8279">
+          <caret line="344" column="71" selection-start-line="344" selection-start-column="71" selection-end-line="344" selection-end-column="71" />
           <folding>
             <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#form#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>

@@ -333,7 +333,7 @@
 
                 <!-- Page Heading -->
                 <div class="card">
-                    <div class="card-header">Edit Medical Record</div>
+                    <div class="card-header">Edit Hepatitis Record</div>
                     <div class="card-body">
 
                         <!-- Add classes -->
@@ -345,16 +345,14 @@
                         <form action="{{ url_for('') }}" method='post'>
 
                             <div class="form-group row">
-                                <label for="stdId" class="col-md-4 col-form-label text-md-right">Student Id</label>
+                                <label for="oldModule" class="col-md-4 col-form-label text-md-right">Select Student</label>
                                 <div class="col-md-6">
-                                    <input type="number" id="stdId" class="form-control" name="id">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="stdName" class="col-md-4 col-form-label text-md-right">Student Name</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="stdName" class="form-control" name="stdName">
+                                    <select class="form-control" id="oldModule" name="existingModules">
+                                        <option class="">Student1</option>
+                                        <option class="">Student2</option>
+                                        <option class="">Student3</option>
+                                        <option class="">Student4</option>
+                                    </select>
                                 </div>
                             </div>
 
