@@ -88,7 +88,7 @@
         </a>
         <div id="attendance" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            
+
             <a class="collapse-item" href="{{ url_for('viewAttendance') }}">View Attendance</a>
             <a class="collapse-item" href="{{ url_for('viewMarkAttendance') }}">Mark Attendance</a>
           </div>
@@ -100,7 +100,7 @@
         </a>
         <div id="finance" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            
+
             <a class="collapse-item" href="{{ url_for('viewFinance') }}">View Log</a>
             <a class="collapse-item" href="{{ url_for('viewFinanceEntry') }}">Enter Activity</a>
             <a class="collapse-item" href="{{ url_for('viewFinanceItem') }}">Item Categories</a>
@@ -108,18 +108,45 @@
         </div>
 
 
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#maintenance" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#vehicleMaintenance" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fa fa-wrench"></i>
+          <span>Vehicle Maintenance</span>
+        </a>
+        <div id="vehicleMaintenance" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+
+            <a class="collapse-item" href="{{ url_for('vehicleLink') }}">Add Vehicle</a>
+            <a class="collapse-item" href="{{ url_for('vehicleMaintenaceCat') }}">Maintenance Category</a>
+            <a class="collapse-item" href="{{ url_for('vehicleMaintenanceLink') }}">Vehicle Maintenance</a>
+          </div>
+        </div>
+
+
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#event" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fa fa-wrench"></i>
+          <span>Event</span>
+        </a>
+        <div id="event" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+
+            <a class="collapse-item" href="{{ url_for('eventLink') }}">Add Event</a>
+          </div>
+        </div>
+
+
+
+        <!-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#maintenance" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fa fa-wrench"></i>
           <span>Maintenance</span>
         </a>
         <div id="maintenance" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            
+
             <a class="collapse-item" href="{{ url_for('MaintenanceViewLink') }}">View Log</a>
             <a class="collapse-item" href="{{ url_for('MaintenanceEntryLink') }}">Enter Activity</a>
             <a class="collapse-item" href="{{ url_for('MaintenanceCategoryLink') }}">Manage Categories</a>
           </div>
-        </div>
+        </div> -->
 
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#health" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fa fa-plus-square"></i>
