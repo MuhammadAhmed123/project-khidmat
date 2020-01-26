@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
+import datetime
 
 existingEvent = ""
 eventEditId = -1
@@ -481,12 +482,82 @@ def viewFinanceItem():
 
 @app.route("/viewAttendance")
 def viewAttendance():
-    return render_template("Attendance.html")
+    classes = db.execute("SELECT Class.Name FROM Class")
+    return render_template("Attendance.html", classes=classes,attendances=[],days=[])
+
+
+
+@app.route("/searchViewAttendance", methods=["POST"])
+def searchViewAttendance():
+    attendees = request.form.get('selectAttendeesVA')
+    Class = request.form.get("viewAttendanceSelectClass")
+    attendanceDate = request.form.get('dateVA')
+    print(attendees,Class, attendanceDate)
+    classes = db.execute("SELECT Class.Name FROM Class")                # for populating the select box class again
+    
+    attendances = []
+    month = list(db.execute("SELECT MONTH(:attendanceDate)",{'attendanceDate':attendanceDate}))[0][0]
+    year = list(db.execute("SELECT YEAR(:attendanceDate)",{'attendanceDate':attendanceDate}))[0][0]
+
+    classID = list(db.execute("SELECT class.idClass from class WHERE class.Name =:Class", {"Class":Class}))[0][0]
+    # for students
+    if attendees == "Student":
+        dataOfAttendees = list(db.execute("SELECT person.idPerson, person.ID, person.Name FROM person, student WHERE person.idPerson = student.Person_idPerson AND student.Class_idClass = :classID", {"classID":classID}))
+    # for staff
+    else:
+        dataOfAttendees = list(db.execute("SELECT person.idPerson, person.ID, person.Name FROM person, staff WHERE person.idPerson = staff.Person_idPerson"))
+
+    numberOfDays = 0
+    days = []
+    for i in range(1,31+1):
+        try:
+            dt = datetime.datetime(year, month, i).strftime("%a")
+        except:
+            continue
+        else:
+            numberOfDays += 1
+            days.append((i,dt))
+
+    for person in dataOfAttendees:
+        # attendance = list(db.execute(f"SELECT * FROM attendance WHERE attendance.Person_idPerson = {person[0]} AND MONTH(attendance.Date) = {month} AND YEAR(attendance.Date)= {year}"))
+        attendanceOfOnePerson = []
+        totalAttendances = 0
+        totalPresences = 0
+        totalLates = 0
+        totalLeaves = 0
+        totalAbsences = 0
+        for i in range(1,numberOfDays+1):
+            date = str(year) + '-' + str(month).zfill(2) + '-' + str(i).zfill(2)
+            attendance = list(db.execute("SELECT attendance.State FROM attendance WHERE attendance.Person_idPerson = :idPerson AND attendance.Date = :attendanceDate", {'attendanceDate':date, 'idPerson':person[0]}))
+            if len(attendance) == 0:
+                attendanceOfOnePerson.append('')
+            else:
+                if attendance[0][0] == 1:
+                    attendanceOfOnePerson.append('P')
+                    totalAttendances += 1
+                    totalPresences += 1
+                if attendance[0][0] == 2:
+                    attendanceOfOnePerson.append('L')
+                    totalAttendances += 1
+                    totalLates += 1
+                if attendance[0][0] == 3:
+                    attendanceOfOnePerson.append('LE')
+                    totalAttendances += 1        
+                    totalLeaves += 1        
+                if attendance[0][0] == 4:
+                    attendanceOfOnePerson.append('A')
+                    totalAttendances += 1
+                    totalAbsences += 1
+        attendances.append((person[1], person[2], attendanceOfOnePerson, totalAttendances, totalPresences, totalLates, totalLeaves, totalAbsences))
+    print(attendances) 
+
+    return render_template("Attendance.html", classes=classes,attendances=attendances,days=days)
 
 @app.route("/viewMarkAttendance")
 def viewMarkAttendance():
     classes = db.execute("SELECT Class.Name FROM Class")
     return render_template("MarkAttendance.html", classes=classes, people=[])
+
 
 attendancePeople = []
 attendanceDate = ''
@@ -507,6 +578,9 @@ def searchMarkAttendance():
         people = list(db.execute("SELECT person.ID,person.Name FROM person,student WHERE person.idPerson=student.Person_idPerson AND student.Class_idClass=:classID",{"classID":classID}))
         attendancePeople = people
         # print(people)
+    elif attendees == "Staff":
+        people = list(db.execute("SELECT person.ID,person.Name FROM person,staff WHERE person.idPerson=staff.Person_idPerson"))
+        attendancePeople = people
     return render_template("MarkAttendance.html", classes=classes, people=people)
 
 @app.route("/submitAttendance",methods=["POST"])
@@ -519,9 +593,11 @@ def submitAttendance():
     print(state)
     for ID in state:
         personID = list(db.execute("SELECT person.idPerson FROM person WHERE person.ID=:ID",{"ID":ID}))[0][0]
-        db.execute("INSERT INTO attendance (idAttendance, Person_idPerson, Date, State, Remarks) VALUES (NULL, :personID, '2019-12-11', :status, NULL);",{"personID":personID, "status":state[ID]})
+        db.execute("INSERT INTO attendance (idAttendance, Person_idPerson, Date, State, Remarks) VALUES (NULL, :personID, :attendanceDate, :status, NULL);",{"personID":personID, "attendanceDate":attendanceDate, "status":state[ID]})
         db.commit()
     print("submitted attendance")
+    attendancePeople = []
+    attendanceDate = ""
     return redirect(url_for('viewMarkAttendance'))
 
 @app.route("/MaintenanceEntryLink")

@@ -26,14 +26,15 @@
     <div class="card-body">
 
 
+      <form action="{{ url_for('searchViewAttendance') }}" method="post">
 
       <div class="form-group row">
         <label for="selectAttendees" class="col-md-4 col-form-label text-md-right">Select Attendees</label>
         <div class="col-md-6">
-          <select id="selectAttendees" class="form-control" onchange="hideClass()">
+          <select id="selectAttendees" class="form-control" onchange="hideClass()" name="selectAttendeesVA">
             <!-- <option disabled selected value="1">Select Attendees</option> -->
-            <option class="select-option" value="1">Student</option>
-            <option class="select-option" value="2">Staff</option>
+            <option class="select-option" >Student</option>
+            <option class="select-option" >Staff</option>
 
           </select>
         </div>
@@ -46,9 +47,9 @@
         <div class="col-md-6">
           <select id="selectClass" name="viewAttendanceSelectClass" class="form-control">
             <!-- <option disabled selected value="1">Select Attendees</option> -->
-            <option class="select-option" value="1">XI</option>
-            <option class="select-option" value="2">XII</option>
-            <option class="select-option" value="3">IX</option>
+            {% for class in classes %}
+              <option class="">{{class.Name}}</option>
+            {% endfor %}
 
           </select>
         </div>
@@ -62,15 +63,17 @@
       <div class="form-group row">
         <label for="date" class="col-md-4 col-form-label text-md-right">Select Month</label>
         <div class="col-md-6">
-          <input id="date" type="date" class="form-control">
+          <input id="date" type="date" class="form-control" name="dateVA">
         </div>
       </div>
 
       <div class="form-group row">
         <div class="col-md-6 offset-md-4">
-          <button class="btn btn-primary" style="width: 10em">Search</button>
+          <input class="btn btn-primary" style="width: 10em" type="submit" value="Search">
         </div>
       </div>
+
+      </form>
 
       <hr class="">
 
@@ -82,8 +85,9 @@
 
               <th>ID</th>
               <th>Student Name </th>
-              <th>01</th>
-              <th>02</th>
+              {% for day in days %}
+              <th>{{ day[0] }}/{{ day[1] }}</th>
+              <!-- <th>02</th>
               <th>03</th>
               <th>04</th>
               <th>05</th>
@@ -112,10 +116,13 @@
               <th>28</th>
               <th>29</th>
               <th>30</th>
-              <th>31</th>
+              <th>31</th> -->
+              {% endfor %}
               <th>Total Presents</th>
-              <th>Total Absents</th>
+              <th>Total Lates</th>
               <th>Total Leaves</th>
+              <th>Total Absents</th>
+              
 
               <div class="form-check">
                 <label class="form-check-label">
@@ -126,37 +133,25 @@
             </tr>
           </thead>
           <tbody>
+            {% for attendance in attendances %}
             <tr>
-              <td>01</td>
-              <td>Ali Raza</td>
-              <td>P</td>
+              
+              <td>{{ attendance[0] }}</td>
+              <td>{{ attendance[1] }}</td>
 
+                {% for status in attendance[2] %}
+                  <td>{{ status }}</td>
+                {% endfor %}
 
+                <td>{{ attendance[4] }}/{{ attendance[3] }}</td>
+                <td>{{ attendance[5] }}/{{ attendance[3] }}</td>
+                <td>{{ attendance[6] }}/{{ attendance[3] }}</td>
+                <td>{{ attendance[7] }}/{{ attendance[3] }}</td>
+
+              
             </tr>
-            <tr>
-              <td>02</td>
-              <td>Ahmed</td>
-              <td>A</td>
-
-            </tr>
-            <tr>
-              <td>03</td>
-              <td>Junior Technical Author</td>
-              <td>LE</td>
-
-            </tr>
-            <tr>
-              <td>04</td>
-              <td>Senior Javascript Developer</td>
-              <td>P</td>
-
-            </tr>
-            <tr>
-              <td>05</td>
-              <td>Accountant</td>
-              <td>LE</td>
-
-            </tr>
+            {% endfor %}
+            
           </tbody>
         </table>
       </div>
