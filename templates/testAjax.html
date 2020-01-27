@@ -1,0 +1,107 @@
+<!-- this page is for AJAX reference -->
+
+{% extends "layout.html" %}
+
+{% block body %}
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <h1 class="h3 mb-4 text-gray-800">Manage Classes</h1>
+          <!-- Page Heading -->
+          <div class="card shadow mb-4">
+				<div class="card-body">
+
+				<!-- Add classes -->
+        <h6 class="m-0 font-weight-bold text-primary">Add Classes</h6><hr>
+
+        <form action="{{ url_for('addClass') }}" method='post'>
+
+        <div class="form-group row">
+            <label for="classname" class="col-md-4 col-form-label text-md-right">Class Name</label>
+            <div class="col-md-6">
+                <input type="text" id="classname" class="form-control" name="className" required>
+            </div>
+        </div>
+
+        <div class="col-md-6 offset-md-4">
+            <input type="submit" class="btn btn-primary" value="Add">
+        </div>
+
+      </form>
+<br>
+
+      <!-- Edit Class -->
+      <h6 class="m-0 font-weight-bold text-primary">Edit Classes</h6><hr>
+
+      <form action="{{ url_for('editClass') }}" method='post'>
+
+        <!-- dropdown -->
+      <div class="form-group row">
+          <label for="oldClass" class="col-md-4 col-form-label text-md-right">Class to Edit</label>
+          <div class="col-md-6">
+              <select class="form-control" id="oldClass" name="existingClasses" required>
+                {% for class in classes %}
+                  <option value="{{ class.Name }}">{{class.Name}}</option>
+                {% endfor %}
+              </select>
+          </div>
+      </div>
+
+     
+
+      <div class="form-group row">
+        <label for="students" class="col-md-4 col-form-label text-md-right">Students of Class</label>
+        <div class="col-md-6">
+            <select class="form-control" id="students" name="existingClasses">
+              <!-- {% for class in classes %}
+                <option>{{class.Name}}</option>
+              {% endfor %} -->
+            </select>
+        </div>
+    </div>
+
+    <div id="studentsP">
+        
+    </div>
+
+    <script type="text/javascript">
+        $('#oldClass').change(function(){
+            var classSelected = $('#oldClass').val();
+            $.ajax({
+                url: "/getStudentsOfClass",
+                type: "POST",   
+                data: JSON.stringify({ 'classSelected' :classSelected }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function(resp) {
+                    $('select#students').html(resp.data);
+                }
+            });
+        });
+      
+      </script>
+
+      <!-- text bar -->
+      <div class="form-group row">
+          <label for="Changeto" class="col-md-4 col-form-label text-md-right">Change Name to</label>
+          <div class="col-md-6">
+              <input type="text" id="Changeto" class="form-control" name="classEdited" required>
+          </div>
+      </div>
+
+      <div class="col-md-6 offset-md-4">
+          <input type="submit" class="btn btn-primary" value="Edit">
+      </div>
+
+    </form>
+
+
+				</div>
+				</div>
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+{% endblock %}

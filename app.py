@@ -16,6 +16,24 @@ app = Flask(__name__)
 engine = create_engine("mysql://root:@127.0.0.1/tgsapplication")
 db = scoped_session(sessionmaker(bind=engine))
 
+
+# below code is for AJAX reference
+@app.route("/viewTestAjax")
+def viewTestAjax():
+    classes = db.execute("SELECT Class.Name FROM Class")
+    return render_template("testAjax.html", classes=classes)
+
+@app.route("/getStudentsOfClass", methods=["POST"])
+def getStudentsOfClass():
+    Class =  request.get_json()['classSelected'] # request.form.get('existingClasses')
+    classID = (list(db.execute("SELECT Class.idClass FROM Class WHERE Class.Name=:studentClass", {"studentClass":Class})))[0][0]
+    students = list(db.execute("SELECT person.Name FROM person,student WHERE person.idPerson = student.Person_idPerson AND student.Class_idClass = :classID", {'classID':classID}))
+    print(students)
+    # students = []
+    print(Class)
+    return jsonify({'data': render_template('response.html',students=students)})
+
+
 @app.route("/vehicleMaintenanceLink")
 def vehicleMaintenanceLink():
     mainCategories = db.execute("SELECT Name FROM vehiclemaintenancecategory")
