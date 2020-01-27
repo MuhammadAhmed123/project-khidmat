@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
+import os
+
 
 existingEvent = ""
 eventEditId = -1
@@ -9,8 +11,11 @@ editRegIDs = []
 vehicleEditId = -1
 vehCatToEditId = -1
 
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
+
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 engine = create_engine("mysql://root:@127.0.0.1/tgsapplication")
 db = scoped_session(sessionmaker(bind=engine))
@@ -290,12 +295,24 @@ def viewProfileSearchFunction():
     return render_template("viewProfiles.html", data=data, mode=mode)
 
 
+def upload(image):
+    filename = secure_filename(image.filename)
+    if image.filename == "":
+        return ""
+    target = os.path.join(APP_ROOT, "profileImages/")
+    if not os.path.isdir(target):
+        os.mkdir(target)
+
+    destination = "/".join([target, filename])
+    image.save(destination)
+    return destination
+
 @app.route("/registerStudentLink")
 def registerStudentLink():
     classes = db.execute("SELECT Class.Name FROM Class")
     return render_template("student_reg.html", classes=classes)
 
-@app.route("/registerStudent", methods=["POST"])
+@app.route("/registerStudent", methods=["GET","POST"])
 def registerStudent():
     fullName = request.form.get('studentFullName')
     guardianName = request.form.get('studentGuardian')
@@ -319,28 +336,41 @@ def registerStudent():
     campus = request.form.get('studentCampus')
     shift = request.form.get('shift')
     siblings = request.form.get('studentSiblings')
+
+    studentTC = request.form.get('studentTC')
+    sponsorLetter = request.form.get('sponsorLetter')
+    schoolRules = request.form.get('schoolRules')
+    currentState = request.form.get('currentState')
+    hepatitis = request.form.get('hepatitis')
+    studentMedicalFees = request.form.get('studentMedicalFees')
+    studentSchoolFees = request.form.get('studentSchoolFees')
+
+    studentImage = request.files['studentImage']
+    path = upload(studentImage)
+
     sponsorID = None
 
     personCount = (list(db.execute("SELECT count(*) FROM Person")))[0][0] + 1
     ID = fullName[0] + ((5-len(str(personCount)))*"0") +str(personCount)
-    db.execute("INSERT INTO Person(ID, Name, GuardianName, Gender, Contact, Address, DOB, Campus, Email) VALUES (:ID, :Name, :GuardianName, :Gender, :Contact, :Address, :DOB, :Campus, :Email)",
-                {"ID":ID, "Name":fullName, 'GuardianName':guardianName, "Gender":gender, "Contact":phoneNumber, "Address":address, "DOB":dob, "Campus":campus, "Email":emailAddress})
+    db.execute("INSERT INTO Person(ID, Name, Gender, Contact, Address, Email) VALUES (:ID, :Name, :Gender, :Contact, :Address, :Email)",
+                {"ID":ID, "Name":fullName, "Gender":gender, "Contact":phoneNumber, "Address":address, "Email":emailAddress})
 
     personID = (list(db.execute("SELECT Person.idPerson FROM Person WHERE Person.ID=:ID", {"ID":ID})))[0][0]
     classID = (list(db.execute("SELECT Class.idClass FROM Class WHERE Class.Name=:studentClass", {"studentClass":studentClass})))[0][0]
-    db.execute("INSERT INTO Student(Person_idPerson, Sponsor_Person_idPerson, Class_idClass, Religion, LastAttendedSchool, LastAttendedSchoolFee, Shift, TestDate, InterviewDate, FathersOcuupation, FathersEarning, MothersOccupation, MothersEarning, UniformMeasurement, UniformFees, NoOfSiblings) VALUES (:personID, :sponsorID, :class, :religion, :lastAttendedSchool, :lastAttendedSchoolFees, :shift, :testDate, :interviewDate, :fathersOccupation, :fathersEarning, :mothersOccupation, :mothersEarning, :uniformMeasurements, :unifromFees, :siblings)", {"personID":personID, "sponsorID":sponsorID, "class":classID, "religion":religion, "lastAttendedSchool":lastAttendedSchool, "lastAttendedSchoolFees":lastAttendedSchoolFees, "shift":shift, "testDate":testDate, "interviewDate":interviewDate, "fathersOccupation":fathersOccupation, "fathersEarning":fathersEarning, "mothersOccupation":mothersOccupation, "mothersEarning":mothersEarning, "uniformMeasurements":uniformMeasurements, "unifromFees":unifromFees, "siblings":siblings})
+    db.execute("INSERT INTO Student(Person_idPerson, Sponsor_Person_idPerson, Class_idClass, Religion, LastAttendedSchool, LastAttendedSchoolFee, Shift, TestDate, InterviewDate, FathersOcuupation, FathersEarning, MothersOccupation, MothersEarning, UniformMeasurement, UniformFees, NoOfSiblings, DOB, Campus, GuardianName, TransferLeavingCertificate, SponsorLetter, schoolRules, HealthFees, SchoolFees) VALUES (:personID, :sponsorID, :class, :religion, :lastAttendedSchool, :lastAttendedSchoolFees, :shift, :testDate, :interviewDate, :fathersOccupation, :fathersEarning, :mothersOccupation, :mothersEarning, :uniformMeasurements, :unifromFees, :siblings,  :DOB, :Campus, :GuardianName, :TransferLeavingCertificate, :SponsorLetter, :schoolRules, :HealthFees, :SchoolFees)", {"personID":personID, "sponsorID":sponsorID, "class":classID, "religion":religion, "lastAttendedSchool":lastAttendedSchool, "lastAttendedSchoolFees":lastAttendedSchoolFees, "shift":shift, "testDate":testDate, "interviewDate":interviewDate, "fathersOccupation":fathersOccupation, "fathersEarning":fathersEarning, "mothersOccupation":mothersOccupation, "mothersEarning":mothersEarning, "uniformMeasurements":uniformMeasurements, "unifromFees":unifromFees, "siblings":siblings,  "DOB":dob, "Campus":campus, "GuardianName":guardianName, "TransferLeavingCertificate":studentTC, "SponsorLetter":sponsorLetter, "schoolRules":schoolRules, "HealthFees":studentMedicalFees, "SchoolFees":studentSchoolFees})
+    db.execute("INSERT INTO hepatitisrecord (Student_Person_idPerson, HaveHapatitisDose) VALUES (:Student_Person_idPerson, :HaveHepatitisDose)",{"Student_Person_idPerson":personID, "HaveHepatitisDose":hepatitis})
+    db.execute("INSERT INTO image (Person_idPerson, Path) VALUES (:Person_idPerson, :Path)",{"Person_idPerson":personID, "Path":path})
     db.commit()
 
     return redirect(url_for('registerStudentLink'))
 
 @app.route("/registerStaffLink")
-def registerStaffLink(tryn):
+def registerStaffLink():
     return render_template("staff_reg.html")
 
 @app.route("/registerStaff", methods=["POST"])
 def registerStaff():
     fullName = request.form.get('staffFullName')
-    guardianName = request.form.get('staffGuardianName')
     emailAddress = request.form.get('staffEmailAddress')
     address = request.form.get('staffAddress')
     gender = request.form.get('staffGender')
@@ -353,16 +383,25 @@ def registerStaff():
     campus = request.form.get('staffCampus')
     phoneNumber = request.form.get('staffPhoneNumber')
 
+    staffShift = request.form.get("staffShift")
+    staffCurrentState = request.form.get("staffCurrentState")
+
+    staffImage = request.files["staffImage"]
+    path = upload(staffImage)
+
+
     personCount = (list(db.execute("SELECT count(*) FROM Person")))[0][0] + 1
     ID = fullName[0] + ((5-len(str(personCount)))*"0") +str(personCount)
 
-    db.execute("INSERT INTO Person(ID, Name, GuardianName, Gender, Contact, Address, DOB, Campus, Email) VALUES (:ID, :Name, :GuardianName, :Gender, :Contact, :Address, :DOB, :Campus, :Email)",
-                {"ID":ID, "Name":fullName, 'GuardianName':guardianName, "Gender":gender, "Contact":phoneNumber, "Address":address, "DOB":dob, "Campus":campus, "Email":emailAddress})
+    db.execute("INSERT INTO Person(ID, Name, Gender, Contact, Address, Email) VALUES (:ID, :Name, :Gender, :Contact, :Address, :Email)",
+                {"ID":ID, "Name":fullName, "Gender":gender, "Contact":phoneNumber, "Address":address, "Email":emailAddress})
     personID = (list(db.execute("SELECT Person.idPerson FROM Person WHERE Person.ID=:ID", {"ID":ID})))[0][0]
-    db.execute("INSERT INTO Staff (Person_idPerson, Salary, Category, joiningDate, Qualification) VALUES (:ID, :Salary, :Category, :joiningDate, :Qualification)",{"ID":personID, "Salary":salary, "Category":staffCategory, "joiningDate":joiningDate, "Qualification":qualification})
+    db.execute("INSERT INTO Staff (Person_idPerson, Salary, Category, joiningDate, Qualification, CurrentState, Shift, Campus, DOB) VALUES (:ID, :Salary, :Category, :joiningDate, :Qualification, :CurrentState, :Shift, :Campus, :DOB)",{"ID":personID, "Salary":salary, "Category":staffCategory, "joiningDate":joiningDate, "Qualification":qualification, "CurrentState":staffCurrentState, "Shift":staffShift, "Campus":campus, "DOB":dob})
+    db.execute("INSERT INTO image (Person_idPerson, Path) VALUES (:Person_idPerson, :Path)",{"Person_idPerson":personID, "Path":path})
+
     db.commit()
 
-    return redirect(url_for("registerStaffLink", tryn=0))
+    return redirect(url_for("registerStaffLink"))
 
 
 @app.route("/registerDonorLink")
@@ -376,20 +415,17 @@ def registerDonor():
     donorEmail = request.form.get("donorEmail")
     donorAddress = request.form.get("donorAddress")
     donorPhoneNumber = request.form.get("donorPhoneNumber")
-    donorDOB = request.form.get("donorDOB")
     donorCurrentState = request.form.get("donorCurrentState")
     donorDateDonationStarted = request.form.get("donorDateDonationStarted")
     donorOrganization = request.form.get("donorOrganization")
     donorRemarks = request.form.get("donorRemarks")
-    donorGuardianName = "N/A"
-    donorCampus = "N/A"
 
     personCount = (list(db.execute("SELECT count(*) FROM Person")))[0][0] + 1
     print(donorFullName, personCount)
     ID = donorFullName[0] + ((5-len(str(personCount)))*"0") +str(personCount)
 
-    db.execute("INSERT INTO Person(ID, Name, GuardianName, Gender, Contact, Address, DOB, Campus, Email) VALUES (:ID, :Name, :GuardianName, :Gender, :Contact, :Address, :DOB, :Campus, :Email)",
-                {"ID":ID, "Name":donorFullName, 'GuardianName':donorGuardianName, "Gender":donorGender, "Contact":donorPhoneNumber, "Address":donorAddress, "DOB":donorDOB, "Campus":donorCampus, "Email":donorEmail})
+    db.execute("INSERT INTO Person(ID, Name, Gender, Contact, Address, Email) VALUES (:ID, :Name, :Gender, :Contact, :Address, :Email)",
+                {"ID":ID, "Name":donorFullName, "Gender":donorGender, "Contact":donorPhoneNumber, "Address":donorAddress, "Email":donorEmail})
     personID = (list(db.execute("SELECT Person.idPerson FROM Person WHERE Person.ID=:ID", {"ID":ID})))[0][0]
     print("personID: ", personID)
     db.execute("INSERT INTO Donor(Person_idPerson, DateDonoationStarted, CurrentState, Organization) VALUES (:ID, :donorDateDonationStarted, :donorCurrentState, :donorOrganization)", {"ID":personID, "donorCurrentState":donorCurrentState, "donorDateDonationStarted":donorDateDonationStarted, "donorOrganization":donorOrganization})
@@ -409,23 +445,23 @@ def registerSponsor():
     sponsorEmail = request.form.get("sponsorEmail")
     sponsorAddress = request.form.get("sponsorAddress")
     sponsorPhoneNumber = request.form.get("sponsorPhoneNumber")
-    sponsorDOB = request.form.get("sponsorDOB")
     sponsorCurrentState = request.form.get("sponsorCurrentState")
     sponsorDateSponsorshipDue = request.form.get("sponsorDateSponsorshipDue")
     sponsorDateSponsorshipStart = request.form.get("sponsorDateSponsorshipStart")
     sponsorRemarks = request.form.get("sponsorRemarks")
-    sponsorGuardianName = "N/A"
-    sponsorCampus = "N/A"
+    sponsorDesignation = request.form.get("sponsorDesignation")
+    sponsorCompany = request.form.get("sponsorCompany")
+
 
     personCount = (list(db.execute("SELECT count(*) FROM Person")))[0][0] + 1
     print(sponsorFullName, personCount)
     ID = sponsorFullName[0] + ((5-len(str(personCount)))*"0") +str(personCount)
 
-    db.execute("INSERT INTO Person(ID, Name, GuardianName, Gender, Contact, Address, DOB, Campus, Email) VALUES (:ID, :Name, :GuardianName, :Gender, :Contact, :Address, :DOB, :Campus, :Email)",
-                {"ID":ID, "Name":sponsorFullName, 'GuardianName':sponsorGuardianName, "Gender":sponsorGender, "Contact":sponsorPhoneNumber, "Address":sponsorAddress, "DOB":sponsorDOB, "Campus":sponsorCampus, "Email":sponsorEmail})
+    db.execute("INSERT INTO Person(ID, Name, Gender, Contact, Address, Email) VALUES (:ID, :Name, :Gender, :Contact, :Address, :Email)",
+                {"ID":ID, "Name":sponsorFullName, "Gender":sponsorGender, "Contact":sponsorPhoneNumber, "Address":sponsorAddress, "Email":sponsorEmail})
     personID = (list(db.execute("SELECT Person.idPerson FROM Person WHERE Person.ID=:ID", {"ID":ID})))[0][0]
-    print("personID: ", personID)
-    db.execute("INSERT INTO Sponsor(Person_idPerson, CurrentState, DateSponsorshipDue, Remarks, DateSponsorshipStarted) VALUES (:ID, :CurrentState, :sponsorDateSponsorshipDue, :sponsorRemarks, :sponsorDateSponsorshipStart)", {"ID":personID, "CurrentState":sponsorCurrentState, "sponsorDateSponsorshipDue":sponsorDateSponsorshipDue, "sponsorRemarks":sponsorRemarks, "sponsorDateSponsorshipStart":sponsorDateSponsorshipStart})
+    db.execute("INSERT INTO Sponsor(Person_idPerson, CurrentState, DateSponsorshipDue, Remarks, DateSponsorshipStarted, Company, Designation) VALUES (:ID, :CurrentState, :sponsorDateSponsorshipDue, :sponsorRemarks, :sponsorDateSponsorshipStart, :Company, :Designation)", {"ID":personID, "CurrentState":sponsorCurrentState, "sponsorDateSponsorshipDue":sponsorDateSponsorshipDue, "sponsorRemarks":sponsorRemarks, "sponsorDateSponsorshipStart":sponsorDateSponsorshipStart, "Company":sponsorCompany, "Designation":sponsorDesignation})
+
     db.commit()
 
 

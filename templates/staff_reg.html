@@ -21,19 +21,15 @@
                 <div class="card-body">
                   <h6 class="m-0 font-weight-bold text-primary">Register a Staff Person</h6>
             <hr>
-                  <form name="my-form" action="{{ url_for('registerStaff') }}" method="post">
+                  <form method=post enctype=multipart/form-data action="{{ url_for('registerStaff') }}">
+
                     <div class="form-group row">
                       <label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
                       <div class="col-md-6">
                         <input type="text" id="full_name" class="form-control" name="staffFullName" required>
                       </div>
                     </div>
-                    <div class="form-group row">
-                      <label for="guardian_name" class="col-md-4 col-form-label text-md-right">Guardian Name</label>
-                      <div class="col-md-6">
-                        <input type="text" id="guardian_name" class="form-control" name="staffGuardianName">
-                      </div>
-                    </div>
+
                     <div class="form-group row">
                       <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
                       <div class="col-md-6">
@@ -67,11 +63,24 @@
                       </div>
                     </div>
 
+                    <div class="form-group row">
+                      <label for="shift" class="col-md-4 col-form-label text-md-right">Shift</label>
+                      <div class="col-md-6">
+                        <select id="shift" class="form-control" name="staffShift">
+                          <option class="select-option" value="2">Morning</option>
+                          <option class="select-option" value="3">Evening</option>
+                          <!-- <option class="select-option" value="4">III</option> -->
+                          <!-- <option class="select-option" value="5">X</option> -->
+                        </select>
+                        <!-- <input type="shift" id="campus" class="form-control" name="shift"> -->
+                      </div>
+                    </div>
+
 
                     <div class="form-group row">
-                      <label for="religion" class="col-md-4 col-form-label text-md-right">Religion</label>
+                      <label for="religion" class="col-md-4 col-form-label text-md-right">Current State</label>
                       <div class="col-md-6">
-                        <input type="text" id="religion" class="form-control" name="staffReligion">
+                        <input type="text" id="religion" class="form-control" name="staffCurrentState">
                       </div>
                     </div>
 
