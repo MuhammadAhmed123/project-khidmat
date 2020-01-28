@@ -13,7 +13,7 @@
 
     <!-- DataTales Example -->
 
-
+    <form action="{{ url_for('viewProfileSearchFunction') }}" method="POST">
     <div class="card shadow mb-4">
         <div class="card-body">
             <h6 class="m-0 font-weight-bold text-primary">View and Edit profiles</h6>
@@ -23,7 +23,7 @@
                 <label for="selectCategory" class="col-md-2 col-form-label text-md-right">Select
                     Category</label>
                 <div class="col-md-4">
-                    <select id="selectCategory" class="form-control">
+                    <select id="selectCategory" class="form-control" name="viewProfileSearchCategory">
                         <option class="select-option" value="1">Students</option>
                         <option class="select-option" value="2">Staff</option>
                         <option class="select-option" value="3">Sponsors</option>
@@ -32,26 +32,29 @@
                 </div>
 
                 <div class="col-md-6">
-                    <button class="btn btn-primary" style="width: 10em">Search</button>
+                    <input type="submit" class="btn btn-primary" style="width: 10em" value="Search">
                 </div>
             </div>
         </div>
     </div>
+</form>
 
     <div class="card shadow mb-4">
         <div class="card-body">
+            <img src="../static/img/Eye.png" />
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     {%  if mode['Student'] %}
                     <thead>
                         <tr>
+                            <th>Image</th>
                             <th>ID</th>
                             <th>Name</th>
                             <th>Guardian</th>
                             <th>Gender</th>
                             <th>Contact</th>
                             <th>Address</th>
-                            <th>Age</th>
+                            <th>DOB</th>
                             <th>Campus</th>
                             <th>Shift</th>
                             <th>Email</th>
@@ -67,10 +70,99 @@
                             <th>Interview Date</th>
                             <th>Uniform Measurement</th>
                             <th>Uniform Fees</th>
+                            <th>Health Fees</th>
+                            <th>Sponsor Letter</th>
+                            <th>School Rules</th>
+                            <th>Transfer/Leaving Certificate</th>
                             <th>Edit</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        {% for student in data %}
+                        <tr>
+                            <td>
+                                <img src='../profileImages/Bee.png'>
+                            </td>
+                            <td>{{ student.ID }}</td>
+                            <td>{{ student[2] }}</td>
+                            <td>{{ student.GuardianName }}</td>
+                            <td>{{ student.Gender }}</td>
+                            <td>{{ student.Contact }}</td>
+                            <td>{{ student.Address }}</td>
+                            <td>{{ student.DOB }}</td>
+                            <td>{{ student.Campus }}</td>
+                            <td>{{ student.Shift }}</td>
+                            <td>{{ student.Email }}</td>
+                            <td>{{ student.Religion }}</td>
+                            <td>{{ student.LastAttendedSchool }}</td>
+                            <td>{{ student.LastAttendedSchoolFee }}</td>
+                            <td>{{ student.FathersOccupation }}</td>
+                            <td>{{ student.FathersEarning }}</td>
+                            <td>{{ student.MothersOccupation }}</td>
+                            <td>{{ student.MothersEarning }}</td>
+                            <td>{{ student.NoOfSiblings }}</td>
+                            <td>{{ student.TestDate }}</td>
+                            <td>{{ student.InterviewDate }}</td>
+                            <td>{{ student.UniformMeasurement }}</td>
+                            <td>{{ student.UniformFees }}</td>
+                            <td>{{ student.HealthFees }}</td>
+                            <td>{{ student.SponsorLetter }}</td>
+                            <td>{{ student.SchoolRules }}</td>
+                            <td>{{ student.TransferLeavingCertificate }}</td>
+                            <td> <input class="btn btn-primary" style="width: 10em" type="submit" value="edit" name="{{ student.ID }}"> </td>
 
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    {%  elif mode['Staff'] %}
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Contact</th>
+                            <th>Address</th>
+                            <th>Age</th>
+                            <th>Campus</th>
+                            <th>Shift</th>
+                            <th>Email</th>
+                            <th>Salary</th>
+                            <th>Joining Date</th>
+                            <th>Qualification</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    {%  elif mode['Sponsor'] %}
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Contact</th>
+                            <th>Address</th>
+                            <th>Email</th>
+                            <th>Date Sponsorship Started</th>
+                            <th>Date Sponsorship Due</th>
+                            <th>Organization</th>
+                            <th>Designation</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    {%  elif mode['Donor'] %}
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Contact</th>
+                            <th>Address</th>
+                            <th>Email</th>
+                            <th>Date Donation Started</th>
+                            <th>Organization</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
                     <!-- <tbody>
                         <tr>
                             <td>Tiger Nixon</td>

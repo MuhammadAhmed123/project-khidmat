@@ -298,20 +298,22 @@ def viewProfiles():
     mode = {"Student": False, "Staff": False, "Sponsor": False, "Donor": False}
     return render_template("viewProfiles.html", data=data, mode=mode)
 
-@app.route("/viewProfileSearchFunction")
+@app.route("/viewProfileSearchFunction", methods=['POST'])
 def viewProfileSearchFunction():
     data = []
     mode = {"Student": False, "Staff": False, "Sponsor": False, "Donor": False}
     category = request.form.get('viewProfileSearchCategory')
     if category == "1":
         mode['Student']=True
+        data = db.execute("SELECT * FROM person, student, image, class WHERE person.idPerson = student.Person_idPerson AND student.Class_idClass = class.idClass AND image.Person_idPerson = person.idPerson")
     elif category == "2":
         mode["Staff"]=True
     elif category == "3":
         mode["Sponsor"]=True
     else:
         mode["Donor"]=True
-    data = db.execute("SELECT * FROM Person,Student")
+    print(category)
+    # data = db.execute("SELECT * FROM Person,Student ")
     return render_template("viewProfiles.html", data=data, mode=mode)
 
 
