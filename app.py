@@ -23,6 +23,52 @@ engine = create_engine("mysql://root:@127.0.0.1/tgsapplication")
 db = scoped_session(sessionmaker(bind=engine))
 
 
+@app.route("/hepatitisLink")
+def hepatitisLink():
+    return render_template("EditHepatitis.html")
+
+@app.route("/hepatitis", methods=["POST"])
+def hepatitis():
+    return redirect(url_for("hepatitisLink"))
+
+
+@app.route("/bloodLink")
+def bloodLink():
+    # st = db.execute("SELECT person.Name FROM person, student WHERE person.idPerson=student.Person_idPerson")
+    st = db.execute("SELECT person.ID FROM person, student WHERE person.idPerson=student.Person_idPerson")
+    return render_template("EditBlood.html", studentBlood=st )
+
+@app.route("/blood", methods=["POST"])
+def blood():
+    studentID = request.form.get("studentID")
+    bloodTestDate = request.form.get("bloodTestDate")
+    bloodGroup = request.form.get("bloodGroup")
+    hemoglobinLevels = request.form.get("hemoglobinLevels")
+    bloodRemarks = request.form.get("bloodRemarks")
+
+    db.execute()
+    db.commit()
+    return redirect(url_for("bloodLink"))
+
+
+@app.route("/typhoidLink")
+def typhoidLink():
+    return render_template("EditTyphoid.html")
+
+@app.route("/typhoid", methods=["POST"])
+def typhoid():
+    return redirect(url_for("typhoidLink"))
+
+
+@app.route("/ENTLink")
+def ENTLink():
+    return render_template("EditENT.html")
+
+@app.route("/ENT", methods=["POST"])
+def ENT():
+    return redirect(url_for("ENTLink"))
+
+
 # below code is for AJAX reference
 @app.route("/viewTestAjax")
 def viewTestAjax():

@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="card">
+                    <div class="card-header">Edit Hepatitis Record</div>
+                    <div class="card-body">
+
+                        <!-- Add classes -->
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            Student Information
+                        </h6>
+                        <hr>
+
+                        <form action="{{ url_for('hepatitis') }}" method='post'>
+
+                            <div class="form-group row">
+                                <label for="oldModule" class="col-md-4 col-form-label text-md-right">Select Student</label>
+                                <div class="col-md-6">
+                                    <select class="form-control" id="oldModule" name="existingModules">
+                                        <option class="">Student1</option>
+                                        <option class="">Student2</option>
+                                        <option class="">Student3</option>
+                                        <option class="">Student4</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                        </form>
+                        <br>
+                        <form action="{{ url_for('hepatitis') }}" method='post'>
+
+                            <div class="form-group row">
+                                <label for="oldModule" class="col-md-4 col-form-label text-md-right">Select Record</label>
+                                <div class="col-md-6">
+                                    <select class="form-control" id="oldModule" name="existingModules">
+                                        <option class="">Hepatitis</option>
+                                        <option class="">Typhoid</option>
+                                        <option class="">Blood Test</option>
+                                        <option class="">ENT</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-6 offset-md-4">
+                                    <button class="btn btn-primary" style="width: 10em">Search</button>
+                                </div>
+                            </div>
+
+                            <!--
+                                                <!-- Edit Hepatitis -->
+                            <h6 class="m-0 font-weight-bold text-primary">
+                                Edit Hepatitis Record
+                            </h6>
+                            <hr>
+
+                            <form action="{{ url_for('hepatitis') }}" method='post'>
+
+                                <div class="form-group row">
+                                    <label class="col-md-4 col-form-label text-md-right">Have Hepatitis Dose:</label>
+                                    <div class="col-md-6 offset-md-4">
+                                        <input type="radio"  id="yeslHepatitisDose" value="Yes">YES
+                                        <input type="radio"  id="noHepatitisDose" value="Yes">NO
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="Dose1" class="col-md-4 col-form-label text-md-right">Dose 1 Date</label>
+                                    <div class="col-md-6">
+                                        <div class="input-append date">
+                                            <input type="date" id="Dose1" class="form-control form-control-user">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="Dose2" class="col-md-4 col-form-label text-md-right">Dose 2 Date</label>
+                                    <div class="col-md-6">
+                                        <div class="input-append date">
+                                            <input type="date" id="Dose2" class="form-control form-control-user">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="Dose3" class="col-md-4 col-form-label text-md-right">Dose 3 Date</label>
+                                    <div class="col-md-6">
+                                        <div class="input-append date">
+                                            <input type="date" id="Dose3" class="form-control form-control-user">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="hepatitisRemark" class="col-md-4 col-form-label text-md-right">Remarks</label>
+                                    <div class="col-md-6">
+                                        <textarea id="hepatitisRemark" rows="4" cols="76"></textarea>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6 offset-md-4">
+                                    <input type="submit" class="btn btn-primary" value="Edit">
+                                </div>
+                                </form>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+{% endblock %}

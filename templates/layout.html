@@ -96,6 +96,23 @@
           </div>
         </div>
 
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#health" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fa fa-plus-square"></i>
+          <span>Medical</span>
+        </a>
+        <div id="health" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Add Medical Records</h6>
+            <a class="collapse-item" href="{{ url_for('hepatitisLink') }}">Hepatitis Record</a>
+            <a class="collapse-item" href="{{ url_for('typhoidLink') }}">Typhoid Record</a>
+            <a class="collapse-item" href="{{ url_for('ENTLink') }}">ENT Record</a>
+            <a class="collapse-item" href="{{ url_for('bloodLink') }}">Blood Record</a>
+
+          </div>
+        </div>
+
+
+
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#finance" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fa fa-dollar"></i>
           <span>Finance</span>
@@ -150,19 +167,6 @@
           </div>
         </div> -->
 
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#health" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fa fa-plus-square"></i>
-          <span>Medical</span>
-        </a>
-        <div id="health" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Medical</h6>
-
-
-          </div>
-        </div>
-
-      </li>
 
       <hr class="sidebar-divider">
 
