@@ -41,7 +41,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-body">
-            <img src="../static/img/Eye.png" />
+            <!-- <img src="../static/img/Eye.png" /> -->
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     {%  if mode['Student'] %}
@@ -110,7 +110,6 @@
                             <td>{{ student.SchoolRules }}</td>
                             <td>{{ student.TransferLeavingCertificate }}</td>
                             <td> <input class="btn btn-primary" style="width: 10em" type="submit" value="edit" name="{{ student.ID }}"> </td>
-
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -133,6 +132,7 @@
                             <th>Edit</th>
                         </tr>
                     </thead>
+
                     {%  elif mode['Sponsor'] %}
                     <thead>
                         <tr>
@@ -184,4 +184,3 @@
 </div>
 <!-- End of Main Content -->
 {% endblock %}
-

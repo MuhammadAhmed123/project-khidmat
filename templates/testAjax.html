@@ -39,6 +39,7 @@
           <label for="oldClass" class="col-md-4 col-form-label text-md-right">Class to Edit</label>
           <div class="col-md-6">
               <select class="form-control" id="oldClass" name="existingClasses" required>
+                <option value="x" disabled selected>--- Select a Class ---</option>
                 {% for class in classes %}
                   <option value="{{ class.Name }}">{{class.Name}}</option>
                 {% endfor %}
@@ -46,7 +47,7 @@
           </div>
       </div>
 
-     
+
 
       <div class="form-group row">
         <label for="students" class="col-md-4 col-form-label text-md-right">Students of Class</label>
@@ -60,24 +61,26 @@
     </div>
 
     <div id="studentsP">
-        
+
     </div>
 
     <script type="text/javascript">
-        $('#oldClass').change(function(){
+
+        $('#oldClass').change( function(){
             var classSelected = $('#oldClass').val();
+
             $.ajax({
                 url: "/getStudentsOfClass",
-                type: "POST",   
+                type: "POST",
                 data: JSON.stringify({ 'classSelected' :classSelected }),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function(resp) {
-                    $('select#students').html(resp.data);
+                    $('#students').html(resp.data);
                 }
             });
         });
-      
+
       </script>
 
       <!-- text bar -->
