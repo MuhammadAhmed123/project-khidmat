@@ -37,11 +37,15 @@
             </div>
         </div>
     </div>
+
+
 </form>
 
     <div class="card shadow mb-4">
         <div class="card-body">
+
             <!-- <img src="../static/img/Eye.png" /> -->
+
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     {%  if mode['Student'] %}
@@ -113,6 +117,7 @@
                         </tr>
                         {% endfor %}
                     </tbody>
+
                     {%  elif mode['Staff'] %}
                     <thead>
                         <tr>
@@ -122,16 +127,47 @@
                             <th>Gender</th>
                             <th>Contact</th>
                             <th>Address</th>
-                            <th>Age</th>
-                            <th>Campus</th>
-                            <th>Shift</th>
                             <th>Email</th>
+                            <!-- <th>Age</th> -->
                             <th>Salary</th>
+                            <th>Category</th>
                             <th>Joining Date</th>
                             <th>Qualification</th>
+                            <th>CurrentState</th>
+                            <th>Shift</th>
+                            <th>Campus</th>
+                            <th>Date of Birth</th>
                             <th>Edit</th>
                         </tr>
                     </thead>
+
+                    <tbody>
+                        {% for staff in data %}
+                        <tr>
+                            <td>
+                                <img src='../profileImages/Bee.png'>
+                            </td>
+                            <td>{{staff.ID}}</td>
+                            <td>{{staff.Name}}</td>
+                            <td>{{staff.Gender}}</td>
+
+                            <td>{{staff.Contact}}</td>
+                            <td>{{staff.Address}}</td>
+                            <td>{{staff.Email}}</td>
+                            <!-- <th>Age</th> -->
+                            <td>{{staff.Salary}}</td>
+                            <td>{{staff.Category}}</td>
+                            <td>{{staff.JoiningDate}}</td>
+                            <td>{{staff.Qualification}}</td>
+                            <td>{{staff.CurrentState}}</td>
+                            <td>{{staff.Shift}}</td>
+                            <td>{{staff.Campus}}</td>
+                            <td>{{staff.DOB}}</td>
+                            <td> <input class="btn btn-primary" style="width: 10em" type="submit" value="edit" name="{{ staff.ID }}"> </td>
+                          </tr>
+                          {% endfor %}
+                      </tbody>
+
 
                     {%  elif mode['Sponsor'] %}
                     <thead>
@@ -142,13 +178,37 @@
                             <th>Contact</th>
                             <th>Address</th>
                             <th>Email</th>
+                            <th>Current State</th>
                             <th>Date Sponsorship Started</th>
                             <th>Date Sponsorship Due</th>
+                            <th>Remarks</th>
                             <th>Organization</th>
                             <th>Designation</th>
                             <th>Edit</th>
                         </tr>
                     </thead>
+
+                    <tbody>
+                        {% for sponsor in data %}
+                        <tr>
+
+                          <td>{{sponsor.ID}}</td>
+                          <td>{{sponsor.Name}}</td>
+                          <td>{{sponsor.Gender}}</td>
+                          <td>{{sponsor.Contact}}</td>
+                          <td>{{sponsor.Address}}</td>
+                          <td>{{sponsor.Email}}</td>
+                          <td>{{sponsor.CurrentState}}</td>
+                          <td>{{sponsor.DateSponsorshipStarted}}</td>
+                          <td>{{sponsor.DateSponsorshipDue}}</td>
+                          <td>{{sponsor.Remarks}}</td>
+                          <td>{{sponsor.Company}}</td>
+                          <td>{{sponsor.Designation}}</td>
+                            <td> <input class="btn btn-primary" style="width: 10em" type="submit" value="edit" name="{{ sponsor.ID }}"> </td>
+                          </tr>
+                          {% endfor %}
+                      </tbody>
+
                     {%  elif mode['Donor'] %}
                     <thead>
                         <tr>
@@ -160,20 +220,27 @@
                             <th>Email</th>
                             <th>Date Donation Started</th>
                             <th>Organization</th>
+                            <th>Current State</th>
                             <th>Edit</th>
                         </tr>
                     </thead>
-                    <!-- <tbody>
+                    <tbody>
+                        {% for donor in data %}
                         <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                        </tr>
 
-                    </tbody> -->
+                          <td>{{donor.ID}}</td>
+                          <td>{{donor.Name}}</td>
+                          <td>{{donor.Gender}}</td>
+                          <td>{{donor.Contact}}</td>
+                          <td>{{donor.Address}}</td>
+                          <td>{{donor.Email}}</td>
+                          <td>{{donor.CurrentState}}</td>
+                          <td>{{donor.DateDonoationStarted}}</td>
+                          <td>{{donor.Organization}}</td>
+                            <td> <input class="btn btn-primary" style="width: 10em" type="submit" value="edit" name="{{ donor.ID }}"> </td>
+                          </tr>
+                          {% endfor %}
+                      </tbody>
                     {% endif %}
                 </table>
             </div>

@@ -354,12 +354,19 @@ def viewProfileSearchFunction():
         data = db.execute("SELECT * FROM person, student, image, class WHERE person.idPerson = student.Person_idPerson AND student.Class_idClass = class.idClass AND image.Person_idPerson = person.idPerson")
     elif category == "2":
         mode["Staff"]=True
+        data = db.execute("SELECT * FROM person, staff, image WHERE person.idPerson = staff.Person_idPerson AND image.Person_idPerson = person.idPerson")
     elif category == "3":
         mode["Sponsor"]=True
+        data = db.execute("SELECT * FROM person, sponsor WHERE person.idPerson = sponsor.Person_idPerson")
     else:
         mode["Donor"]=True
+        data = db.execute("SELECT * FROM person, donor WHERE person.idPerson = donor.Person_idPerson")
+
+
     print(category)
-    # data = db.execute("SELECT * FROM Person,Student ")
+
+    # data = list(db.execute("SELECT * FROM Person,Staff "))
+    # print(data)
     return render_template("viewProfiles.html", data=data, mode=mode)
 
 
