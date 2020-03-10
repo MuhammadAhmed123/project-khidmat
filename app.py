@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask import Flask, render_template, request, redirect, url_for, jsonify, flash
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 import os
@@ -16,6 +16,7 @@ vehCatToEditId = -1
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
@@ -241,7 +242,7 @@ def login():
     password = request.form.get("password")
     if (username == "Admin@gmail.com" and password == "Admin"):
         return redirect(url_for("registerStudentLink"))
-    flash("Invalid!")
+    # flash("Invalid!")
     return redirect(url_for("index"))
 
 
@@ -437,6 +438,9 @@ def registerStudent():
     db.execute("INSERT INTO image (Person_idPerson, Path) VALUES (:Person_idPerson, :Path)",{"Person_idPerson":personID, "Path":path})
     db.commit()
 
+
+    if True:
+        flash('"{}" successfully registered!'.format(fullName))
     return redirect(url_for('registerStudentLink'))
 
 @app.route("/registerStaffLink")
