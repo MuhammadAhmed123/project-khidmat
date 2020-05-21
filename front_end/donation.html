@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Sponsor Profile</title>
+  <title>SB Admin 2 - Blank</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -334,280 +334,123 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
+
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Sponsor Profile</h1>
-          <div class="card shadow mb-4">
-            <div class="card-header py-1">
-              <!----<h6 class="m-0 font-weight-bold text-primary">Enter maintenance activity</h6>-->
+          <h1 class="h3 mb-4 text-gray-800">Sponsor</h1>
 
-              <h4 class="m-0 font-weight-bold text-primary">
-                <a class="btn btn-primary" href="StudentProfile.html">Student</a>
-                <a class="btn btn-primary" href="StaffProfile.html">Staff</a>
-                <a class="btn btn-primary" href="SponsorProfile.html">Sponsor</a>
-                <a class="btn btn-primary" href="DonorProfile.html">Donor</a>
-              </h4>
-
-
-            </div>
-            <main class="my-form">
-              <div class="cotainer">
-                <div class="card shadow mb-4">
-                  <!-- <div class="card-header">Student Registeration</div> -->
-                  <div class="card-body">
-                    <h6 class="m-0 font-weight-bold text-primary">View a Sponsor</h6>
-                    <hr>
-
-
-                    <form name="my-form" action="" method="">
-
-
-
-                      <div class="form-group row">
-                        <label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
-                        <div class="col-md-6">
-                          <input type="text" id="full_name" class="form-control" name="full-name" disabled>
-                        </div>
+          <main class="my-form">
+            <div class="cotainer">
+              <div class="card shadow mb-4">
+                <!-- <div class="card-header">
+                  <h6 class="m-0 font-weight-bold text-primary">
+                    <a class="btn btn-primary" href="student_reg.html">Student</a>
+                    <a class="btn btn-primary" href="staff_reg.html">Staff</a>
+                    <a class="btn btn-primary" href="sponsor_reg.html">Sponsor</a>
+                    <a class="btn btn-primary" href="donor_reg.html">Donor</a>
+                  </h6>
+                </div>
+ -->
+                <div class="card-body">
+                  <h6 class="m-0 font-weight-bold text-primary">Donation</h6>
+                  <hr>
+                  <form name="my-form" action="" method="">
+                    <div class="form-group row">
+                      <label for="selectDonor" class="col-md-4 col-form-label text-md-right">Select Donor</label>
+                      <div class="col-md-6">
+                        <select class="form-control" id="selectDonor" name="Select Donor" required>
+                          <option> Mr.Ahmed </option>
+                        </select>
                       </div>
                       <div class="form-group row">
-                        <label for="sponsor_name" class="col-md-4 col-form-label text-md-right">Reference</label>
+                        <label for="donationType" class="col-md-4 col-form-label text-md-right">Donation Type</label>
                         <div class="col-md-6">
-                          <input type="text" id="sponsor_name" class="form-control" name="ref" disabled>
+                          <select class="form-control" id="donationType" name="Donation Type" required>
+                            <option> Cash </option>
+                            <option> Cheque </option>
+                          </select>
                         </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="company" class="col-md-4 col-form-label text-md-right">Company's Name</label>
-                        <div class="col-md-6">
-                          <input type="text" id="company" class="form-control" name="company" disabled>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="designation" class="col-md-4 col-form-label text-md-right">Designation</label>
-                        <div class="col-md-6">
-                          <input type="text" id="designation" class="form-control" name="designation" disabled>
-                        </div>
-                      </div>
 
-                      <div class="form-group row">
-                        <label for="DOB" class="col-md-4 col-form-label text-md-right">Date of Sponsorship</label>
-                        <div class="col-md-6">
-                          <div class="input-append date">
-                            <input type="date" id="DOB" class="form-control form-control-user" disabled>
+
+                        <div class="form-group row">
+                          <label for="date" class="col-md-4 col-form-label text-md-right">Date</label>
+                          <div class="col-md-6">
+                            <input type="date" id="date" class="form-control form-control-user">
                           </div>
                         </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
-                        <div class="col-md-6">
-                          <input type="text" id="phone_number" class="form-control" disabled>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="mobile_number" class="col-md-4 col-form-label text-md-right">Mobile Number</label>
-                        <div class="col-md-6">
-                          <input type="text" id="mobile_number" name="mobile" class="form-control" disabled>
-                        </div>
-                      </div>
-
-                      <div class="form-group row">
-                        <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
-                        <div class="col-md-6">
-                          <input type="text" id="email_address" class="form-control" name="email-address" disabled>
-                        </div>
-                      </div>
 
 
-                      <div class="form-group row">
-                        <label for="address" class="col-md-4 col-form-label text-md-right">Address Office/Residence</label>
-                        <div class="col-md-6">
-                          <input type="text" id="address" class="form-control" name="address" disabled>
-                        </div>
-                      </div>
-
-
-                      <h6 class="m-0 font-weight-bold text-primary">Sponsorship Information</h6>
-                      <hr>
-
-
-                      <div class="form-group row">
-                        <label for="Fees" class="col-md-4 col-form-label text-md-right">Fees</label>
-                        <div class="col-md-6">
-                          <input type="number" id="fees" class="form-control" name="fees" value="30000">
-                        </div>
-                      </div>
-
-                      <div class="form-group row">
-                        <label for="bank_name" class="col-md-4 col-form-label text-md-right">Branch Name</label>
-                        <div class="col-md-6">
-                          <input type="text" id="bank_name" class="form-control" name="bank_name" value="Zamzama Branch">
-                        </div>
-                      </div>
-
-
-                      <div class="form-group row">
-                        <label for="address" class="col-md-4 col-form-label text-md-right">Address</label>
-                        <div class="col-md-6">
-                          <input type="text" id="address" class="form-control" value="16 Commercial lane-3 phase V, Zamzama Boulevard, DHA, Karachi">
-                        </div>
-                      </div>
-
-                      <div class="form-group row">
-                        <label for="account_title" class="col-md-4 col-form-label text-md-right">Account Title</label>
-                        <div class="col-md-6">
-                          <input type="text" id="account_title" class="form-control" value="The Garage School">
-                        </div>
-                      </div>
-
-                      <div class="form-group row">
-                        <label for="branch" class="col-md-4 col-form-label text-md-right">Branch Code</label>
-                        <div class="col-md-6">
-                          <input type="number" id="branch" class="form-control" value="1005">
-                        </div>
-                      </div>
-
-                      <div class="form-group row">
-                        <label for="account_number" class="col-md-4 col-form-label text-md-right">Account Number</label>
-                        <div class="col-md-6">
-                          <input type="text" id="account_number" class="form-control" value="1005-0081-030519-02-9">
-                        </div>
-                      </div>
-
-                      <div class="form-group row">
-                        <label for="iban_number" class="col-md-4 col-form-label text-md-right">IBAN Number</label>
-                        <div class="col-md-6">
-                          <input type="text" id="iban_number" class="form-control" value="PK 88 BAHL 1005-0081-0305-1902">
-                        </div>
-                      </div>
-
-                      <div class="form-group row">
-                        <label for="taxno" class="col-md-4 col-form-label text-md-right">Tax Exemption No.</label>
-                        <div class="col-md-6">
-                          <input type="text" id="taxno" class="form-control" value="CIT/COS.V/2006/464">
-                        </div>
-                      </div>
-                      <h6 class="m-0 font-weight-bold text-primary">Student Sponsored</h6>
-                      <hr>
-                      <div class="form-group row">
-                        <label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
-                        <div class="col-md-6">
-                          <input type="text" id="full_name" class="form-control" name="full-name" disabled>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="guardian_name" class="col-md-4 col-form-label text-md-right">Father Name</label>
-                        <div class="col-md-6">
-                          <input type="text" id="guardian_name" class="form-control" name="full-name" disabled>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="fatheroccupation" class="col-md-4 col-form-label text-md-right">Father's Occupation</label>
-                        <div class="col-md-6">
-                          <input type="text" id="fatheroccupation" class="form-control" name="permanent-address" disabled>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="html" class="col-md-4 col-form-label text-md-right">Gender</label>
-                        <div class="col-md-6">
-                          <input type="radio" id="html" name="gender" disabled>
-                          <label for="html">Female</label>
-                          <!-- </div>
-                              <div class="col-md-6"> -->
-                          <input type="radio" id="css" name="gender">
-                          <label for="css">Male</label>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="DOB" class="col-md-4 col-form-label text-md-right">Date of Birth</label>
-                        <div class="col-md-6">
-                          <div class="input-append date">
-                            <input type="date" id="DOB" class="form-control form-control-user" disabled>
+                        <div class="form-group row">
+                          <label for="details" class="col-md-4 col-form-label text-md-right">Details</label>
+                          <div class="col-md-6">
+                            <input type="text" id="details" class="form-control form-control-user">
                           </div>
                         </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
-                        <div class="col-md-6">
-                          <input type="text" id="phone_number" class="form-control" disabled>
+
+                        <div class="col-md-6 offset-md-4">
+                          <button type="submit" class="btn btn-primary">
+                            Submit
+                          </button>
                         </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="mobile_number" class="col-md-4 col-form-label text-md-right">Mobile Number</label>
-                        <div class="col-md-6">
-                          <input type="text" id="mobile_number" name="mobile" class="form-control" disabled>
-                        </div>
-                      </div>
-                      <hr>
-
-
-
-
-
-                      <div class="col-md-6 offset-md-4">
-                        <button type="submit" class="btn btn-primary" style="width: 200px; margin-left: 150px">
-                          Download Profile
-                        </button>
-                      </div>
-                    </form>
-                  </div>
+                  </form>
                 </div>
               </div>
-
-            </main>
-
-          </div>
-          <!-- /.container-fluid -->
-
-        </div>
-        <!-- End of Main Content -->
-
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>Copyright &copy; Your Website 2019</span>
             </div>
-          </div>
-        </footer>
-        <!-- End of Footer -->
+          </main>
+        </div>
+        <!-- /.container-fluid -->
 
       </div>
-      <!-- End of Content Wrapper -->
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
 
     </div>
-    <!-- End of Page Wrapper -->
+    <!-- End of Content Wrapper -->
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-      <i class="fas fa-angle-up"></i>
-    </a>
+  </div>
+  <!-- End of Page Wrapper -->
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
-          </div>
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
 
 </body>
 
