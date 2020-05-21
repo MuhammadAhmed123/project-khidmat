@@ -39,6 +39,7 @@
           <label for="oldClass" class="col-md-4 col-form-label text-md-right">Class to Edit</label>
           <div class="col-md-6">
               <select class="form-control" id="oldClass" name="existingClasses" required>
+                <option selected disabled value="x">--- Select Class ---</option>
                 {% for class in classes %}
                   <option value="{{ class.Name }}">{{class.Name}}</option>
                 {% endfor %}
@@ -59,10 +60,7 @@
         </div>
     </div>
 
-    <div id="studentsP">
-        
-    </div>
-
+    
     <script type="text/javascript">
         $('#oldClass').change(function(){
             var classSelected = $('#oldClass').val();
@@ -77,7 +75,6 @@
                 }
             });
         });
-      
       </script>
 
       <!-- text bar -->

@@ -34,9 +34,9 @@ def getStudentsOfClass():
     Class =  request.get_json()['classSelected'] # request.form.get('existingClasses')
     classID = (list(db.execute("SELECT Class.idClass FROM Class WHERE Class.Name=:studentClass", {"studentClass":Class})))[0][0]
     students = list(db.execute("SELECT person.Name FROM person,student WHERE person.idPerson = student.Person_idPerson AND student.Class_idClass = :classID", {'classID':classID}))
-    print(students)
-    # students = []
-    print(Class)
+    # print(students)
+    # # students = []
+    # print(Class)
     return jsonify({'data': render_template('response.html',students=students)})
 
 
