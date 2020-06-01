@@ -5,7 +5,7 @@ import os
 import datetime
 
 
-
+# temporary variables
 existingEvent = ""
 eventEditId = -1
 editRegNames = []
@@ -24,6 +24,25 @@ engine = create_engine("mysql://root:@127.0.0.1/tgsapplication")
 db = scoped_session(sessionmaker(bind=engine))
 
 
+#region login module
+@app.route("/login", methods=["POST"])
+def login():
+    username = request.form.get("username")
+    password = request.form.get("password")
+    if (username == "Admin@gmail.com" and password == "Admin"):
+        return redirect(url_for("registerStudentLink"))
+    # flash("Invalid!")
+    return redirect(url_for("index"))
+
+
+
+@app.route("/")
+def index():
+    return render_template("login.html")
+#endregion
+
+
+#region medical module
 @app.route("/hepatitisLink")
 def hepatitisLink():
     return render_template("EditHepatitis.html")
@@ -68,9 +87,10 @@ def ENTLink():
 @app.route("/ENT", methods=["POST"])
 def ENT():
     return redirect(url_for("ENTLink"))
+#endregion
 
 
-# below code is for AJAX reference
+#region AJAX reference code
 @app.route("/viewTestAjax")
 def viewTestAjax():
     classes = db.execute("SELECT Class.Name FROM Class")
@@ -85,8 +105,10 @@ def getStudentsOfClass():
     # # students = []
     # print(Class)
     return jsonify({'data': render_template('response.html',students=students)})
+#endregion
 
 
+#region vehicle module
 @app.route("/vehicleMaintenanceLink")
 def vehicleMaintenanceLink():
     mainCategories = db.execute("SELECT Name FROM vehiclemaintenancecategory")
@@ -110,20 +132,6 @@ def vehMainAdd():
     db.commit()
 
     return redirect(url_for("vehicleMaintenanceLink"))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @app.route("/vehicleMaintenanceCat")
@@ -173,22 +181,6 @@ def vehicleCatUpdate():
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @app.route("/vehicleLink")
 def vehicleLink():
     vehicleCol = list(db.execute("SELECT * FROM vehicle WHERE idVehicle = :vehicleEditId",{"vehicleEditId":vehicleEditId}))
@@ -231,26 +223,10 @@ def vehicleUpdate():
 
     return redirect(url_for("vehicleLink"))
 
-#
-# @app.route("/loginLink")
-# def loginLink():
-#     return render_template("login.html")
-
-@app.route("/login", methods=["POST"])
-def login():
-    username = request.form.get("username")
-    password = request.form.get("password")
-    if (username == "Admin@gmail.com" and password == "Admin"):
-        return redirect(url_for("registerStudentLink"))
-    # flash("Invalid!")
-    return redirect(url_for("index"))
+#endregion
 
 
-
-@app.route("/")
-def index():
-    return render_template("login.html")
-
+#region utility bill module
 @app.route("/utilityLink")
 def utilityLink():
     return render_template("Utilities.html")
@@ -267,6 +243,10 @@ def utility():
     db.commit()
     return redirect(url_for('utilityLink'))
 
+#endregion
+
+
+#region event module
 def dateProcess(date):
     if date == "N/A" or date == "None" or date == "":
         return date
@@ -323,54 +303,10 @@ def eventUpdate():
     events = db.execute("SELECT Name FROM event")
     return render_template("events_information.html", events=events)
 
-    # return redirect(url_for('eventLink'))
-
-@app.route("/registerEdit")
-def registerEdit():
-    return render_template("edit_reg.html", names=editRegNames, ids=editRegIDs)
-
-@app.route("/editRegSelectPopulate")
-def editRegSelectPopulate(selectValue):
-    global editRegNames
-    global editRegIDs
-    print("value -> ", selectValue)
-    if selectValue=="3":
-        editRegNames = db.execute("SELECT Person.Name FROM Person WHERE Person.idPerson=Staff.Person_idPerson")
-        editRegIDs = db.execute("SELECT Person.ID FROM Person WHERE Person.idPerson=Staff.Person_idPerson")
-    return render_template("edit_reg.html", names=editRegNames, ids=editRegIDs)
-
-@app.route("/viewProfiles")
-def viewProfiles():
-    data = []
-    mode = {"Student": False, "Staff": False, "Sponsor": False, "Donor": False}
-    return render_template("viewProfiles.html", data=data, mode=mode)
-
-@app.route("/viewProfileSearchFunction", methods=['POST'])
-def viewProfileSearchFunction():
-    data = []
-    mode = {"Student": False, "Staff": False, "Sponsor": False, "Donor": False}
-    category = request.form.get('viewProfileSearchCategory')
-    if category == "1":
-        mode['Student']=True
-        data = db.execute("SELECT * FROM person, student, image, class WHERE person.idPerson = student.Person_idPerson AND student.Class_idClass = class.idClass AND image.Person_idPerson = person.idPerson")
-    elif category == "2":
-        mode["Staff"]=True
-        data = db.execute("SELECT * FROM person, staff, image WHERE person.idPerson = staff.Person_idPerson AND image.Person_idPerson = person.idPerson")
-    elif category == "3":
-        mode["Sponsor"]=True
-        data = db.execute("SELECT * FROM person, sponsor WHERE person.idPerson = sponsor.Person_idPerson")
-    else:
-        mode["Donor"]=True
-        data = db.execute("SELECT * FROM person, donor WHERE person.idPerson = donor.Person_idPerson")
+#endregion
 
 
-    print(category)
-
-    # data = list(db.execute("SELECT * FROM Person,Staff "))
-    # print(data)
-    return render_template("viewProfiles.html", data=data, mode=mode)
-
-
+#region registeration module
 def upload(image):
     filename = secure_filename(image.filename)
     if image.filename == "":
@@ -531,7 +467,6 @@ def registerSponsor():
     sponsorDesignation = request.form.get("sponsorDesignation")
     sponsorCompany = request.form.get("sponsorCompany")
 
-
     personCount = (list(db.execute("SELECT count(*) FROM Person")))[0][0] + 1
     print(sponsorFullName, personCount)
     ID = sponsorFullName[0] + ((5-len(str(personCount)))*"0") +str(personCount)
@@ -543,43 +478,68 @@ def registerSponsor():
 
     db.commit()
 
-
     return redirect(url_for("registerSponsorLink"))
 
-
-@app.route("/classLink")
-def classLink():
-    classes = db.execute("SELECT Class.Name FROM Class")
-    return render_template("class.html", classes=classes)
-
-@app.route("/editClass", methods=["POST"])
-def editClass():
-    existingClass = request.form.get('existingClasses')
-    idExistingClass = (list(db.execute("SELECT idClass FROM Class WHERE Class.Name = :className",{"className":existingClass})))[0][0]
-    newClass = request.form.get('classEdited')
-    db.execute("UPDATE Class SET Class.Name = :newclass WHERE Class.idClass = :id", {"newclass":newClass, "id":int(idExistingClass)})
-    db.commit()
-    return redirect(url_for('classLink'))
-
-@app.route("/addClass", methods=["POST"])
-def addClass():
-    addClassName = request.form.get('className')
-
-    classes = db.execute("SELECT Class.Name FROM Class")
-    for i in classes:
-        if i.Name==addClassName:
-            return redirect(url_for('classLink'))   #make a separate page for displaying a warning
-
-    db.execute("INSERT INTO Class(Name) VALUES (:name)",{"name":addClassName})
-    db.commit()
-    return redirect(url_for('classLink'))
+#endregion
 
 
+#region edit registeration module
+@app.route("/registerEdit")
+def registerEdit():
+    return render_template("edit_reg.html", names=editRegNames, ids=editRegIDs)
+
+@app.route("/editRegSelectPopulate")
+def editRegSelectPopulate(selectValue):
+    global editRegNames
+    global editRegIDs
+    print("value -> ", selectValue)
+    if selectValue=="3":
+        editRegNames = db.execute("SELECT Person.Name FROM Person WHERE Person.idPerson=Staff.Person_idPerson")
+        editRegIDs = db.execute("SELECT Person.ID FROM Person WHERE Person.idPerson=Staff.Person_idPerson")
+    return render_template("edit_reg.html", names=editRegNames, ids=editRegIDs)
+
+#endregion
+
+
+#region view profile module
 @app.route("/viewProfilesPage")
 def viewProfilesPage():
     mode = {'Student': False, 'Staff': False, 'Sponsor': False, 'Donor': False}
     return render_template("viewProfiles.html", mode=mode, data={})
 
+# @app.route("/viewProfiles")
+# def viewProfiles():
+#     data = []
+#     mode = {"Student": False, "Staff": False, "Sponsor": False, "Donor": False}
+#     return render_template("viewProfiles.html", data=data, mode=mode)
+
+@app.route("/viewProfileSearchFunction", methods=['POST'])
+def viewProfileSearchFunction():
+    data = []
+    mode = {"Student": False, "Staff": False, "Sponsor": False, "Donor": False}
+    category = request.form.get('viewProfileSearchCategory')
+    if category == "1":
+        mode['Student']=True
+        data = db.execute("SELECT * FROM person, student, image, class WHERE person.idPerson = student.Person_idPerson AND student.Class_idClass = class.idClass AND image.Person_idPerson = person.idPerson")
+    elif category == "2":
+        mode["Staff"]=True
+        data = db.execute("SELECT * FROM person, staff, image WHERE person.idPerson = staff.Person_idPerson AND image.Person_idPerson = person.idPerson")
+    elif category == "3":
+        mode["Sponsor"]=True
+        data = db.execute("SELECT * FROM person, sponsor WHERE person.idPerson = sponsor.Person_idPerson")
+    else:
+        mode["Donor"]=True
+        data = db.execute("SELECT * FROM person, donor WHERE person.idPerson = donor.Person_idPerson")
+
+    # print(category)
+    # data = list(db.execute("SELECT * FROM Person,Staff "))
+    # print(data)
+    return render_template("viewProfiles.html", data=data, mode=mode)
+
+#endregion
+
+
+#region finance module
 @app.route("/viewFinance")
 def viewFinance():
     return render_template("finance.html")
@@ -594,6 +554,10 @@ def viewFinanceEntry():
 def viewFinanceItem():
     return render_template("financeItem.html")
 
+#endregion
+
+
+#region attendance module
 @app.route("/viewAttendance")
 def viewAttendance():
     classes = db.execute("SELECT Class.Name FROM Class")
@@ -713,7 +677,10 @@ def submitAttendance():
     attendancePeople = []
     attendanceDate = ""
     return redirect(url_for('viewMarkAttendance'))
+#endregion
 
+
+#region maintenance module
 @app.route("/MaintenanceEntryLink")
 def MaintenanceEntryLink():
     return render_template("MaintenanceEntry.html")
@@ -727,9 +694,47 @@ def MaintenanceCategoryLink():
 def MaintenanceViewLink():
     return render_template("MaintenanceActivity.html")
 
+#endregion
+
+
+#region test module
 @app.route("/viewTestPage")
 def viewTestPage():
     return render_template("Test.html")
+
+#endregion
+
+
+#region class module
+@app.route("/classLink")
+def classLink():
+    classes = db.execute("SELECT Class.Name FROM Class")
+    return render_template("class.html", classes=classes)
+
+@app.route("/editClass", methods=["POST"])
+def editClass():
+    existingClass = request.form.get('existingClasses')
+    idExistingClass = (list(db.execute("SELECT idClass FROM Class WHERE Class.Name = :className",{"className":existingClass})))[0][0]
+    newClass = request.form.get('classEdited')
+    db.execute("UPDATE Class SET Class.Name = :newclass WHERE Class.idClass = :id", {"newclass":newClass, "id":int(idExistingClass)})
+    db.commit()
+    return redirect(url_for('classLink'))
+
+@app.route("/addClass", methods=["POST"])
+def addClass():
+    addClassName = request.form.get('className')
+
+    classes = db.execute("SELECT Class.Name FROM Class")
+    for i in classes:
+        if i.Name==addClassName:
+            return redirect(url_for('classLink'))   #make a separate page for displaying a warning
+
+    db.execute("INSERT INTO Class(Name) VALUES (:name)",{"name":addClassName})
+    db.commit()
+    return redirect(url_for('classLink'))
+
+#endregion
+
 
 if __name__ == "__main__":
     app.run(debug=True)
